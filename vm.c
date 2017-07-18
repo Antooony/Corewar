@@ -6,10 +6,13 @@
 /*   By: nolivier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 15:14:48 by nolivier          #+#    #+#             */
-/*   Updated: 2017/06/30 15:23:20 by nolivier         ###   ########.fr       */
+/*   Updated: 2017/07/18 14:21:03 by nolivier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -173,7 +176,7 @@ int			ft_manage_entry(char **argv, int *player_number)
 	return (nb_champ);
 }
 
-int			ft_extract_header(int fd, header_t *champs)
+int			ft_extract_header(int fd, t_header *champs)
 {
 	int				ret;
 	char            buf[HEADER_SIZE];
@@ -193,17 +196,16 @@ int			ft_extract_header(int fd, header_t *champs)
 	return (1);
 }
 
-int			ft_extract_prog(int fd, header_t *champs, unsigned char *memory)
+int			ft_extract_prog(int fd, t_header *champs, unsigned char *memory)
 {
 	int				ret;
 	char			buf[CHAMP_MAX_SIZE + 1];
-	int				decal;
 
 	if ((ret = read(fd, buf, CHAMP_MAX_SIZE + 1)) < 1)
 		return (0);
 	if (ret > CHAMP_MAX_SIZE)
 		return (ft_error("Champion too big!\n"));
-	if (ret != champs->prog_size)
+	if ((unsigned int)ret != champs->prog_size)
 	{
 		ft_putstr("The size shown differs from the size of the program!\nSize information: ");
 		ft_putnbr(ret);
@@ -216,15 +218,14 @@ int			ft_extract_prog(int fd, header_t *champs, unsigned char *memory)
 	return (1);
 }
 
-header_t	*ft_insert_champ(char **argv, unsigned char *memory, int *player_number, int nb_champ)
+t_header	*ft_insert_champ(char **argv, unsigned char *memory, int *player_number, int nb_champ)
 {
-	header_t		*champs;
+	t_header		*champs;
 	int				i;
 	int				j;
 	int				fd;
-	char			*prog;
 
-	champs = (header_t*)malloc(sizeof(header_t) * nb_champ);
+	champs = (t_header*)malloc(sizeof(t_header) * nb_champ);
 	i = 0;
 	j = 0;
 	while (i < nb_champ)
@@ -235,10 +236,10 @@ header_t	*ft_insert_champ(char **argv, unsigned char *memory, int *player_number
 			return (0);
 		if (ft_extract_header(fd, champs + i) < 1)
 			return (0);
-		if ((prog = ft_extract_prog(fd, champs + i, (memory + i * (MEM_SIZE / nb_champ)))) < 1)
+		if (ft_extract_prog(fd, champs + i, (memory + i * (MEM_SIZE / nb_champ))) < 1)
 			return (0);
 		j++;
-		ft_dump_memory(champs + i, HEADER_SIZE);
+		ft_dump_memory((unsigned char*)(champs + i), HEADER_SIZE);
 		ft_putstr("ICIIIIIII : ");
 		ft_putstr((champs + i)->prog_name);
 		ft_putchar('\n');
@@ -254,11 +255,10 @@ header_t	*ft_insert_champ(char **argv, unsigned char *memory, int *player_number
 	return (champs);
 }
 
-int 			ft_load_champ(char **argv, unsigned char *memory, header_t *champs)
+int 			ft_load_champ(char **argv, unsigned char *memory, t_header **champs)
 {	
 	int				nb_champ;
 	int				player_number[MAX_ARGS_NUMBER];
-//	header_t		*champs;
 
 	if (!(nb_champ = ft_manage_entry(argv, player_number)))
 		return (0);
@@ -277,28 +277,72 @@ int 			ft_load_champ(char **argv, unsigned char *memory, header_t *champs)
 	   }
 	   */
 
-	if (!(champs = ft_insert_champ(argv, memory, player_number, nb_champ)))
+	if (!(*champs = ft_insert_champ(argv, memory, player_number, nb_champ)))
 		return (0);
 	return (nb_champ);
 }
 
-int				ft_play(unsigned char *memory, header_t *champs, t_settings *sets)
+t_process		*ft_init_process(t_settings *sets)
 {
-	
+	t_process		*process;
+	t_process		*tmp;
+	unsigned int	i;
+
+	i = 0;
+	process = NULL;
+	while (i < sets->nb_champs)
+	{
+		tmp = (t_process*)malloc(sizeof(t_process));
+		if (!process)
+			tmp->next = NULL;
+		else
+			tmp->next = process;
+		process = tmp;
+		process->player = i + 1;
+		process->position = i * (MEM_SIZE / sets->nb_champs);
+		process->turns_count = 0;
+		i++;
+	}
+	return (process);
 }
 
-int				ft_corewar(int argc, char **argv)
+int				ft_play(unsigned char *memory, t_header *champs, t_settings *sets)
+{
+	t_process		*process;
+	unsigned int	i;
+
+	(void)memory;
+	process = ft_init_process(sets);
+	
+	
+	
+	ft_putchar('\n');
+	i = 0;
+	while (i < sets->nb_champs)
+	{
+		ft_putstr((champs + process->player - 1)->prog_name);
+		ft_putchar('\n');
+		ft_putnbr(process->position);
+		ft_putstr("\n\n");
+		process = process->next;
+		i++;
+	}
+	return (1);
+}
+
+int				ft_corewar(char **argv)
 {
 	unsigned char	*memory;
-	header_t		*champs;
+	t_header		*champs;
 	t_settings		sets;
 
 	if (!(memory = (unsigned char*)malloc(sizeof(unsigned char) * MEM_SIZE)))
 		return (-1);
-	if (!(sets.nb_champs = ft_load_champ(argv + 1, memory, champs)))
+	if (!(sets.nb_champs = ft_load_champ(argv + 1, memory, &champs)))
 		ft_error("Can t load champions!\n");
-//	ft_play(memory, champs, &sets);
+	ft_play(memory, champs, &sets);
 	ft_putstr("ALLLLLLLLLLOOOOOOOOOOO\n");
+	ft_putstr((g_op_tab + 13)->desc);
 	/*ft_dump_memory(memory, MEM_SIZE);*/
 	return (1);
 }
@@ -309,6 +353,6 @@ int				main(int argc, char **argv)
 	{
 		return(ft_usage());
 	}
-	ft_corewar(argc, argv);
+	ft_corewar(argv);
 	return(1);
 }

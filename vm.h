@@ -6,7 +6,7 @@
 /*   By: nolivier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 12:59:34 by nolivier          #+#    #+#             */
-/*   Updated: 2017/06/01 13:02:34 by nolivier         ###   ########.fr       */
+/*   Updated: 2017/07/18 14:20:33 by nolivier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,23 @@
 # define VM_H
 
 #include "op.h"
-//#include "op.c"
 
-# define LINE_SIZE 32*2
-# define HEADER_SIZE sizeof(header_t)
+# define LINE_SIZE 32 * 2
+# define HEADER_SIZE sizeof(t_header)
 
-struct	s_op
-{
-	char					*label;
-	unsigned int			params_num;
-	unsigned int			params[3];
-	unsigned int			id;
-	unsigned int			turns;
-	char					*desc;
-	
-};
-
-struct	s_settings
+typedef struct	s_settings
 {
 	unsigned int			nb_champs;
 	unsigned int			options;
-};
+}				t_settings;
 
-struct	s_process
+typedef struct	s_process
 {
 	unsigned int			player;
 	unsigned int			position;
 	unsigned int			turns_count;
+	unsigned char			registers[REG_NUMBER][REG_SIZE];
 	struct s_process		*next;
-};
-
-typedef struct s_op				t_op;
-typedef struct s_settings		t_settings;
-typedef struct s_process		t_process;
-
-
+}				t_process;
 
 #endif

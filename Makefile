@@ -6,11 +6,11 @@
 #    By: nolivier <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/27 14:06:26 by nolivier          #+#    #+#              #
-#    Updated: 2017/05/27 15:23:50 by nolivier         ###   ########.fr        #
+#    Updated: 2017/05/31 15:37:39 by nolivier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-.PHONY: NAME all LIBFT clean fclean
+.PHONY: NAME NAME2 all LIBFT clean fclean
 
 NAME = asm
 
@@ -18,7 +18,7 @@ NAME2 = corewar
 
 SRC = assembler.c
 
-SRC2 = vm.c \
+SRC2 = vm.c
 
 OUT = $(SRC:.c=.o)
 
@@ -36,7 +36,7 @@ $(NAME): $(OUT)
 
 $(NAME2): $(OUT2)
 	gcc -o $(NAME2) $(OUT2) $(FLAG) libft/libft.a
-	
+
 LIBFT:
 	$(MAKE) -C libft/
 

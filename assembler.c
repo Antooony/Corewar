@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   assembler.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolivier <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nolivier <nolivier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 15:00:57 by nolivier          #+#    #+#             */
-/*   Updated: 2017/05/27 15:51:31 by nolivier         ###   ########.fr       */
+/*   Updated: 2017/07/18 14:35:43 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,33 +30,43 @@ int             ft_usage(void)
 	return (0);
 }
 
+t_list	*get_input(int	fd)
+{
+	t_list	*lst;
+	t_list	*tmp;
+
+	lst = ft_lstnew(NULL, 0);
+	tmp = ft_lstnew(NULL, 0);
+	while (get_next_line(fd, lst->content ? (char **)&tmp->content :
+		(char **)&lst->content) > 0)
+	{
+		if (tmp->content)
+		{
+			ft_lstadd_end(lst, tmp);
+			tmp = tmp->next;
+			tmp = ft_lstnew(NULL, 0);
+		}
+	}
+	if (tmp)
+		free(tmp);
+	return (lst);
+}
+
 int		main(int argc, char **argv)
 {
 	int             fd;
-	char			*line;
-	//int             ret;
-	//char            buf[BUFF_SIZE + 1];
+	t_list			*lst;
 
-	if (argc == 2)
-		fd = open(argv[1], O_RDONLY);
-	else
+	if (argc != 2)
 		return (ft_usage());
-	if (fd == -1)
+	if ((fd = open(argv[1], O_RDONLY)) == -1)
 		return (ft_error());
-
-	while (get_next_line(fd, &line) > 0)
+	lst = get_input(fd);
+	while (lst)
 	{
-		ft_putstr(line);
-		ft_putchar('\n');
-		if (line)
-			free(line);
+		ft_printf("%s\n", lst->content);
+		lst = lst->next;
 	}
-	/*
-	if ((ret = read(fd, buf, BUFF_SIZE + 1)))
-		buf[ret] = '\0';
-	ft_putstr(buf);
-	*/
 	if (close(fd) == -1)
 		return (ft_error());
-	return (1);
 }
