@@ -6,7 +6,7 @@
 /*   By: nolivier <nolivier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 15:00:57 by nolivier          #+#    #+#             */
-/*   Updated: 2017/07/18 14:35:43 by adenis           ###   ########.fr       */
+/*   Updated: 2017/08/21 15:42:48 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include "libft/libft.h"
+#include "libft.h"
 #include "assembler.h"
 
 int				ft_error(void)
@@ -62,6 +62,12 @@ int		main(int argc, char **argv)
 	if ((fd = open(argv[1], O_RDONLY)) == -1)
 		return (ft_error());
 	lst = get_input(fd);
+	int i =0;
+	while (i < 16)
+	{
+		ft_printf("%s\n",g_op_tab[i].label);
+		i++;
+	}
 	while (lst)
 	{
 		ft_printf("%s\n", lst->content);

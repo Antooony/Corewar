@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   op.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zaz <marvin@42.fr>                         +#+  +:+       +#+        */
+/*   By: zaz <zaz@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/04 11:33:27 by zaz               #+#    #+#             */
-/*   Updated: 2017/07/18 14:23:26 by nolivier         ###   ########.fr       */
+/*   Updated: 2017/08/21 14:47:51 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ typedef struct		s_header
 typedef struct		s_op
 {
 	char				*label;
-	unsigned int		params_num;
-	unsigned int		params[3];
+	unsigned int		num_params;
+	t_arg_type			params[3];
 	unsigned int		op_code;
 	unsigned int		cycles;
 	char				*desc;

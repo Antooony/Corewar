@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vm.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolivier <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nolivier <nolivier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 15:14:48 by nolivier          #+#    #+#             */
-/*   Updated: 2017/07/18 14:21:03 by nolivier         ###   ########.fr       */
+/*   Updated: 2017/08/21 15:22:53 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include "vm.h"
-#include "libft/libft.h"
+#include "libft.h"
 
 int				ft_usage(void)
 {
@@ -256,7 +256,7 @@ t_header	*ft_insert_champ(char **argv, unsigned char *memory, int *player_number
 }
 
 int 			ft_load_champ(char **argv, unsigned char *memory, t_header **champs)
-{	
+{
 	int				nb_champ;
 	int				player_number[MAX_ARGS_NUMBER];
 
@@ -313,9 +313,9 @@ int				ft_play(unsigned char *memory, t_header *champs, t_settings *sets)
 
 	(void)memory;
 	process = ft_init_process(sets);
-	
-	
-	
+
+
+
 	ft_putchar('\n');
 	i = 0;
 	while (i < sets->nb_champs)

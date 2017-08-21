@@ -3,51 +3,60 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nolivier <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: nolivier <nolivier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/27 14:06:26 by nolivier          #+#    #+#              #
-#    Updated: 2017/05/31 15:37:39 by nolivier         ###   ########.fr        #
+#    Updated: 2017/08/21 15:46:31 by adenis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: NAME NAME2 all LIBFT clean fclean
 
-NAME = asm
+CC				=	gcc
+FLAG			=	-Wall -Wextra -Werror
 
-NAME2 = corewar
+LIB				=	./libft/libft.a
+LIB_PATH		=	./libft
 
-SRC = assembler.c
+NAME			=	asm
+NAME2			=	corewar
 
-SRC2 = vm.c
+SRC_NAME		=	assembler.c
+SRC2_NAME		=	vm.c
 
-OUT = $(SRC:.c=.o)
+SRC_PATH		=	srcs/asm
+SRC2_PATH		=	srcs/vm
 
-OUT2 = $(SRC2:.c=.o)
+SRC				=	$(addprefix $(SRC_PATH)/,$(SRC_NAME))
+SRC2			=	$(addprefix $(SRC2_PATH)/,$(SRC2_NAME))
 
-FLAG = -Wall -Wextra #-Werror
+OBJS			=	$(SRC:%.c=%.o)
+OBJS2			=	$(SRC2:%.c=%.o)
 
-all: LIBFT $(NAME) $(NAME2)
+HEADER			=	includes
+
+all : $(NAME) $(NAME2)
+
+$(NAME) : $(OBJS) $(LIB)
+	@$(CC) $(FLAGS) $(SRC) $(LIB) -I $(HEADER) -o $(NAME)
+
+$(NAME2) : $(OBJS2) $(LIB)
+	@$(CC) $(FLAGS) $(SRC2) $(LIB) -I $(HEADER) -o $(NAME2)
+
+$(LIB):
+	@make -C $(LIB_PATH)
 
 %.o: %.c
-	gcc $(FLAG) -c -o $@ $^
+	@$(CC) $(FLAGS)  -o $@ -c $< -I $(HEADER)
 
-$(NAME): $(OUT)
-	gcc -o $(NAME) $(OUT) $(FLAG) libft/libft.a
+clean :
+	@rm -f $(OBJS)
+	@rm -f $(OBJS2)
+	@make clean -C ./libft
 
-$(NAME2): $(OUT2)
-	gcc -o $(NAME2) $(OUT2) $(FLAG) libft/libft.a
+fclean : clean
+	@rm -f $(NAME)
+	@rm -f $(NAME2)
+	@make fclean -C ./libft
 
-LIBFT:
-	$(MAKE) -C libft/
-
-clean:
-	/bin/rm -f $(OUT)
-	/bin/rm -f $(OUT2)
-	$(MAKE) -C libft/ clean
-
-fclean: clean
-	/bin/rm -f $(NAME)
-	/bin/rm -f $(NAME2)
-	$(MAKE) -C libft/ fclean
-
-re: fclean all
+re : fclean all
