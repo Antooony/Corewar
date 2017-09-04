@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   vm.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolivier <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nolivier <nolivier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 12:59:34 by nolivier          #+#    #+#             */
-/*   Updated: 2017/07/18 14:20:33 by nolivier         ###   ########.fr       */
+/*   Updated: 2017/09/04 16:32:12 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VM_H
 # define VM_H
-
-#include "op.h"
-
+# include "op.h"
 # define LINE_SIZE 32 * 2
 # define HEADER_SIZE sizeof(t_header)
 
