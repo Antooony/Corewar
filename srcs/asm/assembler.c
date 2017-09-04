@@ -6,7 +6,7 @@
 /*   By: nolivier <nolivier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 15:00:57 by nolivier          #+#    #+#             */
-/*   Updated: 2017/09/04 17:56:31 by adenis           ###   ########.fr       */
+/*   Updated: 2017/09/04 18:22:46 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		ft_op_delim(char *s, int i, int len)
 {
 	char 	*delim;
 
-	delim = "%:, ";
+	delim = "%:, \t";
 	if ((!s[i + len] || ft_strchr(&delim[2], s[i + len]))
 		&& (!i || ft_strchr(delim, s[i - 1])))
 		return (1);
