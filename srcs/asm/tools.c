@@ -6,12 +6,11 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:10:14 by adenis            #+#    #+#             */
-/*   Updated: 2017/09/04 16:30:20 by adenis           ###   ########.fr       */
+/*   Updated: 2017/09/04 17:56:32 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "op.h"
+#include "assembler.h"
 
 void	print_optab(void)
 {
