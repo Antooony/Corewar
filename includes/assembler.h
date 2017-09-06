@@ -6,7 +6,7 @@
 /*   By: nolivier <nolivier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 12:17:53 by nolivier          #+#    #+#             */
-/*   Updated: 2017/09/06 17:28:52 by adenis           ###   ########.fr       */
+/*   Updated: 2017/09/06 17:41:24 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 typedef struct		s_ops
 {
 	char			*name;
+	int				nargs;
 	char			**args;
 	struct s_ops	*next;
 }					t_ops;

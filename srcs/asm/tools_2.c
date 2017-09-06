@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 16:05:13 by adenis            #+#    #+#             */
-/*   Updated: 2017/09/06 17:29:57 by adenis           ###   ########.fr       */
+/*   Updated: 2017/09/06 17:41:52 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_ops		*ft_newop(void)
 	new = (t_ops *)malloc(sizeof(t_ops));
 	new->name = NULL;
 	new->args = NULL;
+	new->nargs = 0;
 	new->next = NULL;
 	return (new);
 }

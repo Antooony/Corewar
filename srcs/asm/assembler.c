@@ -6,7 +6,7 @@
 /*   By: nolivier <nolivier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 15:00:57 by nolivier          #+#    #+#             */
-/*   Updated: 2017/09/06 17:33:48 by adenis           ###   ########.fr       */
+/*   Updated: 2017/09/06 17:58:21 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,19 @@ t_op		g_op_tab[17] =
 
 void	display_op(t_ops *lst)
 {
+	int		i;
+
 	while (lst)
 	{
-		ft_printf("\t%s\n", lst->name);
+		ft_printf("\t%s", lst->name);
+		ft_printf(" - ");
+		i = 0;
+		while (i < lst->nargs)
+		{
+			ft_printf("\e[35m[\e[0m%s\e[35m]\e[0m ", lst->args[i]);
+			i++;
+		}
+		ft_printf("\n");
 		lst = lst->next;
 	}
 }
