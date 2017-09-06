@@ -6,7 +6,7 @@
 #    By: nolivier <nolivier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/27 14:06:26 by nolivier          #+#    #+#              #
-#    Updated: 2017/09/04 15:13:01 by adenis           ###   ########.fr        #
+#    Updated: 2017/09/06 16:05:36 by adenis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIB_PATH		=	./libft
 NAME			=	asm
 NAME2			=	corewar
 
-SRC_NAME		=	assembler.c tools.c
+SRC_NAME		=	assembler.c tools.c tools_2.c parsing.c get.c
 SRC2_NAME		=	vm.c
 
 SRC_PATH		=	srcs/asm

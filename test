@@ -1,0 +1,4472 @@
+.name           "42"
+.comment        "Just a basic Winner Program"
+
+entree:	live	%42		# entree
+	[31mlabel found = entree
+[0m	[32mop found = live
+[0m	ld	%0,r5
+	[32mop found = ld
+[0m	ld	%0,r5
+	[32mop found = ld
+[0m	zjmp	%:bite
+	[32mop found = zjmp
+[0m
+tir:	sti	r1,%:tirb,%1
+	[31mlabel found = tir
+[0m	[32mop found = sti
+[0m	ld	%2304,r10
+	[32mop found = ld
+[0m	ld	%1,r5
+	[32mop found = ld
+[0m	ld	%0,r11
+	[32mop found = ld
+[0m
+	ld	%4,r3
+	[32mop found = ld
+[0mtirf:	live	%42
+	[31mlabel found = tirf
+[0m	[32mop found = live
+[0m	fork	%:tirop
+	[32mop found = fork
+[0m	live	%742
+	[32mop found = live
+[0m	sub	r3,r5,r3
+	[32mop found = sub
+[0m	zjmp	%:top
+	[32mop found = zjmp
+[0m	ld	%0,r11
+	[32mop found = ld
+[0m	fork	%:tirvd
+	[32mop found = fork
+[0m	live	%42
+	[32mop found = live
+[0m	sti	r10,%-510,%0
+	[32mop found = sti
+[0m	sti	r10,%-404,%0
+	[32mop found = sti
+[0m	sti	r10,%-303,%0
+	[32mop found = sti
+[0m	sti	r10,%-202,%0
+	[32mop found = sti
+[0m	ld	%0,r11
+	[32mop found = ld
+[0m	zjmp	%:tirf
+	[32mop found = zjmp
+[0m
+tirop:	ld	%368,r2
+	[31mlabel found = tirop
+[0m	[32mop found = ld
+[0m	ld	%0,r3
+	[32mop found = ld
+[0m	ld	%4,r4
+	[32mop found = ld
+[0m
+tirb:	live	%1
+	[31mlabel found = tirb
+[0m	[32mop found = live
+[0m	sti	r10,%-510,r2
+	[32mop found = sti
+[0m	sti	r10,%-510,r3
+	[32mop found = sti
+[0m	add	r4,r5,r4
+	[32mop found = add
+[0m	add	r3,r4,r3
+	[32mop found = add
+[0m	sub	r2,r4,r2
+	[32mop found = sub
+[0m	zjmp	%:tirop
+	[32mop found = zjmp
+[0m	ld	%0,r11
+	[32mop found = ld
+[0m	zjmp	%:tirb
+	[32mop found = zjmp
+[0m	zjmp	%:infi
+	[32mop found = zjmp
+[0m
+p32deb:	zjmp	%0
+	[31mlabel found = p32deb
+[0m	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m
+	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m
+p32:	sub	r6,r4,r6
+	[31mlabel found = p32
+[0m	[32mop found = sub
+[0m	add	r6,r6,r11
+	[32mop found = add
+[0m	ldi	%:p32deb,r6,r7
+	[32mop found = ldi
+[0m	sti	r7,%-510,r11
+	[32mop found = sti
+[0mp32li:	live	%1
+	[31mlabel found = p32li
+[0m	[32mop found = live
+[0m	ld	%0,r10
+	[32mop found = ld
+[0m	sti	r7,%-250,r6
+	[32mop found = sti
+[0m	zjmp	%-192
+	[32mop found = zjmp
+[0m
+tirvd:	zjmp	%:tirvd2
+	[31mlabel found = tirvd
+[0m	[32mop found = zjmp
+[0m
+bite:	sti     r1,%:copie,%2
+	[31mlabel found = bite
+[0m	[32mop found = sti
+[0m        ldi     %:copie,%3,r2   # met le ld a l'entree
+	[32mop found = ld
+[0m	[32mop found = ldi
+[0m        sti     r2,%:entree,%-4
+	[32mop found = sti
+[0m        ldi     %:copie,%-1,r2
+	[32mop found = ldi
+[0m        sti     r2,%:entree,%-8
+	[32mop found = sti
+[0m
+	sti	r1,%:p32li,%1
+	[32mop found = sti
+[0m	sti	r1,%:b0,%1
+	[32mop found = sti
+[0m
+	ld	%0,r2
+	[32mop found = ld
+[0m	ld	%8,r3		# prepare les fork
+	[32mop found = ld
+[0m	[32mop found = fork
+[0m	ld	%1,r4
+	[32mop found = ld
+[0m	ld	%0,r6
+	[32mop found = ld
+[0m
+b0:	live	%1		# boucle fork
+	[31mlabel found = b0
+[0m	[32mop found = live
+[0m	[32mop found = fork
+[0m	sub	r3,r4,r3
+	[32mop found = sub
+[0m	zjmp	%:tart
+	[32mop found = zjmp
+[0m	fork	%:b1
+	[32mop found = fork
+[0m	st	r5,r2
+	[32mop found = st
+[0m	xor	r10,r10,r10	# pour rien
+	[32mop found = xor
+[0m	add	r10,r10,r10	# pour rien
+	[32mop found = add
+[0m	add	r6,r6,r6
+	[32mop found = add
+[0m	ld	%0,r10
+	[32mop found = ld
+[0m	zjmp	%:b0
+	[32mop found = zjmp
+[0mb1:	add	r2,r4,r2
+	[31mlabel found = b1
+[0m	[32mop found = add
+[0m	add	r6,r6,r6
+	[32mop found = add
+[0m	add	r6,r4,r6
+	[32mop found = add
+[0m	ld	%0,r10
+	[32mop found = ld
+[0m	zjmp	%:b0
+	[32mop found = zjmp
+[0m
+
+top:	live	%42
+	[31mlabel found = top
+[0m	[32mop found = live
+[0m	ld	%9,r3
+	[32mop found = ld
+[0m	sti	r3,%:p32deb,%-6
+	[32mop found = sti
+[0m	ld	%2,r3
+	[32mop found = ld
+[0m	sti	r3,%:p32deb,%-16
+	[32mop found = sti
+[0m	ld	%0,r3
+	[32mop found = ld
+[0m	zjmp	%:topd
+	[32mop found = zjmp
+[0m
+
+infi:	sti	r1,%:l0,%1
+	[31mlabel found = infi
+[0m	[32mop found = sti
+[0m	sti	r1,%:l1,%1
+	[32mop found = sti
+[0m	sti	r1,%:l2,%1
+	[32mop found = sti
+[0m	sti	r1,%:l3,%1
+	[32mop found = sti
+[0m	sti	r1,%:l4,%1
+	[32mop found = sti
+[0m	sti	r1,%:l5,%1
+	[32mop found = sti
+[0m	sti	r1,%:l6,%1
+	[32mop found = sti
+[0m	sti	r1,%:l7,%1
+	[32mop found = sti
+[0m	sti	r1,%:l8,%1
+	[32mop found = sti
+[0m	sti	r1,%:l9,%1
+	[32mop found = sti
+[0m	sti	r1,%:l10,%1
+	[32mop found = sti
+[0m
+l0:	live	%1
+	[31mlabel found = l0
+[0m	[32mop found = live
+[0ml1:	live	%1
+	[31mlabel found = l1
+[0m	[32mop found = live
+[0ml2:	live	%1
+	[31mlabel found = l2
+[0m	[32mop found = live
+[0ml3:	live	%1
+	[31mlabel found = l3
+[0m	[32mop found = live
+[0ml4:	live	%1
+	[31mlabel found = l4
+[0m	[32mop found = live
+[0ml5:	live	%1
+	[31mlabel found = l5
+[0m	[32mop found = live
+[0ml6:	live	%1
+	[31mlabel found = l6
+[0m	[32mop found = live
+[0ml7:	live	%1
+	[31mlabel found = l7
+[0m	[32mop found = live
+[0ml8:	live	%1
+	[31mlabel found = l8
+[0m	[32mop found = live
+[0ml9:	live	%1
+	[31mlabel found = l9
+[0m	[32mop found = live
+[0ml10:	live	%1
+	[31mlabel found = l10
+[0m	[32mop found = live
+[0m	zjmp	%:l0
+	[32mop found = zjmp
+[0m
+
+p1:	zjmp	%:infi
+	[31mlabel found = p1
+[0m	[32mop found = zjmp
+[0m
+        live    %0              # pour boucher l'entree
+	[32mop found = live
+[0mcopie:  ld      %1,r1
+	[31mlabel found = copie
+[0m	[32mop found = ld
+[0m
+
+tart:	sti	r1,%:p64li,%1
+	[31mlabel found = tart
+[0m	[32mop found = sti
+[0m	or	r2,r2,r2	# selection vers les modules
+	[32mop found = or
+[0m	zjmp	%:p64
+	[32mop found = zjmp
+[0m	sub	r2,r4,r2
+	[32mop found = sub
+[0m	zjmp	%:p32
+	[32mop found = zjmp
+[0m	ld	%0,r2
+	[32mop found = ld
+[0m	zjmp	%:infi
+	[32mop found = zjmp
+[0m
+
+tirvd2:	zjmp	%:tirdow
+	[31mlabel found = tirvd2
+[0m	[32mop found = zjmp
+[0m
+topd:	ld	%9,r3
+	[31mlabel found = topd
+[0m	[32mop found = ld
+[0m	sti	r3,%:fin,%-6
+	[32mop found = sti
+[0m	ld	%2,r3
+	[32mop found = ld
+[0m	sti	r3,%:fin,%-16
+	[32mop found = sti
+[0m	ld	%0,r3
+	[32mop found = ld
+[0m	zjmp	%:infi
+	[32mop found = zjmp
+[0m
+p64deb:	zjmp	%0
+	[31mlabel found = p64deb
+[0m	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m
+	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m
+	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m
+	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m	zjmp	%0
+	[32mop found = zjmp
+[0m
+p64:	ld	%10,r8
+	[31mlabel found = p64
+[0m	[32mop found = ld
+[0m	sub	r6,r8,r6
+	[32mop found = sub
+[0m	and	r6,%2147483648,r8
+	[32mop found = and
+[0m	zjmp	%:cont
+	[32mop found = zjmp
+[0m	ld	%118,r8
+	[32mop found = ld
+[0m	add	r6,r8,r6
+	[32mop found = add
+[0mcont:	add	r6,r6,r6
+	[31mlabel found = cont
+[0m	[32mop found = add
+[0m	ld	%272,r8
+	[32mop found = ld
+[0m	ld	%29,r9
+	[32mop found = ld
+[0m	ldi	%:p64deb,r6,r7
+	[32mop found = ldi
+[0m	sti	r7,r8,r6
+	[32mop found = sti
+[0m	sti	r7,r9,r6
+	[32mop found = sti
+[0mp64li:	live	%1
+	[31mlabel found = p64li
+[0m	[32mop found = live
+[0m	ld	%0,r10
+	[32mop found = ld
+[0m	zjmp	%186
+	[32mop found = zjmp
+[0m
+tirdow:	ld	%425,r2
+	[31mlabel found = tirdow
+[0m	[32mop found = ld
+[0m	ld	%0,r3
+	[32mop found = ld
+[0m	ld	%4,r4
+	[32mop found = ld
+[0m
+tird:	live	%42
+	[31mlabel found = tird
+[0m	[32mop found = live
+[0m	sti	r10,%:fin,r2
+	[32mop found = sti
+[0m	sti	r10,%:fin,r3
+	[32mop found = sti
+[0m	add	r4,r5,r4
+	[32mop found = add
+[0m	add	r3,r4,r3
+	[32mop found = add
+[0m	sub	r2,r4,r2
+	[32mop found = sub
+[0m	zjmp	%:tirdow
+	[32mop found = zjmp
+[0m	ld	%0,r11
+	[32mop found = ld
+[0m	zjmp	%:tird
+	[32mop found = zjmp
+[0m	zjmp	%:p1
+	[32mop found = zjmp
+[0m
+fin:	live	%633
+	[31mlabel found = fin
+[0m	[32mop found = live
+[0m.name    "sebc"
+.comment "sebc"
+.extend
+
+	st	r1, :l1+1
+	[32mop found = st
+[0m	ld	%4, r3
+	[32mop found = ld
+[0ml1:	live	%1
+	[31mlabel found = l1
+[0m	[32mop found = live
+[0m	ld	%:l1 - :l2, r2
+	[32mop found = ld
+[0ml3:	ldi	%:l2, r2, r4
+	[31mlabel found = l3
+[0m	[32mop found = ldi
+[0m	sti	r4, %:l2 - 100, r2
+	[32mop found = sti
+[0m	add	r2, r3, r2
+	[32mop found = add
+[0mlive:	zjmp	%:l1 - 100
+	[31mlabel found = live
+[0m	[32mop found = zjmp
+[0m	xor	r4, r4, r4
+	[32mop found = xor
+[0m	zjmp	%:l3
+	[32mop found = zjmp
+[0ml2:
+	[31mlabel found = l2
+[0m#deassembler par msa 1.8, made by joe
+.name "Tching tching(Intercepteur), Bouh!Bouh!(bruits d'anti-jeu)"
+.comment ""
+
+	 fork  %:label00          		# 3,0,281
+	[32mop found = fork
+[0m	 ld    %-272,r3           		# 7,3,278
+	[32mop found = ld
+[0m	 live  %0                 		# 5,10,271
+	[32mop found = live
+[0m	 fork  %:label01          		# 3,15,266
+	[32mop found = fork
+[0m	 ld    %-272,r3           		# 7,18,263
+	[32mop found = ld
+[0m	 fork  %:label02          		# 3,25,256
+	[32mop found = fork
+[0m	 ld    %0,r2              		# 7,28,253
+	[32mop found = ld
+[0m	 ld    %0,r4              		# 7,35,246
+	[32mop found = ld
+[0m	 zjmp  %:label03          		# 3,42,239
+	[32mop found = zjmp
+[0m
+label02: ld    %4,r2              		# 7,45,236
+	[31mlabel found = label02
+[0m	[32mop found = ld
+[0m	 ld    %0,r4              		# 7,52,229
+	[32mop found = ld
+[0m	 zjmp  %:label03          		# 3,59,222
+	[32mop found = zjmp
+[0m
+label01: ld    %-202,r3           		# 7,62,219
+	[31mlabel found = label01
+[0m	[32mop found = ld
+[0m	 fork  %:label04          		# 3,69,212
+	[32mop found = fork
+[0m	 ld    %0,r2              		# 7,72,209
+	[32mop found = ld
+[0m	 ld    %0,r4              		# 7,79,202
+	[32mop found = ld
+[0m	 zjmp  %:label05          		# 3,86,195
+	[32mop found = zjmp
+[0m
+label04: ld    %4,r2              		# 7,89,192
+	[31mlabel found = label04
+[0m	[32mop found = ld
+[0m	 ld    %0,r4              		# 7,96,185
+	[32mop found = ld
+[0m	 zjmp  %:label05          		# 3,103,178
+	[32mop found = zjmp
+[0m
+label00: ld    %400,r3            		# 7,106,175
+	[31mlabel found = label00
+[0m	[32mop found = ld
+[0m	 live  %0                 		# 5,113,168
+	[32mop found = live
+[0m	 fork  %:label06          		# 3,118,163
+	[32mop found = fork
+[0m	 fork  %:label07          		# 3,121,160
+	[32mop found = fork
+[0m	 ld    %0,r2              		# 7,124,157
+	[32mop found = ld
+[0m	 ld    %0,r4              		# 7,131,150
+	[32mop found = ld
+[0m	 zjmp  %:label08          		# 3,138,143
+	[32mop found = zjmp
+[0m
+label07: ld    %4,r2              		# 7,141,140
+	[31mlabel found = label07
+[0m	[32mop found = ld
+[0m	 ld    %0,r4              		# 7,148,133
+	[32mop found = ld
+[0m	 zjmp  %:label08          		# 3,155,126
+	[32mop found = zjmp
+[0m
+label06: fork  %:label09          		# 3,158,123
+	[31mlabel found = label06
+[0m	[32mop found = fork
+[0m	 ld    %0,r4              		# 7,161,120
+	[32mop found = ld
+[0m	 zjmp  %:label10          		# 3,168,113
+	[32mop found = zjmp
+[0m
+label09: ld    %0,r4              		# 7,171,110
+	[31mlabel found = label09
+[0m	[32mop found = ld
+[0m	 zjmp  %:label11          		# 3,178,103
+	[32mop found = zjmp
+[0m
+label03: ldi   r2,%:label12,r6    		# 6,181,100
+	[31mlabel found = label03
+[0m	[32mop found = ldi
+[0m	 ld    %0,r4              		# 7,187,94
+	[32mop found = ld
+[0m	 live  %1                 		# 5,194,87
+	[32mop found = live
+[0m
+label12: sti   r6,r2,r3           		# 5,199,82
+	[31mlabel found = label12
+[0m	[32mop found = sti
+[0m	 zjmp  %-277              		# 3,204,77
+	[32mop found = zjmp
+[0m
+label08: ldi   r2,%:label13,r6    		# 6,207,74
+	[31mlabel found = label08
+[0m	[32mop found = ldi
+[0m	 ld    %0,r4              		# 7,213,68
+	[32mop found = ld
+[0m	 live  %1                 		# 5,220,61
+	[32mop found = live
+[0m
+label13: sti   r6,r2,r3           		# 5,225,56
+	[31mlabel found = label13
+[0m	[32mop found = sti
+[0m	 zjmp  %395               		# 3,230,51
+	[32mop found = zjmp
+[0m
+label05: ldi   r2,%:label14,r6    		# 6,233,48
+	[31mlabel found = label05
+[0m	[32mop found = ldi
+[0m	 ld    %0,r4              		# 7,239,42
+	[32mop found = ld
+[0m	 live  %1                 		# 5,246,35
+	[32mop found = live
+[0m
+label14: sti   r6,r2,r3           		# 5,251,30
+	[31mlabel found = label14
+[0m	[32mop found = sti
+[0m	 zjmp  %-207              		# 3,256,25
+	[32mop found = zjmp
+[0m
+label10: live  %1                 		# 5,259,22
+	[31mlabel found = label10
+[0m	[32mop found = live
+[0m	 fork  %:label10          		# 3,264,17
+	[32mop found = fork
+[0m	 zjmp  %:label10          		# 3,267,14
+	[32mop found = zjmp
+[0m
+label11: live  %1                 		# 5,270,11
+	[31mlabel found = label11
+[0m	[32mop found = live
+[0m	 fork  %:label11          		# 3,275,6
+	[32mop found = fork
+[0m	 zjmp  %:label11          		# 3,278,3
+	[32mop found = zjmp
+[0m.name "Death"
+.comment "Fork"
+.extend
+
+	st	r1, :l1+1
+	[32mop found = st
+[0m	st	r1, :l2+1
+	[32mop found = st
+[0m	st	r1, :l3+1
+	[32mop found = st
+[0m	st	r1, :l4+1
+	[32mop found = st
+[0m	st	r1, :golive+1
+	[32mop found = st
+[0m	st	r1, :live+1
+	[32mop found = st
+[0m	xor	r2,r2,r2
+	[32mop found = xor
+[0m	fork	%:f1
+	[32mop found = fork
+[0m	ld	%-15, r3
+	[32mop found = ld
+[0m	ld	%1, r4
+	[32mop found = ld
+[0mloop:	add	r3, r4, r3
+	[31mlabel found = loop
+[0m	[32mop found = add
+[0m	zjmp	%:golive
+	[32mop found = zjmp
+[0m	xor	r5, r5, r5
+	[32mop found = xor
+[0m	zjmp	%:loop
+	[32mop found = zjmp
+[0mgolive:	live	%1
+	[31mlabel found = golive
+[0m	[32mop found = live
+[0m	ld	%-25, r3
+	[32mop found = ld
+[0m	ld	%1, r4
+	[32mop found = ld
+[0mlock:	add	r3, r4, r3
+	[31mlabel found = lock
+[0m	[32mop found = add
+[0m	zjmp	%:nolock
+	[32mop found = zjmp
+[0m	xor	r5, r5, r5
+	[32mop found = xor
+[0m	zjmp	%:lock
+	[32mop found = zjmp
+[0mnolock:	
+	[31mlabel found = nolock
+[0m	xor	r1, r1, r1
+	[32mop found = xor
+[0m	add	r1, r1, r1
+	[32mop found = add
+[0m	.code	00 00 00
+live:	live	%1
+	[31mlabel found = live
+[0m	[32mop found = live
+[0m
+
+f1:	fork	%:f2
+	[31mlabel found = f1
+[0m	[32mop found = fork
+[0mf2:	fork	%:f3
+	[31mlabel found = f2
+[0m	[32mop found = fork
+[0mf3:	fork	%:f4
+	[31mlabel found = f3
+[0m	[32mop found = fork
+[0mf4:	fork	%:f5
+	[31mlabel found = f4
+[0m	[32mop found = fork
+[0mf5:	fork	%:f6
+	[31mlabel found = f5
+[0m	[32mop found = fork
+[0mf6:	fork	%:f7
+	[31mlabel found = f6
+[0m	[32mop found = fork
+[0mf7:	fork	%:f8
+	[31mlabel found = f7
+[0m	[32mop found = fork
+[0mf8:	fork	%:f9
+	[31mlabel found = f8
+[0m	[32mop found = fork
+[0mf9:	fork	%:f10
+	[31mlabel found = f9
+[0m	[32mop found = fork
+[0mf10:
+	[31mlabel found = f10
+[0m
+l1:	live	%1
+	[31mlabel found = l1
+[0m	[32mop found = live
+[0ml2:	live	%1
+	[31mlabel found = l2
+[0m	[32mop found = live
+[0ml3:	live	%1
+	[31mlabel found = l3
+[0m	[32mop found = live
+[0ml4:	live	%1
+	[31mlabel found = l4
+[0m	[32mop found = live
+[0m	zjmp	%:l1
+	[32mop found = zjmp
+[0m
+.name		"Celebration Funebre v0.99pl42"
+.comment	"Jour J"
+
+		ld   %0,r3		
+	[32mop found = ld
+[0mlabel:		zjmp %:avantdebut
+	[31mlabel found = label
+[0m	[32mop found = zjmp
+[0m		zjmp %0				# pour eviter ecrasement
+	[32mop found = zjmp
+[0m						# de l'instruction suivante
+code:		live %42			# 5
+	[31mlabel found = code
+[0m	[32mop found = live
+[0m		sti  r15,%0,r14			# 6
+	[32mop found = sti
+[0m		zjmp %-200			# 3
+	[32mop found = zjmp
+[0m		live %42			# 5
+	[32mop found = live
+[0m		sti  r15,%0,r14			# 6
+	[32mop found = sti
+[0m		zjmp %-200			# 3
+	[32mop found = zjmp
+[0m		live %42			# 5
+	[32mop found = live
+[0m		sti  r15,%0,r14			# 6
+	[32mop found = sti
+[0m		zjmp %-200			# 3
+	[32mop found = zjmp
+[0m		live %42			# 5
+	[32mop found = live
+[0m		sti  r15,%0,r14			# 6
+	[32mop found = sti
+[0m		zjmp %-200			# 3
+	[32mop found = zjmp
+[0m		sti  r15,%0,r14			# 6
+	[32mop found = sti
+[0m		zjmp %-200			# 3
+	[32mop found = zjmp
+[0m		sti  r15,%0,r14			# 6
+	[32mop found = sti
+[0m		zjmp %-200
+	[32mop found = zjmp
+[0m	
+avantdebut:	sti   r1,%:code,%1  # 		#7	
+	[31mlabel found = avantdebut
+[0m	[32mop found = sti
+[0m		sti   r1,%:code,%15 # 		#7	
+	[32mop found = sti
+[0m		sti   r1,%:code,%29 # 		#7	
+	[32mop found = sti
+[0m		sti   r1,%:code,%43 # 		#7	
+	[32mop found = sti
+[0m		sti   r1,%:code,%57 # 		#7	
+	[32mop found = sti
+[0m		sti   r1,%:code,%71 # 		#7	
+	[32mop found = sti
+[0minit:		ld   %393216,r4		 	#7	
+	[31mlabel found = init
+[0m	[32mop found = ld
+[0m		ld   %917504,r12		#7	
+	[32mop found = ld
+[0m		ld   %1,r11			#7
+	[32mop found = ld
+[0m		ld   %6,r10			#7
+	[32mop found = ld
+[0mdebut:		live %42			#5
+	[31mlabel found = debut
+[0m	[32mop found = live
+[0m		sti  r4,%:label , %1		#7
+	[32mop found = sti
+[0m		add  r4,r12,r4			#5	
+	[32mop found = add
+[0m		sub  r10,r11,r10		#5
+	[32mop found = sub
+[0m		zjmp %:init			#3
+	[32mop found = zjmp
+[0m		fork %:debut			
+	[32mop found = fork
+[0m		live %3
+	[32mop found = live
+[0mlevel0:		fork %:level10
+	[31mlabel found = level0
+[0m	[32mop found = fork
+[0mlevel11:	live %4
+	[31mlabel found = level11
+[0m	[32mop found = live
+[0m		fork %:level111
+	[32mop found = fork
+[0m
+level110:	live %42
+	[31mlabel found = level110
+[0m	[32mop found = live
+[0m		ldi  %8, %:code, r15		#set des octets 9-12
+	[32mop found = ldi
+[0m		ld   %-186, r14			#=$A-6-8
+	[32mop found = ld
+[0m		ld   %0,r2
+	[32mop found = ld
+[0m		zjmp  %:label
+	[32mop found = zjmp
+[0m			
+level10:	live %42
+	[31mlabel found = level10
+[0m	[32mop found = live
+[0m		fork %:level100
+	[32mop found = fork
+[0mlevel101:	live %42
+	[31mlabel found = level101
+[0m	[32mop found = live
+[0m		ldi  %4, %:code, r15 		#set des octets 5-8
+	[32mop found = ldi
+[0m		ld   %-190, r14			#=$A-6-4
+	[32mop found = ld
+[0m		ld   %0,r2
+	[32mop found = ld
+[0m		zjmp %:label
+	[32mop found = zjmp
+[0m		
+level111:	live %42	
+	[31mlabel found = level111
+[0m	[32mop found = live
+[0m		ldi  %12, %:code, r15		#set des octets 13-16
+	[32mop found = ldi
+[0m		ld   %-182, r14			# $A -6 -12
+	[32mop found = ld
+[0m		ld   %0,r2
+	[32mop found = ld
+[0m		zjmp %:label
+	[32mop found = zjmp
+[0m		
+level100:	live %42
+	[31mlabel found = level100
+[0m	[32mop found = live
+[0m		ldi  %0, %:code, r15		#set des octets 1-4
+	[32mop found = ldi
+[0m		ld   %-194, r14			# $A -6 -0
+	[32mop found = ld
+[0m		ld   %0,r2			#
+	[32mop found = ld
+[0m		zjmp %:label			#
+	[32mop found = zjmp
+[0m.name		"Octobre Rouge V4.2"
+.comment	"And the winner is ..."
+
+		st	r1,19
+	[32mop found = st
+[0m		ld	%0,r15
+	[32mop found = ld
+[0m		fork	%:xxx
+	[32mop found = fork
+[0m		zjmp	%:torp
+	[32mop found = zjmp
+[0mxxx:		live	%42
+	[31mlabel found = xxx
+[0m	[32mop found = live
+[0m		fork	%:torp
+	[32mop found = fork
+[0m		zjmp	%:xxx
+	[32mop found = zjmp
+[0m	
+zork:		live	%42
+	[31mlabel found = zork
+[0m	[32mop found = live
+[0m		fork	%:zork2
+	[32mop found = fork
+[0m		st	r1,13
+	[32mop found = st
+[0m		ld	%0,r15		
+	[32mop found = ld
+[0mzork_:		live	%42
+	[32mop found = live
+[0m		zjmp	%-5
+	[32mop found = zjmp
+[0m		
+zork2:		live	%42
+	[31mlabel found = zork2
+[0m	[32mop found = live
+[0m		fork	%:zork3
+	[32mop found = fork
+[0m		st	r1,13
+	[32mop found = st
+[0m		ld	%0,r15
+	[32mop found = ld
+[0mzork2_:		live	%42
+	[32mop found = live
+[0m		zjmp	%-5
+	[32mop found = zjmp
+[0m
+zork3:		live	%42
+	[31mlabel found = zork3
+[0m	[32mop found = live
+[0m		fork	%:zork4
+	[32mop found = fork
+[0m		st	r1,13
+	[32mop found = st
+[0m		ld	%0,r15
+	[32mop found = ld
+[0mzork3_:		live	%42
+	[32mop found = live
+[0m		zjmp	%-5
+	[32mop found = zjmp
+[0m
+zork4:		live	%42
+	[31mlabel found = zork4
+[0m	[32mop found = live
+[0m		fork	%:zork
+	[32mop found = fork
+[0m		st	r1,13
+	[32mop found = st
+[0m		ld	%0,r15
+	[32mop found = ld
+[0mzork4_:		live	%42
+	[32mop found = live
+[0m		zjmp	%-5		
+	[32mop found = zjmp
+[0m			
+back_wall:      live	%42	
+	[32mop found = live
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		st	r8,-400
+	[32mop found = st
+[0m		ld	%0,r15
+	[32mop found = ld
+[0m		zjmp	%:back_wall
+	[32mop found = zjmp
+[0m
+torp:		live	%42
+	[31mlabel found = torp
+[0m	[32mop found = live
+[0m		fork	%:torp1
+	[32mop found = fork
+[0m		live	%42
+	[32mop found = live
+[0m		fork	%:torp2
+	[32mop found = fork
+[0m		live	%42
+	[32mop found = live
+[0m		fork	%:torp3
+	[32mop found = fork
+[0m		ld	%57672448,r3		#03 70 03 00
+	[32mop found = ld
+[0m		ld	%318992390,r6		#13 03 70 06
+	[32mop found = ld
+[0m		ld	%0,r15
+	[32mop found = ld
+[0m		zjmp	%:launch
+	[32mop found = zjmp
+[0m	
+torp1:		live	%42
+	[31mlabel found = torp1
+[0m	[32mop found = live
+[0m		fork	%:torp
+	[32mop found = fork
+[0m		live	%42
+	[32mop found = live
+[0m		fork	%:zork
+	[32mop found = fork
+[0m		ld	%251883526,r3		#0F 03 70 06
+	[32mop found = ld
+[0m		ld	%386101254,r6		#17 03 70 06
+	[32mop found = ld
+[0m		ld	%0,r15
+	[32mop found = ld
+[0m		ld	%0,r15
+	[32mop found = ld
+[0m		zjmp	%:launch
+	[32mop found = zjmp
+[0m
+torp2:		live	%42
+	[31mlabel found = torp2
+[0m	[32mop found = live
+[0m		fork	%:back_wall
+	[32mop found = fork
+[0m		ld	%4294902082,r3		#FF FF 01 42
+	[32mop found = ld
+[0m		ld	%436432902,r6		#1A 03 70 06
+	[32mop found = ld
+[0m		ld	%0,r15
+	[32mop found = ld
+[0m		ld	%0,r15
+	[32mop found = ld
+[0m		ld	%0,r15
+	[32mop found = ld
+[0m		zjmp	%:launch
+	[32mop found = zjmp
+[0m
+torp3:		st	r1,r3	
+	[31mlabel found = torp3
+[0m	[32mop found = st
+[0m		ld	%251883526,r6
+	[32mop found = ld
+[0m		ld	%0,r15
+	[32mop found = ld
+[0m		ld	%0,r15
+	[32mop found = ld
+[0m		ld	%0,r15
+	[32mop found = ld
+[0m		ld	%0,r15
+	[32mop found = ld
+[0m		zjmp	%:launch
+	[32mop found = zjmp
+[0m
+launch:	st	r3,15
+	[31mlabel found = launch
+[0m	[32mop found = st
+[0m	st	r6,-1
+	[32mop found = st
+[0mlaunc_:	live	%42
+	[32mop found = live
+[0m
+
+
+
+
+
+
+.name    "Survivor"
+.comment "Invincible"
+
+	live	%1
+	[32mop found = live
+[0m	fork	%:f1
+	[32mop found = fork
+[0m	zjmp	%:j1
+	[32mop found = zjmp
+[0m<<<<<<< .mine
+f1:	ld	%5, r2
+	[31mlabel found = f1
+[0m	[32mop found = ld
+[0m=======
+f1:	ld	%4, r2
+	[31mlabel found = f1
+[0m	[32mop found = ld
+[0m>>>>>>> .r20
+	zjmp	%:run
+	[32mop found = zjmp
+[0mj1:	
+	[31mlabel found = j1
+[0mrun:	xor	r0, r0, r0
+	[31mlabel found = run
+[0m	[32mop found = xor
+[0ml1:	st	r2, 1
+	[31mlabel found = l1
+[0m	[32mop found = st
+[0m	live	%1
+	[32mop found = live
+[0m	zjmp	%:l1
+	[32mop found = zjmp
+[0m               
+ 
+	
+.name "Torpille"
+.comment "by sebc"
+.extend
+
+	xor	r4,r4,r4
+	[32mop found = xor
+[0mdebut:
+	[31mlabel found = debut
+[0m	fork	%:debut2
+	[32mop found = fork
+[0m	st	r1, :ld1+1
+	[32mop found = st
+[0mld1:	live	%0
+	[31mlabel found = ld1
+[0m	[32mop found = live
+[0m	fork	%:t2
+	[32mop found = fork
+[0m	# process qui dit live pour T1
+	[32mop found = live
+[0m	st	r1, :live1+1
+	[32mop found = st
+[0m	ld	%-10, r2
+	[32mop found = ld
+[0m	ld	%1, r3
+	[32mop found = ld
+[0mlive1:	live	%4
+	[31mlabel found = live1
+[0m	[32mop found = live
+[0m	add	r2, r3, r2
+	[32mop found = add
+[0m	zjmp	%:live1b
+	[32mop found = zjmp
+[0m	xor	r4, r4, r4
+	[32mop found = xor
+[0m	zjmp	%:live1
+	[32mop found = zjmp
+[0mlive1b:	fork	%:t2
+	[31mlabel found = live1b
+[0m	[32mop found = fork
+[0m	ld	%-10, r2
+	[32mop found = ld
+[0m	xor	r4, r4, r4
+	[32mop found = xor
+[0m	zjmp	%:live1
+	[32mop found = zjmp
+[0m
+debut2:
+	[31mlabel found = debut2
+[0m	st	r1, :ld2+1
+	[32mop found = st
+[0mld2:	live	%0
+	[31mlabel found = ld2
+[0m	[32mop found = live
+[0m	fork	%:t1
+	[32mop found = fork
+[0m	# process qui dit live pour T2
+	[32mop found = live
+[0m	st	r1, :live2+1
+	[32mop found = st
+[0m	ld	%-10, r2
+	[32mop found = ld
+[0m	ld	%1, r3
+	[32mop found = ld
+[0m
+live2:	live	%4
+	[31mlabel found = live2
+[0m	[32mop found = live
+[0m	add	r2, r3, r2
+	[32mop found = add
+[0m	zjmp	%:live2b
+	[32mop found = zjmp
+[0m	xor	r4, r4, r4
+	[32mop found = xor
+[0m	zjmp	%:live2
+	[32mop found = zjmp
+[0m
+live2b:	fork	%:t1
+	[31mlabel found = live2b
+[0m	[32mop found = fork
+[0m	ld	%-10, r2
+	[32mop found = ld
+[0m	xor	r4, r4, r4
+	[32mop found = xor
+[0m	zjmp	%:live2
+	[32mop found = zjmp
+[0m
+.name "Barriere"
+.comment "Envoie des torpilles a l'avant et se protege avec des barrieres a l'avant et a l'arriere"
+
+		and	r6, %0, r6
+	[32mop found = and
+[0m		zjmp %:init
+	[32mop found = zjmp
+[0m
+# On bombarde derriere notre programme
+
+arriere:	ld	%-5, r5
+	[31mlabel found = arriere
+[0m	[32mop found = ld
+[0m		ld	%1024,r4
+	[32mop found = ld
+[0marriere2:	ld	%-5, r3
+	[31mlabel found = arriere2
+[0m	[32mop found = ld
+[0marriere_live:	live %42
+	[32mop found = live
+[0m		sti	r4, %:arriere, r3
+	[32mop found = sti
+[0m		add	r3, r5, r3
+	[32mop found = add
+[0m		sti	r4, %:arriere, r3
+	[32mop found = sti
+[0m		add	r3, r5, r3
+	[32mop found = add
+[0m		sti	r4, %:arriere, r3
+	[32mop found = sti
+[0m		add	r3, r5, r3
+	[32mop found = add
+[0m		sti	r4, %:arriere, r3
+	[32mop found = sti
+[0m		add	r3, r5, r3
+	[32mop found = add
+[0m		sti	r4, %:arriere, r3
+	[32mop found = sti
+[0m		add	r3, r5, r3
+	[32mop found = add
+[0m		xor	r3,%-430,r15
+	[32mop found = xor
+[0m		zjmp	%:arriere2
+	[32mop found = zjmp
+[0m		and	r6, %0, r6
+	[32mop found = and
+[0m		zjmp	%:arriere_live
+	[32mop found = zjmp
+[0m
+fork_arriere:	live	%42
+	[32mop found = live
+[0m		fork	%:arriere
+	[32mop found = fork
+[0m		zjmp	%:fork_arriere
+	[32mop found = zjmp
+[0m
+# On commence les lives en serie
+live_live:	live	%42	
+	[32mop found = live
+[0m		sti	r1, %:live100, r9	
+	[32mop found = sti
+[0m		sti	r1, %:live102, r9	
+	[32mop found = sti
+[0m		sti	r1, %:live104, r9	
+	[32mop found = sti
+[0m		sti	r1, %:live106, r9	
+	[32mop found = sti
+[0m		sti	r1, %:live108, r9	
+	[32mop found = sti
+[0m		sti	r1, %:live110, r9	
+	[32mop found = sti
+[0m		sti	r1, %:live112, r9	
+	[32mop found = sti
+[0m		sti	r1, %:live114, r9	
+	[32mop found = sti
+[0m		sti	r1, %:live116, r9	
+	[32mop found = sti
+[0m		sti	r1, %:live118, r9	
+	[32mop found = sti
+[0m		sti	r1, %:live120, r9	
+	[32mop found = sti
+[0m		sti	r1, %:live122, r9	
+	[32mop found = sti
+[0m		sti	r1, %:live124, r9	
+	[32mop found = sti
+[0m		sti	r1, %:live126, r9	
+	[32mop found = sti
+[0m		sti	r1, %:live128, r9	
+	[32mop found = sti
+[0m		sti	r1, %:live130, r9	
+	[32mop found = sti
+[0m		sti	r1, %:live132, r9	
+	[32mop found = sti
+[0m		sti	r1, %:live134, r9
+	[32mop found = sti
+[0m		sti	r1, %:live136, r9
+	[32mop found = sti
+[0m		sti	r1, %:live138, r9	
+	[32mop found = sti
+[0m		sti	r1, %:live140, r9	
+	[32mop found = sti
+[0m		sti	r1, %:live142, r9	
+	[32mop found = sti
+[0m		sti	r1, %:live144, r9	
+	[32mop found = sti
+[0m		sti	r1, %:live146, r9	
+	[32mop found = sti
+[0m		sti	r1, %:live148, r9	
+	[32mop found = sti
+[0m		xor	r9,%6,r10
+	[32mop found = xor
+[0m		zjmp	%:fork_live
+	[32mop found = zjmp
+[0m		ld	%6,r9
+	[32mop found = ld
+[0m		and	r6,%0,r6
+	[32mop found = and
+[0m		zjmp	%:live_live	
+	[32mop found = zjmp
+[0m		
+init:		fork	%:kmissile
+	[31mlabel found = init
+[0m	[32mop found = fork
+[0m		live	%42
+	[32mop found = live
+[0m		sti	r1, %:arriere_live, %1	
+	[32mop found = sti
+[0m		fork	%:fork_arriere
+	[32mop found = fork
+[0m		live	%42
+	[32mop found = live
+[0m		sti	r1, %:avant_live, %1
+	[32mop found = sti
+[0m		fork	%:fork_avant
+	[32mop found = fork
+[0m		live	%42
+	[32mop found = live
+[0m		ld	%1,r9
+	[32mop found = ld
+[0m		and	r6,%0,r6
+	[32mop found = and
+[0m		zjmp	%:live_live
+	[32mop found = zjmp
+[0m	
+fork_live:	live	%42
+	[32mop found = live
+[0m		fork	%:live100
+	[32mop found = fork
+[0m		live	%42	
+	[32mop found = live
+[0m		fork	%:fork_live
+	[32mop found = fork
+[0m		live	%42
+	[32mop found = live
+[0m		zjmp	%:fork_live
+	[32mop found = zjmp
+[0m	
+live100:	live	%42
+	[31mlabel found = live100
+[0m	[32mop found = live
+[0mlive101:	live	%42	
+	[31mlabel found = live101
+[0m	[32mop found = live
+[0mlive102:	live	%42
+	[31mlabel found = live102
+[0m	[32mop found = live
+[0mlive103:	live	%42
+	[31mlabel found = live103
+[0m	[32mop found = live
+[0mlive104:	live	%42
+	[31mlabel found = live104
+[0m	[32mop found = live
+[0mlive105:	live	%42
+	[31mlabel found = live105
+[0m	[32mop found = live
+[0mlive106:	live	%42
+	[31mlabel found = live106
+[0m	[32mop found = live
+[0mlive107:	live	%42
+	[31mlabel found = live107
+[0m	[32mop found = live
+[0mlive108:	live	%42
+	[31mlabel found = live108
+[0m	[32mop found = live
+[0mlive109:	live	%42
+	[31mlabel found = live109
+[0m	[32mop found = live
+[0mlive110:	live	%42
+	[31mlabel found = live110
+[0m	[32mop found = live
+[0mlive111:	live	%42
+	[31mlabel found = live111
+[0m	[32mop found = live
+[0mlive112:	live	%42
+	[31mlabel found = live112
+[0m	[32mop found = live
+[0mlive113:	live	%42
+	[31mlabel found = live113
+[0m	[32mop found = live
+[0mlive114:	live	%42
+	[31mlabel found = live114
+[0m	[32mop found = live
+[0mlive115:	live	%42
+	[31mlabel found = live115
+[0m	[32mop found = live
+[0mlive116:	live	%42
+	[31mlabel found = live116
+[0m	[32mop found = live
+[0mlive117:	live	%42
+	[31mlabel found = live117
+[0m	[32mop found = live
+[0mlive118:	live	%42
+	[31mlabel found = live118
+[0m	[32mop found = live
+[0mlive119:	live	%42
+	[31mlabel found = live119
+[0m	[32mop found = live
+[0mlive120:	live	%42
+	[31mlabel found = live120
+[0m	[32mop found = live
+[0mlive121:	live	%42
+	[31mlabel found = live121
+[0m	[32mop found = live
+[0mlive122:	live	%42
+	[31mlabel found = live122
+[0m	[32mop found = live
+[0mlive123:	live	%42
+	[31mlabel found = live123
+[0m	[32mop found = live
+[0mlive124:	live	%42
+	[31mlabel found = live124
+[0m	[32mop found = live
+[0mlive125:	live	%42
+	[31mlabel found = live125
+[0m	[32mop found = live
+[0mlive126:	live	%42
+	[31mlabel found = live126
+[0m	[32mop found = live
+[0mlive127:	live	%42
+	[31mlabel found = live127
+[0m	[32mop found = live
+[0mlive128:	live	%42
+	[31mlabel found = live128
+[0m	[32mop found = live
+[0mlive129:	live	%42
+	[31mlabel found = live129
+[0m	[32mop found = live
+[0mlive130:	live	%42
+	[31mlabel found = live130
+[0m	[32mop found = live
+[0mlive131:	live	%42
+	[31mlabel found = live131
+[0m	[32mop found = live
+[0mlive132:	live	%42
+	[31mlabel found = live132
+[0m	[32mop found = live
+[0mlive133:	live	%42
+	[31mlabel found = live133
+[0m	[32mop found = live
+[0mlive134:	live	%42
+	[31mlabel found = live134
+[0m	[32mop found = live
+[0mlive135:	live	%42
+	[31mlabel found = live135
+[0m	[32mop found = live
+[0mlive136:	live	%42
+	[31mlabel found = live136
+[0m	[32mop found = live
+[0mlive137:	live	%42
+	[31mlabel found = live137
+[0m	[32mop found = live
+[0mlive138:	live	%42
+	[31mlabel found = live138
+[0m	[32mop found = live
+[0mlive139:	live	%42
+	[31mlabel found = live139
+[0m	[32mop found = live
+[0mlive140:	live	%42
+	[31mlabel found = live140
+[0m	[32mop found = live
+[0mlive141:	live	%42
+	[31mlabel found = live141
+[0m	[32mop found = live
+[0mlive142:	live	%42
+	[31mlabel found = live142
+[0m	[32mop found = live
+[0mlive143:	live	%42
+	[31mlabel found = live143
+[0m	[32mop found = live
+[0mlive144:	live	%42
+	[31mlabel found = live144
+[0m	[32mop found = live
+[0mlive145:	live	%42
+	[31mlabel found = live145
+[0m	[32mop found = live
+[0mlive146:	live	%42
+	[31mlabel found = live146
+[0m	[32mop found = live
+[0mlive147:	live	%42
+	[31mlabel found = live147
+[0m	[32mop found = live
+[0mlive148:	live	%42
+	[31mlabel found = live148
+[0m	[32mop found = live
+[0mlive149:	live	%42
+	[31mlabel found = live149
+[0m	[32mop found = live
+[0m		zjmp	%:live101
+	[32mop found = zjmp
+[0m
+fork_avant:	live	%42
+	[32mop found = live
+[0m		fork	%:avant
+	[32mop found = fork
+[0m		zjmp	%:fork_avant
+	[32mop found = zjmp
+[0m	
+avant:		ld	%-5, r5
+	[31mlabel found = avant
+[0m	[32mop found = ld
+[0m		ld	%12, r4
+	[32mop found = ld
+[0mavant2:		ld	%10, r3
+	[31mlabel found = avant2
+[0m	[32mop found = ld
+[0mavant_live:	live %1
+	[32mop found = live
+[0m		sti	r4, %:fin, r3
+	[32mop found = sti
+[0m		sub	r3, r5, r3
+	[32mop found = sub
+[0m		sti	r4, %:fin, r3
+	[32mop found = sti
+[0m		sub	r3, r5, r3
+	[32mop found = sub
+[0m		sti	r4, %:fin, r3
+	[32mop found = sti
+[0m		sub	r3, r5, r3
+	[32mop found = sub
+[0m		sti	r4, %:fin, r3
+	[32mop found = sti
+[0m		sub	r3, r5, r3
+	[32mop found = sub
+[0m		sti	r4, %:fin, r3
+	[32mop found = sti
+[0m		sub	r3, r5, r3
+	[32mop found = sub
+[0m		xor	r3,%435,r15
+	[32mop found = xor
+[0m		zjmp	%:avant2
+	[32mop found = zjmp
+[0m		and	r6, %0, r6
+	[32mop found = and
+[0m		zjmp	%:avant_live
+	[32mop found = zjmp
+[0mfin:		zjmp	%:avant_live
+	[31mlabel found = fin
+[0m	[32mop found = zjmp
+[0mkmissile:	live	%42
+	[31mlabel found = kmissile
+[0m	[32mop found = live
+[0m		fork	%:kfork1
+	[32mop found = fork
+[0m		live	%42
+	[32mop found = live
+[0m		fork	%:kfork2
+	[32mop found = fork
+[0m		live	%42
+	[32mop found = live
+[0m		fork	%:kfork4
+	[32mop found = fork
+[0m		ld	%12,r2
+	[32mop found = ld
+[0m		ld	%192,r5
+	[32mop found = ld
+[0m		and	r6,%0,r6
+	[32mop found = and
+[0m		zjmp	%:kdebut
+	[32mop found = zjmp
+[0m		
+kfork1:		live	%42
+	[31mlabel found = kfork1
+[0m	[32mop found = live
+[0m		fork	%:kfork3
+	[32mop found = fork
+[0m		live	%42
+	[32mop found = live
+[0m		fork	%:kfork6
+	[32mop found = fork
+[0m		ld	%0,r2
+	[32mop found = ld
+[0m		ld	%180,r5
+	[32mop found = ld
+[0m		and	r6,%0,r6
+	[32mop found = and
+[0m		zjmp	%:kdebut
+	[32mop found = zjmp
+[0m	
+kfork2:		live	%42
+	[31mlabel found = kfork2
+[0m	[32mop found = live
+[0m		fork	%:kfork5
+	[32mop found = fork
+[0m		live	%42
+	[32mop found = live
+[0m		ld	%8,r2
+	[32mop found = ld
+[0m		ld	%188,r5
+	[32mop found = ld
+[0m		and	r6,%0,r6
+	[32mop found = and
+[0m		zjmp	%:kdebut
+	[32mop found = zjmp
+[0m	
+kfork3:		live	%42
+	[31mlabel found = kfork3
+[0m	[32mop found = live
+[0m		fork	%:live100
+	[32mop found = fork
+[0m		ld	%4,r2
+	[32mop found = ld
+[0m		ld	%184,r5
+	[32mop found = ld
+[0m		and	r6,%0,r6
+	[32mop found = and
+[0m		zjmp	%:kdebut
+	[32mop found = zjmp
+[0m
+kfork4:		ld	%16,r2
+	[31mlabel found = kfork4
+[0m	[32mop found = ld
+[0m		ld	%196,r5
+	[32mop found = ld
+[0m		and	r6,%0,r6
+	[32mop found = and
+[0m		zjmp	%:kdebut
+	[32mop found = zjmp
+[0m
+kfork5:		ld	%20,r2
+	[31mlabel found = kfork5
+[0m	[32mop found = ld
+[0m		ld	%200,r5
+	[32mop found = ld
+[0m		and	r6,%0,r6
+	[32mop found = and
+[0m		zjmp	%:kdebut
+	[32mop found = zjmp
+[0m
+kfork6:		ld	%24,r2
+	[31mlabel found = kfork6
+[0m	[32mop found = ld
+[0m		ld	%204,r5
+	[32mop found = ld
+[0m		and	r6,%0,r6
+	[32mop found = and
+[0m		zjmp	%:kdebut
+	[32mop found = zjmp
+[0m
+kdebut:		ldi	%:kdebut,r2,r3 
+	[31mlabel found = kdebut
+[0m	[32mop found = ldi
+[0m		sti	r3,r5,%:kfin   
+	[32mop found = sti
+[0m		live	%42
+	[32mop found = live
+[0m		and	r6,%0,r6
+	[32mop found = and
+[0mkfin:		zjmp	%180
+	[31mlabel found = kfin
+[0m	[32mop found = zjmp
+[0m
+
+
+
+
+.name "zork"
+.comment "just a basic living prog"
+		
+l2:	sti	r1,%:live,%0
+	[31mlabel found = l2
+[0m	[32mop found = live
+[0m	[32mop found = sti
+[0m	and	r1,%0,r1
+	[32mop found = and
+[0mlive:	live	%1
+	[31mlabel found = live
+[0m	[32mop found = live
+[0m	zjmp	%:live
+	[32mop found = live
+[0m	[32mop found = zjmp
+[0m#debut du mega truc qu'il est trop dur a faire
+
+.name "Jumper !"
+.comment "en fait C forker !"
+
+gobepc:	st r1,:buff
+	[31mlabel found = gobepc
+[0m	[32mop found = st
+[0m	st r6,-4
+	[32mop found = st
+[0m	ld :buff,r1
+	[32mop found = ld
+[0mdebut:	ld %0,r7
+	[31mlabel found = debut
+[0m	[32mop found = ld
+[0m	zjmp %:suite
+	[32mop found = zjmp
+[0m
+goboucle0:	live %66
+	[31mlabel found = goboucle0
+[0m	[32mop found = live
+[0m		ldi %-5,r3,r1
+	[32mop found = ldi
+[0m		sti r1,%-173,r3
+	[32mop found = sti
+[0m		add r3,r4,r3
+	[32mop found = add
+[0m		xor r5,r3,r6
+	[32mop found = xor
+[0m		zjmp %:finboucle0
+	[32mop found = zjmp
+[0m		ld %0,r7
+	[32mop found = ld
+[0m		zjmp %:goboucle0
+	[32mop found = zjmp
+[0mfinboucle0:	xor r3,r3,r3
+	[31mlabel found = finboucle0
+[0m	[32mop found = xor
+[0m		zjmp %-207
+	[32mop found = zjmp
+[0m
+buff:	st r1,r1	
+	[31mlabel found = buff
+[0m	[32mop found = st
+[0m		
+suite:	sti r1,%:livel,%1
+	[31mlabel found = suite
+[0m	[32mop found = sti
+[0mlivel:	live %66
+	[31mlabel found = livel
+[0m	[32mop found = live
+[0m	sti r2,%:debut,%-60
+	[32mop found = sti
+[0m	ld %4,r4
+	[32mop found = ld
+[0m	st r2,512
+	[32mop found = st
+[0mgo:	ld %48,r5
+	[31mlabel found = go
+[0m	[32mop found = ld
+[0m	sti r1,%:goboucle0,%1
+	[32mop found = sti
+[0m	sti r1,%:goboucle1,%1
+	[32mop found = sti
+[0m	sti r1,%:live0,%1
+	[32mop found = sti
+[0m	sti r1,%:live1,%1
+	[32mop found = sti
+[0m	sti r1,%:live2,%1
+	[32mop found = sti
+[0m	sti r1,%:live3,%1
+	[32mop found = sti
+[0m	sti r1,%:live4,%1
+	[32mop found = sti
+[0mlive0:	live %66
+	[31mlabel found = live0
+[0m	[32mop found = live
+[0mlive1:	live %66
+	[31mlabel found = live1
+[0m	[32mop found = live
+[0mlive2:	live %66
+	[31mlabel found = live2
+[0m	[32mop found = live
+[0mlive3:	live %66
+	[31mlabel found = live3
+[0m	[32mop found = live
+[0mlive4:	live %66
+	[31mlabel found = live4
+[0m	[32mop found = live
+[0m	zjmp %:live0
+	[32mop found = zjmp
+[0m	xor r3,r3,r3
+	[32mop found = xor
+[0m	sti r1,%:livex,%1
+	[32mop found = sti
+[0mlivex:	live %66
+	[31mlabel found = livex
+[0m	[32mop found = live
+[0m	fork %:live0
+	[32mop found = fork
+[0m	sti r1,%:boucle,%1
+	[32mop found = sti
+[0m	sti r1,%:boucle,%9
+	[32mop found = sti
+[0m	sti r1,%:boucle,%17
+	[32mop found = sti
+[0m	sti r1,%:boucle,%25
+	[32mop found = sti
+[0m	
+boucle:	live %66
+	[31mlabel found = boucle
+[0m	[32mop found = live
+[0m	fork %:goboucle0
+	[32mop found = fork
+[0m	live %66
+	[32mop found = live
+[0m	fork %:boucle
+	[32mop found = fork
+[0m	live %66
+	[32mop found = live
+[0m	fork %:goboucle1
+	[32mop found = fork
+[0m	live %66
+	[32mop found = live
+[0m	zjmp %:goboucle0
+	[32mop found = zjmp
+[0mgoboucle1:	live %66
+	[31mlabel found = goboucle1
+[0m	[32mop found = live
+[0m		ldi %-5,r3,r1
+	[32mop found = ldi
+[0m		sti r1,%17,r3
+	[32mop found = sti
+[0m		add r3,r4,r3
+	[32mop found = add
+[0m		xor r5,r3,r6
+	[32mop found = xor
+[0m		zjmp %:finboucle1
+	[32mop found = zjmp
+[0m		ld %0,r7
+	[32mop found = ld
+[0m		zjmp %:goboucle1
+	[32mop found = zjmp
+[0mfinboucle1:	xor r3,r3,r3
+	[31mlabel found = finboucle1
+[0m	[32mop found = xor
+[0m		zjmp %1
+	[32mop found = zjmp
+[0m.name	"LDE LDE LDE"
+	ld %0,r6
+	[32mop found = ld
+[0m	sti r1,%:suitb,%1
+	[32mop found = sti
+[0m	sti r1,%:suitb,%6
+	[32mop found = sti
+[0m	sti r1,%:suitb,%11
+	[32mop found = sti
+[0m	sti r1,%:suitb,%16
+	[32mop found = sti
+[0m	sti r1,%:suitb,%21
+	[32mop found = sti
+[0m	sti r1,%:suitb,%26
+	[32mop found = sti
+[0m	sti r1,%:suitb,%31
+	[32mop found = sti
+[0m	sti r1,%:suitb,%36
+	[32mop found = sti
+[0m	sti r1,%:suitb,%41
+	[32mop found = sti
+[0m	sti r1,%:suitb,%46
+	[32mop found = sti
+[0m	sti r1,%:suitb,%51
+	[32mop found = sti
+[0m	sti r1,%:suitb,%63
+	[32mop found = sti
+[0mhop:	live %1
+	[31mlabel found = hop
+[0m	[32mop found = live
+[0m
+	fork %:decal2
+	[32mop found = fork
+[0m	live %1
+	[32mop found = live
+[0m	ld %0,r2
+	[32mop found = ld
+[0m	zjmp %:decal
+	[32mop found = zjmp
+[0mtoto:	st r15,-480
+	[31mlabel found = toto
+[0m	[32mop found = st
+[0m	st r4,-481
+	[32mop found = st
+[0m	st r7,-482
+	[32mop found = st
+[0m	st r8,-483
+	[32mop found = st
+[0m	st r13,-484
+	[32mop found = st
+[0m	st r14,-485
+	[32mop found = st
+[0m	zjmp %-510
+	[32mop found = zjmp
+[0m	
+	
+decal2: live %1
+	[31mlabel found = decal2
+[0m	[32mop found = live
+[0m	fork %:suite
+	[32mop found = fork
+[0m	live %1
+	[32mop found = live
+[0m	ld %57672448,r5
+	[32mop found = ld
+[0m	ld %67334147,r6
+	[32mop found = ld
+[0m
+	ld %57673214,r9
+	[32mop found = ld
+[0m	ld %201551878,r10
+	[32mop found = ld
+[0m	ld %4262136318,r11
+	[32mop found = ld
+[0m	ld %33554432,r12
+	[32mop found = ld
+[0m
+	ld %57674238,r15
+	[32mop found = ld
+[0m	ld %369324042,r4
+	[32mop found = ld
+[0m	ld %4262790000,r7
+	[32mop found = ld
+[0m	ld %201200643,r8
+	[32mop found = ld
+[0m	ld %1879899667,r13
+	[32mop found = ld
+[0m	ld %167641600,r14
+	[32mop found = ld
+[0m	
+	fork %:separ2
+	[32mop found = fork
+[0m	live %4
+	[32mop found = live
+[0m	ld %134443011,r3
+	[32mop found = ld
+[0m	sti r1,%:middle,%1
+	[32mop found = sti
+[0m	sti r1,%:middle,%6
+	[32mop found = sti
+[0m	sti r1,%:middle,%11
+	[32mop found = sti
+[0m	sti r1,%:middle,%16
+	[32mop found = sti
+[0m	sti r1,%:middle,%21
+	[32mop found = sti
+[0m
+	ld %0,r2
+	[32mop found = ld
+[0m	zjmp %:toto
+	[32mop found = zjmp
+[0msepar2:	live %3
+	[31mlabel found = separ2
+[0m	[32mop found = live
+[0m	ld %263024,r3
+	[32mop found = ld
+[0m	sti r1,%:middle,%26
+	[32mop found = sti
+[0m	sti r1,%:middle,%31
+	[32mop found = sti
+[0m	sti r1,%:middle,%36
+	[32mop found = sti
+[0m	sti r1,%:middle,%41
+	[32mop found = sti
+[0m	sti r1,%:middle,%53
+	[32mop found = sti
+[0m
+	xor r2,r2,r2
+	[32mop found = xor
+[0m	zjmp %:toto
+	[32mop found = zjmp
+[0m	
+padec2:	live %1
+	[31mlabel found = padec2
+[0m	[32mop found = live
+[0m	fork %:suite
+	[32mop found = fork
+[0m	live %1
+	[32mop found = live
+[0m	ld %0,r2
+	[32mop found = ld
+[0m	zjmp %:decal
+	[32mop found = zjmp
+[0m
+	
+suite:	live %1
+	[31mlabel found = suite
+[0m	[32mop found = live
+[0m	fork %:hop
+	[32mop found = fork
+[0m	live %1
+	[32mop found = live
+[0m	fork %:middle
+	[32mop found = fork
+[0msuitb:	live %1
+	[31mlabel found = suitb
+[0m	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	ld %0,r6
+	[32mop found = ld
+[0m	live %1
+	[32mop found = live
+[0m	zjmp %:suitb
+	[32mop found = zjmp
+[0mmiddle:	live %1
+	[31mlabel found = middle
+[0m	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	ld %0,r6
+	[32mop found = ld
+[0m	live %1
+	[32mop found = live
+[0m	zjmp %:middle
+	[32mop found = zjmp
+[0m
+	
+decal:	live %1
+	[31mlabel found = decal
+[0m	[32mop found = live
+[0m	fork %:fuite
+	[32mop found = fork
+[0m	live %1
+	[32mop found = live
+[0m	ld %57672448,r5
+	[32mop found = ld
+[0m	ld %67334147,r6
+	[32mop found = ld
+[0m
+	ld %57672961,r9
+	[32mop found = ld
+[0m	ld %4228083718,r10
+	[32mop found = ld
+[0m	ld %33229057,r11
+	[32mop found = ld
+[0m	ld %4060086272,r12
+	[32mop found = ld
+[0m
+	ld %57673985,r15
+	[32mop found = ld
+[0m	ld %4228083722,r4
+	[32mop found = ld
+[0m	ld %33227632,r7
+	[32mop found = ld
+[0m	ld %184678915,r8
+	[32mop found = ld
+[0m	ld %1879835129,r13
+	[32mop found = ld
+[0m	ld %151119872,r14
+	[32mop found = ld
+[0m	
+	fork %:sepa
+	[32mop found = fork
+[0m	live %4
+	[32mop found = live
+[0m	ld %134443011,r3
+	[32mop found = ld
+[0m	ld %0,r2
+	[32mop found = ld
+[0m	zjmp %:tot
+	[32mop found = zjmp
+[0msepa:	live %3
+	[31mlabel found = sepa
+[0m	[32mop found = live
+[0m	ld %263024,r3
+	[32mop found = ld
+[0m	xor r2,r2,r2
+	[32mop found = xor
+[0m	zjmp %:tot
+	[32mop found = zjmp
+[0m
+	live %4
+	[32mop found = live
+[0m	live %4
+	[32mop found = live
+[0m	live %4
+	[32mop found = live
+[0m	live %4
+	[32mop found = live
+[0m	live %4
+	[32mop found = live
+[0m	live %4
+	[32mop found = live
+[0m	live %4
+	[32mop found = live
+[0m	live %4
+	[32mop found = live
+[0m	live %4
+	[32mop found = live
+[0m	live %4
+	[32mop found = live
+[0m	live %4
+	[32mop found = live
+[0m	live %4
+	[32mop found = live
+[0m	live %4
+	[32mop found = live
+[0m	live %4
+	[32mop found = live
+[0m	live %4
+	[32mop found = live
+[0m	
+tot:	st r15,488
+	[31mlabel found = tot
+[0m	[32mop found = st
+[0m	st r4,487
+	[32mop found = st
+[0m	st r7,486
+	[32mop found = st
+[0m	st r8,485
+	[32mop found = st
+[0m	st r13,484
+	[32mop found = st
+[0m	st r14,483
+	[32mop found = st
+[0m	zjmp %458
+	[32mop found = zjmp
+[0m	
+	
+fuite:	live %1
+	[31mlabel found = fuite
+[0m	[32mop found = live
+[0m	fork %:separe
+	[32mop found = fork
+[0m	live %4
+	[32mop found = live
+[0m	ld %134443011,r3
+	[32mop found = ld
+[0m	ld %0,r2
+	[32mop found = ld
+[0m	zjmp %:debut
+	[32mop found = zjmp
+[0msepare:	live %3
+	[31mlabel found = separe
+[0m	[32mop found = live
+[0m	ld %263024,r3
+	[32mop found = ld
+[0m	xor r2,r2,r2
+	[32mop found = xor
+[0m	zjmp %:debut
+	[32mop found = zjmp
+[0mdebut:	st r3,4
+	[31mlabel found = debut
+[0m	[32mop found = st
+[0m.name	"Leeloo"
+.comment "Multipass"
+	
+begin:	ld %0,r6
+	[31mlabel found = begin
+[0m	[32mop found = ld
+[0mjump:	zjmp %:deb
+	[31mlabel found = jump
+[0m	[32mop found = zjmp
+[0m	
+pare:	st r16,:begin -52
+	[31mlabel found = pare
+[0m	[32mop found = st
+[0m	st r16,:begin -44
+	[32mop found = st
+[0m	st r16,:begin -52
+	[32mop found = st
+[0m	st r16,:begin -44
+	[32mop found = st
+[0m	st r16,:begin -52
+	[32mop found = st
+[0m	st r16,:begin -44
+	[32mop found = st
+[0m	st r16,:begin -52
+	[32mop found = st
+[0m	live %1
+	[32mop found = live
+[0m	st r16,:begin -44
+	[32mop found = st
+[0m	st r16,:begin -52
+	[32mop found = st
+[0m	st r16,:begin -44
+	[32mop found = st
+[0m	st r16,:begin -52
+	[32mop found = st
+[0m	st r16,:begin -44
+	[32mop found = st
+[0m	st r16,:begin -52
+	[32mop found = st
+[0m	st r16,:begin -44
+	[32mop found = st
+[0m	zjmp %:pare
+	[32mop found = zjmp
+[0mtoto:	st r15,-480
+	[31mlabel found = toto
+[0m	[32mop found = st
+[0m	st r4,-481
+	[32mop found = st
+[0m	st r7,-482
+	[32mop found = st
+[0m	st r8,-483
+	[32mop found = st
+[0m	st r13,-484
+	[32mop found = st
+[0m	st r14,-485
+	[32mop found = st
+[0m	zjmp %-510
+	[32mop found = zjmp
+[0mdeb:	
+	[31mlabel found = deb
+[0mst1:	st r1,:lastlive1 +1
+	[31mlabel found = st1
+[0m	[32mop found = st
+[0mst2:	st r1,:lastlive2 +1
+	[31mlabel found = st2
+[0m	[32mop found = st
+[0mst3:	st r1,:lastlive3 +1
+	[31mlabel found = st3
+[0m	[32mop found = st
+[0mst4:	st r1,:lastlive4 +1
+	[31mlabel found = st4
+[0m	[32mop found = st
+[0mst5:	st r1,:live1 +1
+	[31mlabel found = st5
+[0m	[32mop found = st
+[0mst6:	st r1,:live2 +1
+	[31mlabel found = st6
+[0m	[32mop found = st
+[0mst7:	st r1,:live3 +1
+	[31mlabel found = st7
+[0m	[32mop found = st
+[0mst8:	st r1,:live4 +1
+	[31mlabel found = st8
+[0m	[32mop found = st
+[0m	st r16,:jump
+	[32mop found = st
+[0m	st r16,:begin -4
+	[32mop found = st
+[0m	st r16,:begin -8
+	[32mop found = st
+[0m	st r16,:begin -12
+	[32mop found = st
+[0m
+hop:	live %1
+	[31mlabel found = hop
+[0m	[32mop found = live
+[0m	fork %:decal2
+	[32mop found = fork
+[0m	live %1
+	[32mop found = live
+[0m	ld %0,r2
+	[32mop found = ld
+[0m	zjmp %:decal
+	[32mop found = zjmp
+[0m
+toto1:	zjmp %:toto	
+	[31mlabel found = toto1
+[0m	[32mop found = zjmp
+[0mpare1:	ld %0,r16
+	[31mlabel found = pare1
+[0m	[32mop found = ld
+[0m	zjmp %:pare	
+	[32mop found = zjmp
+[0mdecal2: live %1
+	[31mlabel found = decal2
+[0m	[32mop found = live
+[0m	fork %:suite
+	[32mop found = fork
+[0m	live %1
+	[32mop found = live
+[0m	ld %57672448,r5
+	[32mop found = ld
+[0m	ld %67334147,r6
+	[32mop found = ld
+[0m
+	ld %57673214,r9
+	[32mop found = ld
+[0m	ld %201551878,r10
+	[32mop found = ld
+[0m	ld %4262136318,r11
+	[32mop found = ld
+[0m	ld %33554432,r12
+	[32mop found = ld
+[0m
+	ld %57674238,r15
+	[32mop found = ld
+[0m	ld %369324042,r4
+	[32mop found = ld
+[0m	ld %4262790000,r7
+	[32mop found = ld
+[0m	ld %201200643,r8
+	[32mop found = ld
+[0m	ld %1879899667,r13
+	[32mop found = ld
+[0m	ld %167641600,r14
+	[32mop found = ld
+[0m	
+	fork %:separ2
+	[32mop found = fork
+[0m	live %4
+	[32mop found = live
+[0m	ld %0x08F40370,r3   #ld %0x07F40370,r3
+	[32mop found = ld
+[0m
+	ld %0,r2
+	[32mop found = ld
+[0m	zjmp %:toto
+	[32mop found = zjmp
+[0msepar2:	live %3
+	[31mlabel found = separ2
+[0m	[32mop found = live
+[0m	ld %0x037004F4,r3  #ld %0x70037004,r3
+	[32mop found = ld
+[0m
+	xor r2,r2,r2
+	[32mop found = xor
+[0m	zjmp %:toto
+	[32mop found = zjmp
+[0m	
+padec2:	live %1
+	[31mlabel found = padec2
+[0m	[32mop found = live
+[0m	fork %:suite
+	[32mop found = fork
+[0m	live %1
+	[32mop found = live
+[0m	ld %0,r2
+	[32mop found = ld
+[0m	zjmp %:decal
+	[32mop found = zjmp
+[0m
+catch1:	zjmp %:catch
+	[31mlabel found = catch1
+[0m	[32mop found = zjmp
+[0m	
+suite:	live %1
+	[31mlabel found = suite
+[0m	[32mop found = live
+[0m	fork %:hop
+	[32mop found = fork
+[0m	live %1
+	[32mop found = live
+[0m	fork %:just
+	[32mop found = fork
+[0mjust:	live %3
+	[31mlabel found = just
+[0m	[32mop found = live
+[0m	fork %:just2
+	[32mop found = fork
+[0mjust2:	live %3
+	[31mlabel found = just2
+[0m	[32mop found = live
+[0m	fork %:just3
+	[32mop found = fork
+[0mjust3:	live %3
+	[31mlabel found = just3
+[0m	[32mop found = live
+[0m	fork %:just4
+	[32mop found = fork
+[0m	live %3
+	[32mop found = live
+[0mjust4:	live %3
+	[31mlabel found = just4
+[0m	[32mop found = live
+[0m	fork %:just5
+	[32mop found = fork
+[0m	live %3
+	[32mop found = live
+[0mjust5:	fork %:middle
+	[31mlabel found = just5
+[0m	[32mop found = fork
+[0msuitb:	live %3
+	[31mlabel found = suitb
+[0m	[32mop found = live
+[0m	st r16,:st1+1
+	[32mop found = st
+[0m	live %3
+	[32mop found = live
+[0m	st r16,:st1+1
+	[32mop found = st
+[0m	live %3
+	[32mop found = live
+[0m	st r16,:st1+1
+	[32mop found = st
+[0mlive1:	live %3
+	[31mlabel found = live1
+[0m	[32mop found = live
+[0m	st r16,:st1+1
+	[32mop found = st
+[0mlive2:	live %3
+	[31mlabel found = live2
+[0m	[32mop found = live
+[0m	st r16,:st1+1
+	[32mop found = st
+[0mlastlive1: live %1
+	[31mlabel found = lastlive1
+[0m	[32mop found = live
+[0m	ld %0,r6
+	[32mop found = ld
+[0mlastlive2: live %1
+	[31mlabel found = lastlive2
+[0m	[32mop found = live
+[0m	zjmp %:suitb
+	[32mop found = zjmp
+[0mmiddle:	live %3
+	[31mlabel found = middle
+[0m	[32mop found = live
+[0m	st r16,:st2+1
+	[32mop found = st
+[0m	live %3
+	[32mop found = live
+[0m	st r16,:st2+1
+	[32mop found = st
+[0m	live %3
+	[32mop found = live
+[0m	st r16,:st2+1
+	[32mop found = st
+[0mlive3:	live %3
+	[31mlabel found = live3
+[0m	[32mop found = live
+[0m	st r16,:st2+1
+	[32mop found = st
+[0mlive4:	live %4
+	[31mlabel found = live4
+[0m	[32mop found = live
+[0mlastlive3: live %1
+	[31mlabel found = lastlive3
+[0m	[32mop found = live
+[0m	ld %0,r6
+	[32mop found = ld
+[0mlastlive4: live %1
+	[31mlabel found = lastlive4
+[0m	[32mop found = live
+[0m	zjmp %:middle
+	[32mop found = zjmp
+[0m
+	
+decal:	live %1
+	[31mlabel found = decal
+[0m	[32mop found = live
+[0m	fork %:pare1
+	[32mop found = fork
+[0m	live %1
+	[32mop found = live
+[0m	fork %:fuite
+	[32mop found = fork
+[0m	live %1
+	[32mop found = live
+[0m	ld %0x03700300,r5
+	[32mop found = ld
+[0m	ld %0x04037003,r6
+	[32mop found = ld
+[0m
+	ld %0x03700501,r9
+	[32mop found = ld
+[0m	ld %0xFC037006,r10
+	[32mop found = ld
+[0m	ld %0x01FB0901,r11
+	[32mop found = ld
+[0m	ld %0xF2000000,r12
+	[32mop found = ld
+[0m
+	ld %0x03700901,r15
+	[32mop found = ld
+[0m	ld %0xFC03700A,r4
+	[32mop found = ld
+[0m	ld %0x01FB0370,r7
+	[32mop found = ld
+[0m	ld %0x0B01FA03,r8
+	[32mop found = ld
+[0m	ld %0x700C01F9,r13
+	[32mop found = ld
+[0m	ld %0x0901E800,r14
+	[32mop found = ld
+[0m	
+	fork %:sepa
+	[32mop found = fork
+[0m	live %4
+	[32mop found = live
+[0m	ld %0x07510370,r3
+	[32mop found = ld
+[0m	ld %0,r2
+	[32mop found = ld
+[0m	zjmp %:tot
+	[32mop found = zjmp
+[0msepa:	live %3
+	[31mlabel found = sepa
+[0m	[32mop found = live
+[0m	ld %0x70037004,r3
+	[32mop found = ld
+[0m	xor r2,r2,r2
+	[32mop found = xor
+[0m	zjmp %:tot
+	[32mop found = zjmp
+[0mcatch:	
+	[31mlabel found = catch
+[0m	live %5
+	[32mop found = live
+[0m	live %5
+	[32mop found = live
+[0m	live %5
+	[32mop found = live
+[0m	live %5
+	[32mop found = live
+[0m	live %5
+	[32mop found = live
+[0m	live %5
+	[32mop found = live
+[0m	live %5
+	[32mop found = live
+[0m	live %5
+	[32mop found = live
+[0m	live %5
+	[32mop found = live
+[0m	live %5
+	[32mop found = live
+[0m	live %5
+	[32mop found = live
+[0m	live %5
+	[32mop found = live
+[0m	live %5
+	[32mop found = live
+[0m	ld %0,r16
+	[32mop found = ld
+[0m	zjmp %:catch
+	[32mop found = zjmp
+[0m	
+fuite:	live %1
+	[31mlabel found = fuite
+[0m	[32mop found = live
+[0m	fork %:separe
+	[32mop found = fork
+[0m	live %4
+	[32mop found = live
+[0m	ld %0x07510370,r3
+	[32mop found = ld
+[0m	ld %0,r2
+	[32mop found = ld
+[0m	zjmp %:debut
+	[32mop found = zjmp
+[0msepare:	live %3
+	[31mlabel found = separe
+[0m	[32mop found = live
+[0m	ld %0x70037004,r3
+	[32mop found = ld
+[0m	xor r2,r2,r2
+	[32mop found = xor
+[0m	zjmp %:debut
+	[32mop found = zjmp
+[0m	
+		
+tot:	st r15,488
+	[31mlabel found = tot
+[0m	[32mop found = st
+[0m	st r4,487
+	[32mop found = st
+[0m	st r7,486
+	[32mop found = st
+[0m	st r8,485
+	[32mop found = st
+[0m	st r13,484
+	[32mop found = st
+[0m	st r14,483
+	[32mop found = st
+[0m	zjmp %458
+	[32mop found = zjmp
+[0m	
+debut:	st r3,4
+	[31mlabel found = debut
+[0m	[32mop found = st
+[0mfin:
+	[31mlabel found = fin
+[0m
+avant:	
+	[31mlabel found = avant
+[0m
+#	075103700370075103700771
+
+arriere:
+	[31mlabel found = arriere
+[0m
+#       08 F4 03 70 03 70 08 F4 03 70
+
+
+.name "Mat"
+.comment "Mat"
+
+	xor r0,r0,r0
+	[32mop found = xor
+[0m	zjmp %:deb1
+	[32mop found = zjmp
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0mdeb1:	zjmp %:deb
+	[31mlabel found = deb1
+[0m	[32mop found = zjmp
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0m	live %1
+	[32mop found = live
+[0mdeb:	fork %12
+	[31mlabel found = deb
+[0m	[32mop found = fork
+[0m	ld %0x70000004,r0
+	[32mop found = ld
+[0m.code 03 FF FF
+	ld %0x08030003,r0
+	[32mop found = ld
+[0m	live %1
+	[32mop found = live
+[0m	st r0,4
+	[32mop found = st
+[0m	
+
+.name " maxidef "
+.comment " module de defense"
+
+loop:	live %0
+	[31mlabel found = loop
+[0m	[32mop found = live
+[0m	zjmp %8
+	[32mop found = zjmp
+[0m
+gobepc:	st r1,6			# 03 70 01 00 06			5
+	[31mlabel found = gobepc
+[0m	[32mop found = st
+[0m	live %66		# 01 00 00 00 42			10
+	[32mop found = live
+[0m	ld -4,r1		# 02 d0 ff fc 01			5
+	[32mop found = ld
+[0m	st r2,-14		# 03 70 02 ff f2			5
+	[32mop found = st
+[0m	
+	ld %0,r5
+	[32mop found = ld
+[0m	zjmp %:init
+	[32mop found = zjmp
+[0m
+slide2:	zjmp %-492
+	[31mlabel found = slide2
+[0m	[32mop found = zjmp
+[0m
+slide1: live %1
+	[31mlabel found = slide1
+[0m	[32mop found = live
+[0m	st r2,-385
+	[32mop found = st
+[0m	st r4,-386
+	[32mop found = st
+[0mdefm:	st r3,-510
+	[31mlabel found = defm
+[0m	[32mop found = st
+[0m	st r3,-510
+	[32mop found = st
+[0m	st r3,-510
+	[32mop found = st
+[0m	st r3,-510
+	[32mop found = st
+[0m	st r3,-510
+	[32mop found = st
+[0m	st r3,-510
+	[32mop found = st
+[0m	st r3,-510
+	[32mop found = st
+[0m	st r3,-510
+	[32mop found = st
+[0m	st r3,-510
+	[32mop found = st
+[0m	st r3,-510
+	[32mop found = st
+[0m	st r3,-510
+	[32mop found = st
+[0m	st r3,-510
+	[32mop found = st
+[0m	st r3,-510
+	[32mop found = st
+[0m	st r3,-510
+	[32mop found = st
+[0m	st r3,-510
+	[32mop found = st
+[0m	st r3,-510
+	[32mop found = st
+[0m	st r3,-510
+	[32mop found = st
+[0m	st r3,-510
+	[32mop found = st
+[0m	st r3,-510
+	[32mop found = st
+[0m	st r3,-510
+	[32mop found = st
+[0m	st r3,-510
+	[32mop found = st
+[0m	st r3,-510
+	[32mop found = st
+[0m	st r3,-510
+	[32mop found = st
+[0mdeflv:	live %1
+	[31mlabel found = deflv
+[0m	[32mop found = live
+[0m	zjmp %:defm
+	[32mop found = zjmp
+[0m
+
+init:	ld %57672703,r3
+	[31mlabel found = init
+[0m	[32mop found = ld
+[0m	#ld %57672560,r3
+	sti r1,%:loop,%1
+	[32mop found = sti
+[0m	sti r1,%:source,%1
+	[32mop found = sti
+[0m	sti r1,%:source,%9
+	[32mop found = sti
+[0m	sti r1,%:arbre,%1
+	[32mop found = sti
+[0m	sti r1,%:gen21,%1
+	[32mop found = sti
+[0m	sti r1,%:gen22,%1
+	[32mop found = sti
+[0m	sti r1,%:deflv,%1
+	[32mop found = sti
+[0m	sti r1,%:slide1,%1
+	[32mop found = sti
+[0m	ld :deflv,r2
+	[32mop found = ld
+[0m	ldi %:deflv,%4,r4
+	[32mop found = ldi
+[0m	ld %0,r5
+	[32mop found = ld
+[0m
+source:	live %1
+	[31mlabel found = source
+[0m	[32mop found = live
+[0m	fork %-5
+	[32mop found = fork
+[0m	live %1
+	[32mop found = live
+[0m	zjmp %:arbre
+	[32mop found = zjmp
+[0m
+arbre:	live %1
+	[31mlabel found = arbre
+[0m	[32mop found = live
+[0m	fork %:gen22	
+	[32mop found = fork
+[0m
+
+gen21:	live %1		
+	[31mlabel found = gen21
+[0m	[32mop found = live
+[0m	zjmp %:slide1
+	[32mop found = zjmp
+[0mgen22:	live %1		
+	[31mlabel found = gen22
+[0m	[32mop found = live
+[0m	zjmp %:slide2
+	[32mop found = zjmp
+[0m
+
+.name	"Booster !"
+.comment "Alors la, si ca marche, trop content !  :)"
+
+boost:	ld %12,r2
+	[31mlabel found = boost
+[0m	[32mop found = ld
+[0m	ld %3,r3
+	[32mop found = ld
+[0m	ld %4,r4
+	[32mop found = ld
+[0m	ld %5,r7
+	[32mop found = ld
+[0m
+	sti r1,%:live1,%1
+	[32mop found = sti
+[0mlive1:	live %66
+	[31mlabel found = live1
+[0m	[32mop found = live
+[0m	sti r1,%:fork0,%1
+	[32mop found = sti
+[0m	sti r1,%:fork1,%1
+	[32mop found = sti
+[0m	sti r1,%:fork2,%1
+	[32mop found = sti
+[0m	sti r1,%:wait,%1
+	[32mop found = sti
+[0m	sti r1,%:master,%1
+	[32mop found = sti
+[0m	sti r1,%:numero1,%1
+	[32mop found = sti
+[0m	sti r1,%:numero2,%1
+	[32mop found = sti
+[0m
+	sti r1,%:live,%-4
+	[32mop found = live
+[0m	[32mop found = sti
+[0m	ldi %:live,%-2,r6
+	[32mop found = live
+[0m	[32mop found = ldi
+[0mfork0:	live %66
+	[31mlabel found = fork0
+[0m	[32mop found = live
+[0m	fork %:numero1
+	[32mop found = fork
+[0mfork1:	live %66
+	[31mlabel found = fork1
+[0m	[32mop found = live
+[0m	fork %:numero2
+	[32mop found = fork
+[0mfork2:	live %66
+	[31mlabel found = fork2
+[0m	[32mop found = live
+[0m#	fork %:fork0
+	[32mop found = fork
+[0m
+master:	live %66
+	[31mlabel found = master
+[0m	[32mop found = live
+[0m	ld %0,r3
+	[32mop found = ld
+[0m	ld %16777216,r6
+	[32mop found = ld
+[0m#	ldi %:master,%0,r6
+	[32mop found = ldi
+[0m	ld %0,r5
+	[32mop found = ld
+[0m	zjmp %:ready
+	[32mop found = zjmp
+[0m
+numero1: live %66
+	[31mlabel found = numero1
+[0m	[32mop found = live
+[0m	ld %3,r3
+	[32mop found = ld
+[0m	ld %68436,r2
+	[32mop found = ld
+[0m#	ldi %:live,%-2,r6
+	[32mop found = live
+[0m	[32mop found = ldi
+[0m	ld %0,r5
+	[32mop found = ld
+[0m	zjmp %:ready
+	[32mop found = zjmp
+[0m
+numero2: live %66
+	[31mlabel found = numero2
+[0m	[32mop found = live
+[0m	ld %6,r3
+	[32mop found = ld
+[0m	ld %1409680135,r6
+	[32mop found = ld
+[0m#	ldi %:tampon,%1,r6
+	[32mop found = ldi
+[0m	ld %0,r5
+	[32mop found = ld
+[0m	zjmp %:ready
+	[32mop found = zjmp
+[0m
+tampon:	sti r6,r3,r5
+	[31mlabel found = tampon
+[0m	[32mop found = sti
+[0mlive:	sti r1,r5,r5
+	[31mlabel found = live
+[0m	[32mop found = sti
+[0m
+ready:	sti r6,r3,%:ecriture
+	[31mlabel found = ready
+[0m	[32mop found = sti
+[0m
+wait:	live %66
+	[31mlabel found = wait
+[0m	[32mop found = live
+[0m	zjmp %:ecriture
+	[32mop found = zjmp
+[0m
+ecriture: zjmp %:wait
+	[31mlabel found = ecriture
+[0m	[32mop found = zjmp
+[0m
+
+
+.name	"Leeloo"
+.comment "Multipass"
+.extend
+	
+begin:	ld %0,r6
+	[31mlabel found = begin
+[0m	[32mop found = ld
+[0mjump:	zjmp %:deb
+	[31mlabel found = jump
+[0m	[32mop found = zjmp
+[0m.code	00	
+pare:	st r0,:begin -52
+	[31mlabel found = pare
+[0m	[32mop found = st
+[0m	st r0,:begin -44
+	[32mop found = st
+[0m	st r0,:begin -52
+	[32mop found = st
+[0m	st r0,:begin -44
+	[32mop found = st
+[0m	st r0,:begin -52
+	[32mop found = st
+[0m	st r0,:begin -44
+	[32mop found = st
+[0m	st r0,:begin -52
+	[32mop found = st
+[0m	live %1
+	[32mop found = live
+[0m	st r0,:begin -44
+	[32mop found = st
+[0m	st r0,:begin -52
+	[32mop found = st
+[0m	st r0,:begin -44
+	[32mop found = st
+[0m	st r0,:begin -52
+	[32mop found = st
+[0m	st r0,:begin -44
+	[32mop found = st
+[0m	st r0,:begin -52
+	[32mop found = st
+[0m	st r0,:begin -44
+	[32mop found = st
+[0m	zjmp %:pare
+	[32mop found = zjmp
+[0mtoto:	st r15,-480
+	[31mlabel found = toto
+[0m	[32mop found = st
+[0m	st r4,-481
+	[32mop found = st
+[0m	st r7,-482
+	[32mop found = st
+[0m	st r8,-483
+	[32mop found = st
+[0m	st r13,-484
+	[32mop found = st
+[0m	st r14,-485
+	[32mop found = st
+[0m	zjmp %-510
+	[32mop found = zjmp
+[0mdeb:	
+	[31mlabel found = deb
+[0mst1:	st r1,:lastlive1 +1
+	[31mlabel found = st1
+[0m	[32mop found = st
+[0mst2:	st r1,:lastlive2 +1
+	[31mlabel found = st2
+[0m	[32mop found = st
+[0mst3:	st r1,:lastlive3 +1
+	[31mlabel found = st3
+[0m	[32mop found = st
+[0mst4:	st r1,:lastlive4 +1
+	[31mlabel found = st4
+[0m	[32mop found = st
+[0mst5:	st r1,:live1 +1
+	[31mlabel found = st5
+[0m	[32mop found = st
+[0mst6:	st r1,:live2 +1
+	[31mlabel found = st6
+[0m	[32mop found = st
+[0mst7:	st r1,:live3 +1
+	[31mlabel found = st7
+[0m	[32mop found = st
+[0mst8:	st r1,:live4 +1
+	[31mlabel found = st8
+[0m	[32mop found = st
+[0m	ld %0x01090000 + :catch1 - :begin -1,r0
+	[32mop found = ld
+[0m	st r0,:jump
+	[32mop found = st
+[0m	ld %0xFFFFFFFF,r0
+	[32mop found = ld
+[0m	st r0,:begin -4
+	[32mop found = st
+[0m	st r0,:begin -8
+	[32mop found = st
+[0m	st r0,:begin -12
+	[32mop found = st
+[0m
+hop:	live %1
+	[31mlabel found = hop
+[0m	[32mop found = live
+[0m	fork %:decal2
+	[32mop found = fork
+[0m	live %1
+	[32mop found = live
+[0m	ld %0,r2
+	[32mop found = ld
+[0m	zjmp %:decal
+	[32mop found = zjmp
+[0m
+toto1:	zjmp %:toto	
+	[31mlabel found = toto1
+[0m	[32mop found = zjmp
+[0mpare1:	ld %0,r0
+	[31mlabel found = pare1
+[0m	[32mop found = ld
+[0m	zjmp %:pare	
+	[32mop found = zjmp
+[0mdecal2: live %1
+	[31mlabel found = decal2
+[0m	[32mop found = live
+[0m	fork %:suite
+	[32mop found = fork
+[0m	live %1
+	[32mop found = live
+[0m	ld %57672448,r5
+	[32mop found = ld
+[0m	ld %67334147,r6
+	[32mop found = ld
+[0m
+	ld %57673214,r9
+	[32mop found = ld
+[0m	ld %201551878,r10
+	[32mop found = ld
+[0m	ld %4262136318,r11
+	[32mop found = ld
+[0m	ld %33554432,r12
+	[32mop found = ld
+[0m
+	ld %57674238,r15
+	[32mop found = ld
+[0m	ld %369324042,r4
+	[32mop found = ld
+[0m	ld %4262790000,r7
+	[32mop found = ld
+[0m	ld %201200643,r8
+	[32mop found = ld
+[0m	ld %1879899667,r13
+	[32mop found = ld
+[0m	ld %167641600,r14
+	[32mop found = ld
+[0m	
+	fork %:separ2
+	[32mop found = fork
+[0m	live %4
+	[32mop found = live
+[0m	ld %0x08F40370,r3   #ld %0x07F40370,r3
+	[32mop found = ld
+[0m
+	ld %0,r2
+	[32mop found = ld
+[0m	zjmp %:toto
+	[32mop found = zjmp
+[0msepar2:	live %3
+	[31mlabel found = separ2
+[0m	[32mop found = live
+[0m	ld %0x037004F4,r3  #ld %0x70037004,r3
+	[32mop found = ld
+[0m
+	xor r2,r2,r2
+	[32mop found = xor
+[0m	zjmp %:toto
+	[32mop found = zjmp
+[0m	
+padec2:	live %1
+	[31mlabel found = padec2
+[0m	[32mop found = live
+[0m	fork %:suite
+	[32mop found = fork
+[0m	live %1
+	[32mop found = live
+[0m	ld %0,r2
+	[32mop found = ld
+[0m	zjmp %:decal
+	[32mop found = zjmp
+[0m
+catch1:	zjmp %:catch
+	[31mlabel found = catch1
+[0m	[32mop found = zjmp
+[0m	
+suite:	live %1
+	[31mlabel found = suite
+[0m	[32mop found = live
+[0m	fork %:hop
+	[32mop found = fork
+[0m	live %1
+	[32mop found = live
+[0m	fork %:just
+	[32mop found = fork
+[0mjust:	live %3
+	[31mlabel found = just
+[0m	[32mop found = live
+[0m	fork %:just2
+	[32mop found = fork
+[0mjust2:	live %3
+	[31mlabel found = just2
+[0m	[32mop found = live
+[0m	fork %:just3
+	[32mop found = fork
+[0mjust3:	live %3
+	[31mlabel found = just3
+[0m	[32mop found = live
+[0m	fork %:just4
+	[32mop found = fork
+[0m	live %3
+	[32mop found = live
+[0mjust4:	live %3
+	[31mlabel found = just4
+[0m	[32mop found = live
+[0m	fork %:just5
+	[32mop found = fork
+[0m	live %3
+	[32mop found = live
+[0mjust5:	fork %:middle
+	[31mlabel found = just5
+[0m	[32mop found = fork
+[0msuitb:	live %3
+	[31mlabel found = suitb
+[0m	[32mop found = live
+[0m	st r0,:st1+1
+	[32mop found = st
+[0m	live %3
+	[32mop found = live
+[0m	st r0,:st1+1
+	[32mop found = st
+[0m	live %3
+	[32mop found = live
+[0m	st r0,:st1+1
+	[32mop found = st
+[0mlive1:	live %3
+	[31mlabel found = live1
+[0m	[32mop found = live
+[0m	st r0,:st1+1
+	[32mop found = st
+[0mlive2:	live %3
+	[31mlabel found = live2
+[0m	[32mop found = live
+[0m	st r0,:st1+1
+	[32mop found = st
+[0mlastlive1: live %1
+	[31mlabel found = lastlive1
+[0m	[32mop found = live
+[0m	ld %0,r6
+	[32mop found = ld
+[0mlastlive2: live %1
+	[31mlabel found = lastlive2
+[0m	[32mop found = live
+[0m	zjmp %:suitb
+	[32mop found = zjmp
+[0mmiddle:	live %3
+	[31mlabel found = middle
+[0m	[32mop found = live
+[0m	st r0,:st2+1
+	[32mop found = st
+[0m	live %3
+	[32mop found = live
+[0m	st r0,:st2+1
+	[32mop found = st
+[0m	live %3
+	[32mop found = live
+[0m	st r0,:st2+1
+	[32mop found = st
+[0mlive3:	live %3
+	[31mlabel found = live3
+[0m	[32mop found = live
+[0m	st r0,:st2+1
+	[32mop found = st
+[0mlive4:	live %4
+	[31mlabel found = live4
+[0m	[32mop found = live
+[0mlastlive3: live %1
+	[31mlabel found = lastlive3
+[0m	[32mop found = live
+[0m	ld %0,r6
+	[32mop found = ld
+[0mlastlive4: live %1
+	[31mlabel found = lastlive4
+[0m	[32mop found = live
+[0m	zjmp %:middle
+	[32mop found = zjmp
+[0m
+	
+decal:	live %1
+	[31mlabel found = decal
+[0m	[32mop found = live
+[0m	fork %:pare1
+	[32mop found = fork
+[0m	live %1
+	[32mop found = live
+[0m	fork %:fuite
+	[32mop found = fork
+[0m	live %1
+	[32mop found = live
+[0m	ld %0x03700300,r5
+	[32mop found = ld
+[0m	ld %0x04037003,r6
+	[32mop found = ld
+[0m
+	ld %0x03700501,r9
+	[32mop found = ld
+[0m	ld %0xFC037006,r10
+	[32mop found = ld
+[0m	ld %0x01FB0901,r11
+	[32mop found = ld
+[0m	ld %0xF2000000,r12
+	[32mop found = ld
+[0m
+	ld %0x03700901,r15
+	[32mop found = ld
+[0m	ld %0xFC03700A,r4
+	[32mop found = ld
+[0m	ld %0x01FB0370,r7
+	[32mop found = ld
+[0m	ld %0x0B01FA03,r8
+	[32mop found = ld
+[0m	ld %0x700C01F9,r13
+	[32mop found = ld
+[0m	ld %0x0901E800,r14
+	[32mop found = ld
+[0m	
+	fork %:sepa
+	[32mop found = fork
+[0m	live %4
+	[32mop found = live
+[0m	ld %0x07510370,r3
+	[32mop found = ld
+[0m	ld %0,r2
+	[32mop found = ld
+[0m	zjmp %:tot
+	[32mop found = zjmp
+[0msepa:	live %3
+	[31mlabel found = sepa
+[0m	[32mop found = live
+[0m	ld %0x70037004,r3
+	[32mop found = ld
+[0m	xor r2,r2,r2
+	[32mop found = xor
+[0m	zjmp %:tot
+	[32mop found = zjmp
+[0mcatch:	
+	[31mlabel found = catch
+[0m	live %5
+	[32mop found = live
+[0m	live %5
+	[32mop found = live
+[0m	live %5
+	[32mop found = live
+[0m	live %5
+	[32mop found = live
+[0m	live %5
+	[32mop found = live
+[0m	live %5
+	[32mop found = live
+[0m	live %5
+	[32mop found = live
+[0m	live %5
+	[32mop found = live
+[0m	live %5
+	[32mop found = live
+[0m	live %5
+	[32mop found = live
+[0m	live %5
+	[32mop found = live
+[0m	live %5
+	[32mop found = live
+[0m	live %5
+	[32mop found = live
+[0m	ld %0,r0
+	[32mop found = ld
+[0m	zjmp %:catch
+	[32mop found = zjmp
+[0m	
+fuite:	live %1
+	[31mlabel found = fuite
+[0m	[32mop found = live
+[0m	fork %:separe
+	[32mop found = fork
+[0m	live %4
+	[32mop found = live
+[0m	ld %0x07510370,r3
+	[32mop found = ld
+[0m	ld %0,r2
+	[32mop found = ld
+[0m	zjmp %:debut
+	[32mop found = zjmp
+[0msepare:	live %3
+	[31mlabel found = separe
+[0m	[32mop found = live
+[0m	ld %0x70037004,r3
+	[32mop found = ld
+[0m	xor r2,r2,r2
+	[32mop found = xor
+[0m	zjmp %:debut
+	[32mop found = zjmp
+[0m	
+		
+tot:	st r15,488
+	[31mlabel found = tot
+[0m	[32mop found = st
+[0m	st r4,487
+	[32mop found = st
+[0m	st r7,486
+	[32mop found = st
+[0m	st r8,485
+	[32mop found = st
+[0m	st r13,484
+	[32mop found = st
+[0m	st r14,483
+	[32mop found = st
+[0m	zjmp %458
+	[32mop found = zjmp
+[0m	
+debut:	st r3,4
+	[31mlabel found = debut
+[0m	[32mop found = st
+[0mfin:
+	[31mlabel found = fin
+[0m
+avant:	
+	[31mlabel found = avant
+[0m
+#	075103700370075103700771
+
+arriere:
+	[31mlabel found = arriere
+[0m
+#       08 F4 03 70 03 70 08 F4 03 70
+
+
+.name    "sebc"
+.comment "sebc"
+.extend
+
+
+.name		"Sliders"
+.comment	"And the winner is ..."
+
+		sti     r1,%:leon_live,%1
+	[32mop found = sti
+[0m		sti	r1,%:fork1,%1
+	[32mop found = sti
+[0m		sti	r1,%:fork2,%1
+	[32mop found = sti
+[0m		sti	r1,%:roger_live,%1
+	[32mop found = sti
+[0m		sti	r1,%:torp,%1
+	[32mop found = sti
+[0m		sti	r1,%:torp_,%1
+	[32mop found = sti
+[0m		sti	r1,%:fork3,%1
+	[32mop found = sti
+[0m		sti	r1,%:fork_live,%1
+	[32mop found = sti
+[0m		sti	r1,%:live,%1
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti	r1,%:live,%6
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti	r1,%:live,%11
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti	r1,%:live,%16
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti	r1,%:live,%21
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti	r1,%:live,%26
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti	r1,%:live,%31
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti	r1,%:live,%36
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti	r1,%:live,%41
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti	r1,%:live,%46
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti	r1,%:live,%51
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti	r1,%:live,%56
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti	r1,%:live,%61
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti	r1,%:live,%66
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti	r1,%:live,%71
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti	r1,%:live,%76
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti	r1,%:live,%81
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti	r1,%:live,%86
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti	r1,%:live,%91
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti	r1,%:live,%96
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti	r1,%:live,%101	
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti	r1,%:live,%106
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti	r1,%:live,%111
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti	r1,%:live,%116
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		ld	%48,r14	
+	[32mop found = ld
+[0m		ld      %4,r4
+	[32mop found = ld
+[0m		ld      %48,r6
+	[32mop found = ld
+[0m		ld	%48,r13
+	[32mop found = ld
+[0m		ld	%:leon_ecrit,r8
+	[32mop found = ld
+[0m		ld	%330,r9
+	[32mop found = ld
+[0m		add	r8,r9,r8
+	[32mop found = add
+[0m		ld	%:roger,r12
+	[32mop found = ld
+[0m		sub	r12,r8,r12
+	[32mop found = sub
+[0mfork1:		live	%42
+	[31mlabel found = fork1
+[0m	[32mop found = live
+[0m		fork	%:fork_live
+	[32mop found = fork
+[0mfork2:		live	%42
+	[31mlabel found = fork2
+[0m	[32mop found = live
+[0m		fork	%:leon
+	[32mop found = fork
+[0mfork3:		live	%42
+	[31mlabel found = fork3
+[0m	[32mop found = live
+[0m		fork	%:roger
+	[32mop found = fork
+[0m		ld	%0,r15	
+	[32mop found = ld
+[0m		zjmp	%:torp
+	[32mop found = zjmp
+[0mleon:		ld      %0,r2
+	[31mlabel found = leon
+[0m	[32mop found = ld
+[0mleon_live:	live    %42
+	[32mop found = live
+[0m		ldi     %:leon,r2,r3
+	[32mop found = ldi
+[0m		sti     r3,r8,r2
+	[32mop found = sti
+[0m		add     r2,r4,r2
+	[32mop found = add
+[0m		xor     r13,r2,r7
+	[32mop found = xor
+[0m		zjmp    %415
+	[32mop found = zjmp
+[0m		ld      %0,r15
+	[32mop found = ld
+[0mleon_ecrit:	zjmp    %:leon_live
+	[32mop found = zjmp
+[0mroger:		ld	%0,r10
+	[31mlabel found = roger
+[0m	[32mop found = ld
+[0mroger_live:	live	%42
+	[32mop found = live
+[0m		ldi	%:roger,r10,r11
+	[32mop found = ldi
+[0m		sti	r11,r12,r10
+	[32mop found = sti
+[0m		add	r10,r4,r10
+	[32mop found = add
+[0m		xor	r6,r10,r7
+	[32mop found = xor
+[0m		zjmp	%-361
+	[32mop found = zjmp
+[0m		ld	%0,r15
+	[32mop found = ld
+[0mroger_ecrit:	zjmp	%:roger_live
+	[32mop found = zjmp
+[0mtorp:		live	%42	
+	[31mlabel found = torp
+[0m	[32mop found = live
+[0m		fork	%:leon
+	[32mop found = fork
+[0mtorp_:		live	%42
+	[32mop found = live
+[0m		fork	%:roger
+	[32mop found = fork
+[0m		ld	%0,r15
+	[32mop found = ld
+[0m		zjmp	%:torp
+	[32mop found = zjmp
+[0mlive:		live	%42
+	[31mlabel found = live
+[0m	[32mop found = live
+[0m		live	%42
+	[32mop found = live
+[0m		live	%42
+	[32mop found = live
+[0m		live	%42
+	[32mop found = live
+[0m		live	%42
+	[32mop found = live
+[0m		live	%42
+	[32mop found = live
+[0m		live	%42
+	[32mop found = live
+[0m		live	%42
+	[32mop found = live
+[0m		live	%42
+	[32mop found = live
+[0m		live	%42
+	[32mop found = live
+[0m		live	%42
+	[32mop found = live
+[0m		live	%42
+	[32mop found = live
+[0m		live	%42
+	[32mop found = live
+[0m		live	%42
+	[32mop found = live
+[0m		live	%42
+	[32mop found = live
+[0m		live	%42
+	[32mop found = live
+[0m		live	%42
+	[32mop found = live
+[0m		live	%42
+	[32mop found = live
+[0m		live	%42
+	[32mop found = live
+[0m		live	%42
+	[32mop found = live
+[0m		live	%42
+	[32mop found = live
+[0m		live	%42
+	[32mop found = live
+[0m		live	%42
+	[32mop found = live
+[0m		live	%42	
+	[32mop found = live
+[0m		zjmp	%:live
+	[32mop found = live
+[0m	[32mop found = zjmp
+[0mfork_live:	live	%42
+	[32mop found = live
+[0m		fork	%:live
+	[32mop found = live
+[0m	[32mop found = fork
+[0m		ld	%0,r15
+	[32mop found = ld
+[0m		zjmp	%:fork_live
+	[32mop found = zjmp
+[0m	
+
+
+
+
+
+
+
+
+
+
+.name 		"dtonc v1.0pl2"
+.comment	"ta mere elle fait du rodeo sur les kfar"
+.extend
+	
+begin:
+	[31mlabel found = begin
+[0m#	st	r1, :boucle+1
+	[32mop found = st
+[0m#	st	r1, :rboucle+1
+	[32mop found = st
+[0m#	st	r1, :liver1+1
+	[32mop found = st
+[0m#	st	r1, :liver2+1	
+	[32mop found = st
+[0m#	st	r1, :gen+1
+	[32mop found = st
+[0m	
+ld1:	
+	[31mlabel found = ld1
+[0m	ld	%15, r3 	#offset
+	[32mop found = ld
+[0m	ld	%195, r4	#limit
+	[32mop found = ld
+[0m	ld	%0, r7		#pattern faites nous confiance
+	[32mop found = ld
+[0m	ld	%0x00090000, r8	#pattern poison
+	[32mop found = ld
+[0m
+#gen:	
+#	live	%1
+	[32mop found = live
+[0m#	fork	%:gen
+	[32mop found = fork
+[0m#	fork	%:boucle
+	[32mop found = fork
+[0m#	fork	%:rboucle
+	[32mop found = fork
+[0m#	ld 	%0, r5
+	[32mop found = ld
+[0m#	zjmp	%:gen
+	[32mop found = zjmp
+[0m
+	
+liver1:
+	[31mlabel found = liver1
+[0m	live	%1
+	[32mop found = live
+[0m	fork	%:liver1
+	[32mop found = fork
+[0m	ld	%0, r5
+	[32mop found = ld
+[0m	fork	%:liver2
+	[32mop found = fork
+[0m	live	%1
+	[32mop found = live
+[0m	fork	%:boucle
+	[32mop found = fork
+[0m	live	%1
+	[32mop found = live
+[0m	fork	%:rboucle
+	[32mop found = fork
+[0m	zjmp	%:liver1
+	[32mop found = zjmp
+[0m	
+liver2:	
+	[31mlabel found = liver2
+[0m	live	%1
+	[32mop found = live
+[0m	zjmp	%:liver2
+	[32mop found = zjmp
+[0m
+boucle:	
+	[31mlabel found = boucle
+[0m	live	%1
+	[32mop found = live
+[0m	fork	%:boucle
+	[32mop found = fork
+[0mno:
+	[31mlabel found = no
+[0m	live	%1
+	[32mop found = live
+[0m	sti	r8, %:end, r2
+	[32mop found = sti
+[0m	add	r2, r3, r2
+	[32mop found = add
+[0m	sub	r4, r2, r5	#r4 = r2
+	[32mop found = sub
+[0m	zjmp	%:boucle2
+	[32mop found = zjmp
+[0m	ld	%0, r5
+	[32mop found = ld
+[0m	zjmp	%:no
+	[32mop found = zjmp
+[0m	
+boucle2:
+	[31mlabel found = boucle2
+[0m	ld	%0, r2
+	[32mop found = ld
+[0m	zjmp	%:no
+	[32mop found = zjmp
+[0m
+#	live %0
+	[32mop found = live
+[0m#	live %0
+	[32mop found = live
+[0m#	live %0
+	[32mop found = live
+[0m	
+rboucle:
+	[31mlabel found = rboucle
+[0m	live	%1
+	[32mop found = live
+[0m	fork	%:rboucle
+	[32mop found = fork
+[0mrno:
+	[31mlabel found = rno
+[0m	live	%1
+	[32mop found = live
+[0m	sti	r7, %:begin ,r2
+	[32mop found = sti
+[0m	sub	r2, r3, r2
+	[32mop found = sub
+[0m	add	r4, r2, r5	#r4 = r2
+	[32mop found = add
+[0m	zjmp	%:rboucle2
+	[32mop found = zjmp
+[0m	ld	%0, r5
+	[32mop found = ld
+[0m	zjmp	%:rno
+	[32mop found = zjmp
+[0m
+rboucle2:
+	[31mlabel found = rboucle2
+[0m	ld	%0, r2
+	[32mop found = ld
+[0m	zjmp	%:rno
+	[32mop found = zjmp
+[0m	
+toto:	
+	[31mlabel found = toto
+[0m	live	%0
+	[32mop found = live
+[0m	xor 	r1, r1, r5
+	[32mop found = xor
+[0m	zjmp	%:toto
+	[32mop found = zjmp
+[0m
+
+end:	
+	[31mlabel found = end
+[0m	xor r1, r1, r1
+	[32mop found = xor
+[0m	
+
+
+
+
+
+
+
+
+
+
+
+.name 		"dtonc v1.0pl3"
+.comment	"ta mere elle fait du rodeo sur les kfar"
+.extend
+
+	ld	%0x80000000, r6	# moins
+	[32mop found = ld
+[0m	ld	%10, r3		# offset
+	[32mop found = ld
+[0m	ld	%200, r4	# range
+	[32mop found = ld
+[0m
+gen:
+	[31mlabel found = gen
+[0m	live	%1
+	[32mop found = live
+[0m	add	r2, r3, r2
+	[32mop found = add
+[0m	sub	r2, r4, r5
+	[32mop found = sub
+[0m	and	r5, r6, r5
+	[32mop found = and
+[0m	zjmp	%:ok
+	[32mop found = zjmp
+[0m	ld	%0, r2
+	[32mop found = ld
+[0mok:
+	[31mlabel found = ok
+[0m	live	%1
+	[32mop found = live
+[0m	fork	%:no
+	[32mop found = fork
+[0m	fork	%:gen
+	[32mop found = fork
+[0m	ld	%0, r5
+	[32mop found = ld
+[0m	zjmp	%:gen
+	[32mop found = zjmp
+[0m	
+no:
+	[31mlabel found = no
+[0m	live	%1	
+	[32mop found = live
+[0m	sti	r8, %:end, r2
+	[32mop found = sti
+[0m	add	r2, r3, r2
+	[32mop found = add
+[0m	sub	r4, r2, r5	#r4 = r2
+	[32mop found = sub
+[0m	zjmp	%:boucle2
+	[32mop found = zjmp
+[0m	ld	%0, r5
+	[32mop found = ld
+[0m	zjmp	%:no
+	[32mop found = zjmp
+[0m	
+boucle2:
+	[31mlabel found = boucle2
+[0m	ld	%0, r2
+	[32mop found = ld
+[0m	zjmp	%:no
+	[32mop found = zjmp
+[0m
+end:	
+	[31mlabel found = end
+[0m.name 		"dtonc v1.0pl4"
+.comment	"ta mere elle fait du rodeo sur les kfar"
+.extend
+
+
+debut:	
+	[31mlabel found = debut
+[0m	st	r1, :li1+1
+	[32mop found = st
+[0m	st	r1, :li2+1
+	[32mop found = st
+[0m	ld	%100, r4
+	[32mop found = ld
+[0m	ld	%4, r6
+	[32mop found = ld
+[0m	ld	%0, r3
+	[32mop found = ld
+[0mli1:	
+	[31mlabel found = li1
+[0m	live	%1
+	[32mop found = live
+[0m	
+cp:	
+	[31mlabel found = cp
+[0m	ldi	%:debut, r3, r2
+	[32mop found = ldi
+[0m	sti	r2, %400, r3
+	[32mop found = sti
+[0m	add	r3, r6, r3
+	[32mop found = add
+[0m	sub	r3, r4, r5
+	[32mop found = sub
+[0mli2:	
+	[31mlabel found = li2
+[0m	live	%1
+	[32mop found = live
+[0m	zjmp	%:debut+400
+	[32mop found = zjmp
+[0m	ld	%0, r5
+	[32mop found = ld
+[0m	zjmp	%:cp
+	[32mop found = zjmp
+[0m#
+# Warrior qui a gagne
+# l'annee derniere
+#     VOALA
+#
+.name		"Celebration Funebre v0.99pl42"
+.comment	"Jour J"
+
+		ld   %0,r3		
+	[32mop found = ld
+[0mlabel:		zjmp %:avantdebt
+	[31mlabel found = label
+[0m	[32mop found = zjmp
+[0m		zjmp %0				# pour eviter ecrasement
+	[32mop found = zjmp
+[0m						# de l'instruction suivante
+code:		live %42			# 5
+	[31mlabel found = code
+[0m	[32mop found = live
+[0m		sti  r15,%0,r14			# 6
+	[32mop found = sti
+[0m		zjmp %-200			# 3
+	[32mop found = zjmp
+[0m		live %42			# 5
+	[32mop found = live
+[0m		sti  r15,%0,r14			# 6
+	[32mop found = sti
+[0m		zjmp %-200			# 3
+	[32mop found = zjmp
+[0m		live %42			# 5
+	[32mop found = live
+[0m		sti  r15,%0,r14			# 6
+	[32mop found = sti
+[0m		zjmp %-200			# 3
+	[32mop found = zjmp
+[0m		live %42			# 5
+	[32mop found = live
+[0m		sti  r15,%0,r14			# 6
+	[32mop found = sti
+[0m		zjmp %-200			# 3
+	[32mop found = zjmp
+[0m		sti  r15,%0,r14			# 6
+	[32mop found = sti
+[0m		zjmp %-200			# 3
+	[32mop found = zjmp
+[0m		sti  r15,%0,r14			# 6
+	[32mop found = sti
+[0m		zjmp %-200
+	[32mop found = zjmp
+[0m	
+avantdebt:	sti   r1,%:code,%1  # 		# mets a jour le live
+	[31mlabel found = avantdebt
+[0m	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti   r1,%:code,%15 # 		# mets a jour le live
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti   r1,%:code,%29 # 		# mets a jour le live
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti   r1,%:code,%43 # 		# mets a jour le live
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti   r1,%:code,%57 # 		# mets a jour le live
+	[32mop found = live
+[0m	[32mop found = sti
+[0m		sti   r1,%:code,%71 # 		# mets a jour le live
+	[32mop found = live
+[0m	[32mop found = sti
+[0minit:		ld   %393216,r4		 	#7	
+	[31mlabel found = init
+[0m	[32mop found = ld
+[0m		ld   %917504,r12		#7	
+	[32mop found = ld
+[0m		ld   %1,r11			#7
+	[32mop found = ld
+[0m		ld   %6,r10			#7
+	[32mop found = ld
+[0mdebt:		live %42			#5
+	[31mlabel found = debt
+[0m	[32mop found = live
+[0m		sti  r4,%:label,%1		#7
+	[32mop found = sti
+[0m		add  r4,r12,r4			#5	
+	[32mop found = add
+[0m		sub  r10,r11,r10		#5
+	[32mop found = sub
+[0m		zjmp %:init			#3
+	[32mop found = zjmp
+[0m		fork %:debt			
+	[32mop found = fork
+[0m		live %3
+	[32mop found = live
+[0mlevel0:		fork %:level10
+	[31mlabel found = level0
+[0m	[32mop found = fork
+[0mlevel11:	live %4
+	[31mlabel found = level11
+[0m	[32mop found = live
+[0m		fork %:level111
+	[32mop found = fork
+[0m
+level110:	live %42
+	[31mlabel found = level110
+[0m	[32mop found = live
+[0m		ldi  %8,%:code,r15		#set des octets 9-12
+	[32mop found = ldi
+[0m		ld   %-186,r14			#=$A-6-8
+	[32mop found = ld
+[0m		ld   %0,r2
+	[32mop found = ld
+[0m		zjmp  %:label
+	[32mop found = zjmp
+[0m			
+level10:	live %42
+	[31mlabel found = level10
+[0m	[32mop found = live
+[0m		fork %:level100
+	[32mop found = fork
+[0mlevel101:	live %42
+	[31mlabel found = level101
+[0m	[32mop found = live
+[0m		ldi  %4,%:code,r15 		#set des octets 5-8
+	[32mop found = ldi
+[0m		ld   %-190,r14			#=$A-6-4
+	[32mop found = ld
+[0m		ld   %0,r2
+	[32mop found = ld
+[0m		zjmp %:label
+	[32mop found = zjmp
+[0m		
+level111:	live %42	
+	[31mlabel found = level111
+[0m	[32mop found = live
+[0m		ldi  %12,%:code,r15		#set des octets 13-16
+	[32mop found = ldi
+[0m		ld   %-182,r14			# $A -6 -12
+	[32mop found = ld
+[0m		ld   %0,r2
+	[32mop found = ld
+[0m		zjmp %:label
+	[32mop found = zjmp
+[0m		
+level100:	live %42
+	[31mlabel found = level100
+[0m	[32mop found = live
+[0m		ldi  %0,%:code,r15		#set des octets 1-4
+	[32mop found = ldi
+[0m		ld   %-194,r14			# $A -6 -0
+	[32mop found = ld
+[0m		ld   %0,r2			#
+	[32mop found = ld
+[0m		zjmp %:label			#
+	[32mop found = zjmp
+[0m
+
+

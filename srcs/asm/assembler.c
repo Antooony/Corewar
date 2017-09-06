@@ -6,7 +6,7 @@
 /*   By: nolivier <nolivier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 15:00:57 by nolivier          #+#    #+#             */
-/*   Updated: 2017/09/04 18:22:46 by adenis           ###   ########.fr       */
+/*   Updated: 2017/09/06 17:33:48 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,80 +39,43 @@ t_op		g_op_tab[17] =
 	{0, 0, {0}, 0, 0, 0, 0, 0}
 };
 
-int		ft_op_delim(char *s, int i, int len)
+void	display_op(t_ops *lst)
 {
-	char 	*delim;
-
-	delim = "%:, \t";
-	if ((!s[i + len] || ft_strchr(&delim[2], s[i + len]))
-		&& (!i || ft_strchr(delim, s[i - 1])))
-		return (1);
-	return (0);
-}
-
-void	show_op(int i, char *s)
-{
-	char 	*tmp;
-
-	while (s && ft_strstr(s, g_op_tab[i].label))
+	while (lst)
 	{
-		if ((tmp = ft_strstr(s, g_op_tab[i].label))
-			&& ft_op_delim(s, tmp - s, ft_strlen(g_op_tab[i].label)))
-			ft_printf("\t\e[32mop found = %s\n\e[0m", g_op_tab[i].label);
-		s = tmp + ft_strlen(g_op_tab[i].label);
+		ft_printf("\t%s\n", lst->name);
+		lst = lst->next;
 	}
 }
 
-void	get_op(char *s)
+void	show_me_whatugot(void)
 {
-	int		i;
+	t_label		*tmp;
 
-	i = 0;
-	if (!s)
-		return;
-	while (g_op_tab[i].label)
+	ft_printf("\e[31mName : \e[0m%s\n", g_infos.name);
+	ft_printf("\e[31mComment : \e[0m%s\n", g_infos.comment);
+	tmp = FLABEL;
+	while (tmp)
 	{
-		show_op(i, s);
-		i++;
+		ft_printf("\e[32mLABEL : %s\n\e[0m", tmp->name);
+		display_op(tmp->firstop);
+		tmp = tmp->next;
 	}
-}
-
-void	get_labels(char *s)
-{
-	int		i;
-
-	i = 0;
-	if (!s)
-		return;
-	while (s[i] != ':')
-	{
-		if (!ft_isalnum(s[i]))
-			return;
-		i++;
-	}
-	ft_printf("\t\e[31mlabel found = %.*s\n\e[0m", (&s[i] - s), s);
 }
 
 int		main(int argc, char **argv)
 {
 	int		fd;
 	t_list	*lst;
-	t_list	*tmp;
 
 	if (argc != 2)
 		return (ft_usage());
 	if ((fd = open(argv[1], O_RDONLY)) == -1)
 		return (ft_error());
 	lst = get_input(fd);
-	tmp = lst;
-	while (lst)
-	{
-		ft_printf("%s\n", lst->content);
-		get_labels(lst->content);
-		get_op(lst->content);
-		lst = lst->next;
-	}
-	lst = tmp;
+	init_infos();
+	parsing(lst);
+	show_me_whatugot();
 	if (close(fd) == -1)
 		return (ft_error());
 }
