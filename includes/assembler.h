@@ -6,7 +6,7 @@
 /*   By: nolivier <nolivier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 12:17:53 by nolivier          #+#    #+#             */
-/*   Updated: 2017/09/06 17:41:24 by adenis           ###   ########.fr       */
+/*   Updated: 2017/09/11 12:33:12 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define LABEL g_infos.labels
 # define FLABEL g_infos.firstlabel
 # define FOP g_infos.labels->firstop
+# define BLANK "\t\v "
 
 typedef struct		s_ops
 {

@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 13:09:30 by adenis            #+#    #+#             */
-/*   Updated: 2017/09/06 17:56:31 by adenis           ###   ########.fr       */
+/*   Updated: 2017/09/11 12:34:47 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	parsing(t_list *lst)
 {
 	t_list	*tmp;
 
+	get_header(lst);
 	tmp = lst;
 	while (lst)
 	{
@@ -24,16 +25,12 @@ void	parsing(t_list *lst)
 		lst = lst->next;
 	}
 	lst = tmp;
-	get_header(lst);
 }
 
-int		ft_op_delim(char *s, int i, int len)
+int		ft_op_BLANK(char *s, int i, int len)
 {
-	char	*delim;
-
-	delim = " \t";
-	if ((!s[i + len] || ft_strchr(delim, s[i + len]))
-		&& (!i || ft_strchr(delim, s[i - 1])))
+	if ((!s[i + len] || ft_strchr(BLANK, s[i + len]))
+		&& (!i || ft_strchr(BLANK, s[i - 1])))
 		return (1);
 	return (0);
 }
@@ -41,15 +38,28 @@ int		ft_op_delim(char *s, int i, int len)
 char	*ft_jump_blank(char *s)
 {
 	int		i;
-	char	*delim;
 
 	if (!s)
 		return (s);
-	delim = "\t ";
 	i = 0;
-	while (ft_strchr(delim, s[i]))
+	while (ft_strchr(BLANK, s[i]))
 		i++;
 	return (&s[i]);
+}
+
+void	clean_spaces(int j)
+{
+	char	*tmp;
+	int		i;
+
+	i = 0;
+	if (!OP->args[j])
+		return ;
+	while (!ft_strchr(BLANK, OP->args[j][i]))
+		i++;
+	tmp = ft_strsub(OP->args[j], 0, i);
+	free(OP->args[j]);
+	OP->args[j] = tmp;
 }
 
 void	fill_args(char *s)
@@ -69,8 +79,9 @@ void	fill_args(char *s)
 			s = NULL;
 		}
 		if (s)
-		s = ft_strchr(s, ',') + 1;
+			s = ft_strchr(s, ',') + 1;
 		s = ft_jump_blank(s);
+		clean_spaces(i);
 		i++;
 	}
 }
@@ -88,7 +99,7 @@ void	fill_op(int i, char *s)
 		if (OP->name && (OP->next = ft_newop()))
 			OP = OP->next;
 		if ((tmp = ft_strstr(s, g_op_tab[i].label))
-			&& ft_op_delim(s, tmp - s, ft_strlen(g_op_tab[i].label)))
+			&& ft_op_BLANK(s, tmp - s, ft_strlen(g_op_tab[i].label)))
 		{
 			OP->name = ft_strdup(g_op_tab[i].label);
 			OP->nargs = g_op_tab[i].num_params;
