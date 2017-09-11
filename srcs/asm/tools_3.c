@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 12:37:22 by adenis            #+#    #+#             */
-/*   Updated: 2017/09/11 13:08:12 by adenis           ###   ########.fr       */
+/*   Updated: 2017/09/11 13:44:31 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,19 @@ void	free_ops(t_ops *op)
 {
 	int		i;
 
-	i =0;
+	i = 0;
 	if (!op)
 		return ;
 	if (op->next)
 		free_ops(op->next);
 	op->name ? ft_strdel((char **)&op->name) : NULL;
-	while (op->args && i < op->nargs)
+	while (i < op->nargs)
+	{
 		op->args[i] ? ft_strdel((char **)&op->args[i]) : NULL;
-	op->args[i] ? free(op->args) : NULL;
+		i++;
+	}
+	op->args ? free(op->args) : NULL;
+	free(op);
 }
 
 void	free_labels(t_label *label)
@@ -49,8 +53,7 @@ void	free_labels(t_label *label)
 	if (label->next)
 		free_labels(label->next);
 	label->name ? ft_strdel((char **)&label->name) : NULL;
-	free_ops(label->ops);
-	label->ops ? free(label->ops) : NULL;
+	free_ops(label->firstop);
 	label ? free(label) : NULL;
 }
 
