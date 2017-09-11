@@ -6,7 +6,7 @@
 /*   By: nolivier <nolivier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 12:17:53 by nolivier          #+#    #+#             */
-/*   Updated: 2017/09/11 12:33:12 by adenis           ###   ########.fr       */
+/*   Updated: 2017/09/11 12:49:50 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,10 @@ void				init_ops(void);
 void				init_label(void);
 void				init_infos(void);
 t_ops				*ft_newop(void);
+void				clean_spaces(int j);
+void				free_ops(t_ops *op);
+void				free_labels(t_label *label);
+void				del(void *content, size_t size);
+void				leave_free(t_list *lst);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nolivier <nolivier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 15:00:57 by nolivier          #+#    #+#             */
-/*   Updated: 2017/09/11 12:35:02 by adenis           ###   ########.fr       */
+/*   Updated: 2017/09/11 13:08:55 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,20 +72,27 @@ void	show_me_whatugot(void)
 		tmp = tmp->next;
 	}
 }
+void	ft_asm(int	fd)
+{
+	t_list	*lst;
+
+	lst = get_input(fd);
+	init_infos();
+	parsing(lst);
+	show_me_whatugot();
+	leave_free(lst);
+}
 
 int		main(int argc, char **argv)
 {
 	int		fd;
-	t_list	*lst;
 
 	if (argc != 2)
 		return (ft_usage());
 	if ((fd = open(argv[1], O_RDONLY)) == -1)
 		return (ft_error());
-	lst = get_input(fd);
-	init_infos();
-	parsing(lst);
-	show_me_whatugot();
+	ft_asm(fd);
 	if (close(fd) == -1)
 		return (ft_error());
+	while(42);
 }
