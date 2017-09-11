@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 13:09:30 by adenis            #+#    #+#             */
-/*   Updated: 2017/09/11 13:34:41 by adenis           ###   ########.fr       */
+/*   Updated: 2017/09/11 16:39:12 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,9 @@ void	fill_op(int i, char *s)
 		{
 			OP->name = ft_strdup(g_op_tab[i].label);
 			OP->nargs = g_op_tab[i].num_params;
+			OP->op_code = g_op_tab[i].op_code;
+			OP->label_size = g_op_tab[i].label_size;
+			OP->coding_param = g_op_tab[i].coding_param;
 			OP->args = (char **)malloc(sizeof(char*)
 			* g_op_tab[i].num_params + 1);
 			OP->args[g_op_tab[i].num_params] = NULL;

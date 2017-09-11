@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 16:05:13 by adenis            #+#    #+#             */
-/*   Updated: 2017/09/11 13:34:11 by adenis           ###   ########.fr       */
+/*   Updated: 2017/09/11 15:27:13 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ t_ops		*ft_newop(void)
 	new->args = NULL;
 	new->nargs = 0;
 	new->next = NULL;
+	new->op_code = 0;
+	new->label_size = 0;
 	return (new);
 }
 

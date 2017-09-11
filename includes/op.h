@@ -6,7 +6,7 @@
 /*   By: zaz <zaz@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/04 11:33:27 by zaz               #+#    #+#             */
-/*   Updated: 2017/09/04 17:00:01 by adenis           ###   ########.fr       */
+/*   Updated: 2017/09/11 15:24:18 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ typedef struct		s_op
 	char				*desc;
 	unsigned int		coding_param;
 	unsigned int		idontknow;
+	unsigned int		label_size;
 }					t_op;
 
 t_op		g_op_tab[17];
