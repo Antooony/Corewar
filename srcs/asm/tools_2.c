@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 16:05:13 by adenis            #+#    #+#             */
-/*   Updated: 2017/09/11 15:27:13 by adenis           ###   ########.fr       */
+/*   Updated: 2017/09/12 16:29:30 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,6 @@ void		init_infos(void)
 	g_infos.comment = NULL;
 	g_infos.labels = NULL;
 	g_infos.firstlabel = NULL;
+	g_infos.size = 0;
+	g_infos.out = NULL;
 }

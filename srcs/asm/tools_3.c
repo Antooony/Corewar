@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 12:37:22 by adenis            #+#    #+#             */
-/*   Updated: 2017/09/11 13:44:31 by adenis           ###   ########.fr       */
+/*   Updated: 2017/09/13 13:29:20 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,11 @@ void	del(void *content, size_t size)
 	size = 0;
 }
 
-void	leave_free(t_list *lst)
+void	leave_free(void)
 {
-	lst ? ft_lstdel(&lst, &del) : NULL;
+	INPUT ? ft_lstdel(&INPUT, &del) : NULL;
 	g_infos.name ? ft_strdel((char **)&g_infos.name) : NULL;
 	g_infos.comment ? ft_strdel((char **)&g_infos.comment) : NULL;
 	FLABEL ? free_labels(FLABEL) : NULL;
+	exit(0);
 }

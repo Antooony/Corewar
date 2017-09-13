@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 14:38:12 by adenis            #+#    #+#             */
-/*   Updated: 2017/09/11 12:34:56 by adenis           ###   ########.fr       */
+/*   Updated: 2017/09/13 13:34:19 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,13 @@ void	get_labels(char *s)
 {
 	int		i;
 
-	if (!s)
+	if (!s || (ft_strchr(s, ':') - 1)[0] == DIRECT_CHAR)
 		return ;
 	i = 0;
-	while (s[i] != ':')
+	while (s[i] != LABEL_CHAR)
 	{
-		if (!ft_isalnum(s[i]))
-			return ;
+		if (!ft_strchr(LABEL_CHARS, s[i]))
+			leave("Wrong Character in label name",i, s);
 		i++;
 	}
 	if (LABEL && (LABEL->next = ft_newlabel()))

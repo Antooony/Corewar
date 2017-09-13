@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 13:09:30 by adenis            #+#    #+#             */
-/*   Updated: 2017/09/11 16:39:12 by adenis           ###   ########.fr       */
+/*   Updated: 2017/09/13 13:42:04 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	parsing(t_list *lst)
 	tmp = lst;
 	while (lst)
 	{
-		ft_strchr(lst->content, ':') ? get_labels(lst->content) : NULL;
+		ft_strchr(lst->content, LABEL_CHAR) ? get_labels(lst->content) : NULL;
 		get_op(lst->content);
 		lst = lst->next;
 	}
@@ -56,15 +56,16 @@ void	fill_args(char *s)
 	s = ft_jump_blank(s);
 	while (i < OP->nargs && s)
 	{
-		if (ft_strchr(s, ','))
-			OP->args[i] = ft_strsub(s, 0, ft_strchr(s, ',') - s);
+		if (ft_strchr(s, SEPARATOR_CHAR))
+			OP->args[i] = ft_strsub(s, 0,
+				ft_strchr(s, SEPARATOR_CHAR) - s);
 		else
 		{
 			OP->args[i] = ft_strdup(s);
 			s = NULL;
 		}
 		if (s)
-			s = ft_strchr(s, ',') + 1;
+			s = ft_strchr(s, SEPARATOR_CHAR) + 1;
 		s = ft_jump_blank(s);
 		clean_spaces(i);
 		i++;
