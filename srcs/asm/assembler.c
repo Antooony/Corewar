@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   assembler.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolivier <nolivier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/26 15:00:57 by nolivier          #+#    #+#             */
-/*   Updated: 2017/09/13 13:20:24 by adenis           ###   ########.fr       */
+/*   Created: 2017/09/20 17:02:54 by adenis            #+#    #+#             */
+/*   Updated: 2017/09/20 17:03:02 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "assembler.h"
 
@@ -63,6 +64,27 @@ void	show_me_whatugot(void)
 	}
 }
 
+void	check_op(t_ops op)
+{
+
+}
+
+void	checks(void)
+{
+	t_label		tmp;
+
+	tmp = FLABEL
+	while (tmp)
+	{
+		while (tmp->ops)
+		{
+			check_op(tmp->ops);
+			tmp->ops = tmp->ops->next;
+		}
+		tmp = tmp->next;
+	}
+}
+
 void	ft_asm(int fd)
 {
 	t_list	*lst;
@@ -71,9 +93,10 @@ void	ft_asm(int fd)
 	INPUT = lst;
 	init_infos();
 	parsing(lst);
-	// show_me_whatugot();
-	calc_out();
-	display_output(OUT);
+	checks();
+	show_me_whatugot();
+	// calc_out();
+	// display_output(OUT);
 	// display_out();
 	leave_free();
 }
