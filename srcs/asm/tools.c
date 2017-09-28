@@ -6,35 +6,11 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:10:14 by adenis            #+#    #+#             */
-/*   Updated: 2017/09/12 16:50:13 by adenis           ###   ########.fr       */
+/*   Updated: 2017/09/28 16:53:35 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
-
-void	print_optab(void)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	while (i < 16)
-	{
-		ft_printf("%-2d-", g_op_tab[i].op_code);
-		ft_printf(" %-5s", g_op_tab[i].label);
-		ft_printf(" - nb params = %d [", g_op_tab[i].num_params);
-		j = 0;
-		while (j < g_op_tab[i].num_params)
-		{
-			ft_printf("%d", g_op_tab[i].params[j]);
-			j++;
-			if (j < g_op_tab[i].num_params)
-				ft_printf(" - ");
-		}
-		ft_printf("]\n");
-		i++;
-	}
-}
 
 void	display_lst(t_list *lst)
 {
