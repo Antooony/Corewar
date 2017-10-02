@@ -17,7 +17,7 @@
 
 typedef	struct		s_token
 {
-	struct	s_token	*next;
+	struct s_token	*next;
 	int				lan;
 	int				col;
 	char			*lab;
@@ -33,13 +33,28 @@ typedef	struct		s_token
 	char			*unknow;
 }					t_token;
 
-void		del(void *content, size_t size);
-void		display_lst(t_list *lst);
-int			ft_error(void);
-int			ft_usage(void);
-t_list		*get_input(int fd);
-t_token		*new_token(char *s);
-void		token_add(t_token *split, t_token *new);
-void		tokenize_lst(t_list *lst, t_token *split);
+void			del(void *content, size_t size);
+void			display_lst(t_list *lst);
+int				ft_error(void);
+int				ft_usage(void);
+t_list			*get_input(int fd);
+int				isop(char *s);
+
+t_token			*new_token(char *s);
+void			token_add(t_token *split, t_token *new);
+void			tokenize_lst(t_list *lst, t_token *split);
+
+int			*ft_lab(char *s);
+int			*ft_comment(char *s);
+int			*ft_dirlab(char *s);
+int			*ft_indirlab(char *s);
+int			*ft_dir(char *s);
+int			*ft_name(char *s);
+int			*ft_ncom(char *s);
+int			*ft_indir(char *s);
+int			*ft_inst(char *s);
+int			*ft_reg(char *s);
+
+typedef int		*(*t_ftype) (char *);
 
 #endif
