@@ -6,7 +6,7 @@
 #    By: nolivier <nolivier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/27 14:06:26 by nolivier          #+#    #+#              #
-#    Updated: 2017/10/02 10:57:43 by adenis           ###   ########.fr        #
+#    Updated: 2017/10/02 17:56:09 by adenis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,11 @@ NAME2		= corewar
 SRC_ASM		=	tools.c \
 				assembler.c \
 				free.c \
-				token.c
+				token.c token_2.c \
+				t_ft.c t_ft_2.c \
+				ft_op.c \
+				display.c \
+				output.c
 
 SRC_VM		= vm.c
 
@@ -45,7 +49,7 @@ $(NAME): $(OBJS_ASM) $(LIB)
 	@$(CC) $(FLAGS) $(ASM) $(LIB) -I $(HEADER) -o $(NAME)
 
 $(NAME2): $(OBJS_VM) $(LIB)
-	@$(CC) $(FLAGS) $(VM) $(LIB) -I $(HEADER) -o $(NAME2)
+	@$(CC) $(FLAGS) $(ASM) $(LIB) -I $(HEADER) -o $(NAME2)
 
 $(LIB):
 	@make -C $(LIB_PATH)

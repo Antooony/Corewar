@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 10:57:56 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/02 11:03:39 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/02 19:02:21 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,21 @@ static void		tokenize_line(char *s, t_token *split)
 			: (split->unknow = ft_strdup(s));
 	else
 	{
-		while (s && ft_strchr(s, ' '))
+		while (s)
 		{
-			split->unknow ? token_add(split, new_token(ft_strsub(s,
-				0, ft_strchr(s, ' ') - s)))
-				: (split->unknow = ft_strsub(s, 0, ft_strchr(s, ' ') - s));
-			s = ft_strchr(s, ' ') + 1;
+			if (ft_strchr(s, ' '))
+			{
+				split->unknow ? token_add(split, new_token(ft_strsub(s,
+					0, ft_strchr(s, ' ') - s)))
+					: (split->unknow = ft_strsub(s, 0, ft_strchr(s, ' ') - s));
+				s = ft_strchr(s, ' ') + 1;
+			}
+			else
+			{
+				split->unknow ? token_add(split, new_token(ft_strdup(s)))
+					: (split->unknow = ft_strdup(s));
+				s = NULL;
+			}
 		}
 	}
 }
@@ -67,7 +76,8 @@ void			tokenize_lst(t_list *lst, t_token *split)
 {
 	while (lst)
 	{
-		tokenize_line(lst->content, split);
+		if (lst->content)
+			tokenize_line(lst->content, split);
 		lst = lst->next;
 	}
 }
