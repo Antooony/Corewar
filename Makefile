@@ -6,7 +6,7 @@
 #    By: nolivier <nolivier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/27 14:06:26 by nolivier          #+#    #+#              #
-#    Updated: 2017/09/28 16:49:56 by adenis           ###   ########.fr        #
+#    Updated: 2017/10/02 10:57:43 by adenis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ NAME2		= corewar
 
 SRC_ASM		=	tools.c \
 				assembler.c \
-				free.c
+				free.c \
+				token.c
 
 SRC_VM		= vm.c
 

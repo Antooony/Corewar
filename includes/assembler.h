@@ -6,7 +6,7 @@
 /*   By: nolivier <nolivier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 12:17:53 by nolivier          #+#    #+#             */
-/*   Updated: 2017/09/28 16:52:36 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/02 11:03:56 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,8 @@ void		display_lst(t_list *lst);
 int			ft_error(void);
 int			ft_usage(void);
 t_list		*get_input(int fd);
+t_token		*new_token(char *s);
+void		token_add(t_token *split, t_token *new);
+void		tokenize_lst(t_list *lst, t_token *split);
 
 #endif

@@ -6,85 +6,79 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 17:02:54 by adenis            #+#    #+#             */
-/*   Updated: 2017/09/28 16:52:17 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/02 11:23:32 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
 #include "op.c"
 
-void	token_assign(t_token token)
+int		isop(char *s)
 {
-	if (token->unknow[ft_strlen(token->unknow)] == LABEL_CHAR)
-		token->label = token->unknow;
+	int		i;
+
+	i = 0;
+	while (i < 16)
+	{
+		if (!ft_strcmp(s, g_op_tab[i].label))
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+void	token_assign(t_token *token)
+{
+	if (token->unknow[ft_strlen(token->unknow) - 1] == LABEL_CHAR)
+		token->lab = token->unknow;
 	else if (ft_strstr(token->unknow, COMMENT_CMD_STRING))
 		token->comment = token->unknow;
 	else if (ft_strstr(token->unknow, NAME_CMD_STRING))
 		token->name = token->unknow;
 	else if (token->unknow[0] == DIRECT_CHAR && token->unknow[1] == LABEL_CHAR)
-			token->dir = token->unknow;
+		token->dirlab = token->unknow;
 	else if (token->unknow[0] == DIRECT_CHAR)
 		token->dir = token->unknow;
+	else if (token->unknow[0] == 'r')
+		token->reg = token->unknow;
+	else if (isop(token->unknow))
+		token->inst = token->unknow;
 }
 
-t_token	*new_token(char *s)
+void	specify_tokens(t_token *token)
 {
-	t_token		*new;
-
-	new = (t_token *)malloc(sizeof(t_token));
-	new->next = NULL;
-	new->lan = 0;
-	new->col = 0;
-	new->lab = NULL;
-	new->comment = NULL;
-	new->dirlab = NULL;
-	new->indirlab = NULL;
-	new->dir = NULL;
-	new->name = NULL;
-	new->ncom = NULL;
-	new->indir = NULL;
-	new->inst = NULL;
-	new->reg = NULL;
-	new->unknow = NULL;
-	if (s)
-		new->unknow = ft_strdup(s);
-	return (new);
-}
-
-void token_add(t_token *split, t_token *new)
-{
-	if (split->next)
+	while (token)
 	{
-		token_add(split->next, new);
-		return ;
-	}
-	split->next = new;
-}
-
-void	tokenize_line(char *s, t_token *split)
-{
-	if (ft_strstr(s, NAME_CMD_STRING) || ft_strstr(s, COMMENT_CMD_STRING))
-		split->unknow ? token_add(split, new_token(s))
-			: (split->unknow = ft_strdup(s));
-	else
-	{
-		while (s && ft_strchr(s, ' '))
-		{
-			split->unknow ? token_add(split, new_token(ft_strsub(s,
-				0, ft_strchr(s, ' ') - s)))
-				: (split->unknow = ft_strsub(s, 0, ft_strchr(s, ' ') - s));
-			s = ft_strchr(s, ' ') + 1;
-		}
+		token_assign(token);
+		token = token->next;
 	}
 }
 
-void	tokenize_lst(t_list *lst, t_token *split)
+char	*what_is_it(t_token *token)
 {
-	while (lst)
-	{
-		tokenize_line(lst->content, split);
-		lst = lst->next;
-	}
+	if (token->lab)
+		return ("lab");
+	if (token->comment)
+		return ("comment");
+	if (token->dirlab)
+		return ("dirlab");
+	if (token->indirlab)
+		return ("indirlab");
+	if (token->dir)
+		return ("dir");
+	if (token->name)
+		return ("name");
+	if (token->ncom)
+		return ("ncom");
+	if (token->indir)
+		return ("indir");
+	if (token->inst)
+		return ("inst");
+	if (token->reg)
+		return ("reg");
+	if (token->unknow)
+		return ("unknow");
+	return (NULL);
 }
 
 void	ft_asm(int fd)
@@ -95,9 +89,10 @@ void	ft_asm(int fd)
 	split = new_token(NULL);
 	lst = get_input(fd);
 	tokenize_lst(lst, split);
+	specify_tokens(split);
 	while (split->next)
 	{
-		ft_printf("%s\n", split->unknow);
+		ft_printf("'%s' -- %s\n", split->unknow, what_is_it(split));
 		split = split->next;
 	}
 }
