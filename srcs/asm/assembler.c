@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 17:02:54 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/03 16:04:46 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/03 19:36:09 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,62 @@
 void	init_ft_tab(void)
 {
 	g_ft_tab[0] = &ft_lab;
-	g_ft_tab[1] = &ft_comment;
-	g_ft_tab[2] = &ft_dirlab;
-	g_ft_tab[3] = &ft_indirlab;
-	g_ft_tab[4] = &ft_dir;
-	g_ft_tab[5] = &ft_name;
-	g_ft_tab[6] = &ft_ncom;
-	g_ft_tab[7] = &ft_indir;
-	g_ft_tab[8] = &ft_inst;
-	g_ft_tab[9] = &ft_reg;
+	g_ft_tab[1] = &ft_reg;
+	g_ft_tab[2] = &ft_dir;
+	g_ft_tab[3] = &ft_comment;
+	g_ft_tab[4] = &ft_indir;
+	g_ft_tab[5] = &ft_dirlab;
+	g_ft_tab[6] = &ft_indirlab;
+	g_ft_tab[7] = &ft_name;
+	g_ft_tab[8] = &ft_ncom;
+	g_ft_tab[9] = &ft_inst;
 	OUT = NULL;
 };
+
+t_output	*get_dirlab(char *s)
+{
+	t_output	*pop;
+	char		*tmp;
+
+	pop = OUT;
+	tmp = NULL;
+	while (pop)
+	{
+		tmp ? free(tmp) : NULL;
+		tmp = ft_strsub(pop->name, 0, ft_strlen(pop->name) - 1);
+		if (pop->type == 0 && ft_strstr(s, tmp))
+		{
+			tmp ? free(tmp) : NULL;
+			return (pop);
+		}
+		pop = pop->next;
+	}
+	return (NULL);
+}
+
+int		calc_dirlab(int a, int b)
+{
+	int 	res;
+
+	res = b - a;
+	if (res < 0)
+		res = 0 + res;
+	ft_printf("a: %d b: %d res: %d\n", a, b, res);
+	return (res);
+}
+
+void	fill_dirlab(void)
+{
+	t_output	*tmp;
+
+	tmp = OUT;
+	while (tmp)
+	{
+		if (tmp->type == 5 && get_dirlab(tmp->name))
+			tmp->val = calc_dirlab(tmp->link->pos, get_dirlab(tmp->name)->pos);
+		tmp = tmp->next;
+	}
+}
 
 void	ft_asm(int fd)
 {
@@ -40,13 +85,9 @@ void	ft_asm(int fd)
 	tokenize_lst(lst, split);
 	specify_tokens(split);
 	create_output(split);
+	fill_dirlab();
 	print_output();
-	while (OUT)
-	{
-		val += OUT->size;
-		OUT = OUT->next;
-	}
-	ft_printf("TOTAL = %d\n", val);
+	// print_val();
 }
 
 int		main(int argc, char **argv)

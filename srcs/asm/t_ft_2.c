@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 16:34:29 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/03 15:55:37 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/03 17:51:42 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	ft_inst(t_output *pop)
 	if (g_op_tab[whichop(pop->name)].coding_param)
 		pop->size++;
 	pop->val = whichop(pop->name) + 1;
+	if (pop->size > 1)
+		pop->val = pop->val << 8 | ft_opc(pop);
 }
 
 void	ft_reg(t_output *pop)

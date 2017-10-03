@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 16:32:29 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/03 16:12:06 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/03 18:14:42 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,5 @@ void	ft_dir(t_output *pop)
 	pop->size = 4;
 	if (pop->link && g_op_tab[whichop(pop->link->name)].label_size)
 		pop->size = 2;
-	pop->val = 0;
+	pop->val = ft_atoi(&(pop->name)[1]);
 }

@@ -6,7 +6,7 @@
 #    By: nolivier <nolivier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/27 14:06:26 by nolivier          #+#    #+#              #
-#    Updated: 2017/10/02 17:56:09 by adenis           ###   ########.fr        #
+#    Updated: 2017/10/03 17:30:53 by adenis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ SRC_ASM		=	tools.c \
 				t_ft.c t_ft_2.c \
 				ft_op.c \
 				display.c \
-				output.c
+				output.c \
+				calc.c
 
 SRC_VM		= vm.c
 

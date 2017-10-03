@@ -6,7 +6,7 @@
 /*   By: nolivier <nolivier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 12:17:53 by nolivier          #+#    #+#             */
-/*   Updated: 2017/10/03 15:56:16 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/03 19:03:43 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef	struct		s_output
 	char			*name;
 	int				val;
 	int				size;
+	int				pos;
 }					t_output;
 
 t_output		*new_output(char *name, int type);
@@ -53,6 +54,7 @@ void			link_output(void);
 void			print_it(t_token *token);
 void			print_token(t_token *split);
 void			print_output(void);
+void			print_val(void);
 
 void			del(void *content, size_t size);
 void			display_lst(t_list *lst);
@@ -70,6 +72,8 @@ void			specify_tokens(t_token *token);
 int				whichop(char *s);
 int				isop(char *s);
 int				get_value(t_token *token);
+
+int				ft_opc(t_output *pop);
 
 void			ft_lab(t_output *pop);
 void			ft_comment(t_output *pop);
