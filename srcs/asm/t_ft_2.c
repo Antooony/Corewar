@@ -6,63 +6,47 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 16:34:29 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/02 16:34:39 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/03 15:55:37 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
 
-int		*ft_name(char *s)
+void	ft_name(t_output *pop)
 {
-	return (NULL);
+	return ;
 }
 
-int		*ft_ncom(char *s)
+void	ft_ncom(t_output *pop)
 {
-	int		out[2];
-	int		*n;
-	if (!s)
-		return (NULL);
-	out[0] = 1;
-	out[1] = 0;
-	n = out;
-	return (n);
+	if (!pop->name)
+		return ;
+	pop->size = 1;
+	pop->val = 0;
 }
 
-int		*ft_indir(char *s)
+void	ft_indir(t_output *pop)
 {
-	int		out[2];
-	int		*n;
-	if (!s)
-		return (NULL);
-	out[0] = 2;
-	out[1] = ft_atoi(&s[1]);
-	n = out;
-	return (n);
+	if (!pop->name)
+		return ;
+	pop->size = 2;
+	pop->val = ft_atoi(&pop->name[1]);
 }
 
-int		*ft_inst(char *s)
+void	ft_inst(t_output *pop)
 {
-	int		out[2];
-	int		*n;
-	if (!s)
-		return (NULL);
-	out[0] = 1;
-	if (g_op_tab[whichop(s)].coding_param)
-		out[0]++;
-	out[1] = whichop(s) + 1;
-	n = out;
-	return (n);
+	if (!pop->name)
+		return ;
+	pop->size = 1;
+	if (g_op_tab[whichop(pop->name)].coding_param)
+		pop->size++;
+	pop->val = whichop(pop->name) + 1;
 }
 
-int		*ft_reg(char *s)
+void	ft_reg(t_output *pop)
 {
-	int		out[2];
-	int		*n;
-	if (!s)
-		return (NULL);
-	out[0] = 1;
-	out[1] = ft_atoi(&s[1]);
-	n = out;
-	return (n);
+	if (!pop->name)
+		return ;
+	pop->size = 1;
+	pop->val = ft_atoi(&(pop->name)[1]);
 }

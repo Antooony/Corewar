@@ -6,7 +6,7 @@
 /*   By: zaz <zaz@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/04 11:33:27 by zaz               #+#    #+#             */
-/*   Updated: 2017/10/02 19:15:10 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/03 16:12:08 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ typedef struct		s_op
 	unsigned int		cycles;
 	char				*desc;
 	unsigned int		coding_param;
-	unsigned int		dirsize;
+	unsigned int		label_size;
 }					t_op;
 
 t_op		g_op_tab[17];

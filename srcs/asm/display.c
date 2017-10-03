@@ -6,28 +6,11 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 16:35:23 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/02 18:30:05 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/03 16:09:12 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
-
-void	print_it(t_token *token)
-{
-	int		*out;
-	int		i;
-
-	i = get_value(token);
-	if (i > 9)
-		return ;
-	out = (int *)g_ft_tab[i](token->unknow);
-	if (!out)
-	{
-		ft_putchar('\n');
-		return ;
-	}
-	ft_printf("size = %d | val = %d\n", out[0], out[1]);
-}
 
 void	print_token(t_token *split)
 {
@@ -45,7 +28,8 @@ void	print_output(void)
 	pop = OUT;
 	while (pop)
 	{
-		ft_printf("%s -- %d\n", pop->name, pop->size);
+		ft_printf("%-6s | size: %d | %#04x\n", pop->name, pop->size,
+			pop->val);
 		pop = pop->next;
 	}
 }

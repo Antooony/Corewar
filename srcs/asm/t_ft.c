@@ -6,61 +6,47 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 16:32:29 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/02 19:15:48 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/03 16:12:06 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
 
-int		*ft_lab(char *s)
+void	ft_lab(t_output *pop)
 {
-	int		out[2];
-	int		*n;
-	if (!s)
-		return (NULL);
-	out[0] = 0;
-	out[1] = 0;
-	n = out;
-	return (n);
+	if (!pop->name)
+		return ;
+	pop->size = 0;
+	pop->val = 0;
 }
 
-int		*ft_comment(char *s)
+void	ft_comment(t_output *pop)
 {
-	return (NULL);
+	return ;
 }
 
-int		*ft_dirlab(char *s)
+void	ft_dirlab(t_output *pop)
 {
-	int		out[2];
-	int		*n;
-	if (!s)
-		return (NULL);
-	out[0] = 2;
-	out[1] = 0;
-	n = out;
-	return (n);
+	if (!pop->name)
+		return ;
+	pop->size = 2;
+	pop->val = 0;
 }
 
-int		*ft_indirlab(char *s)
+void	ft_indirlab(t_output *pop)
 {
-	int		out[2];
-	int		*n;
-	if (!s)
-		return (NULL);
-	out[0] = 2;
-	out[1] = 0;
-	n = out;
-	return (n);
+	if (!pop->name)
+		return ;
+	pop->size = 2;
+	pop->val = 0;
 }
 
-int		*ft_dir(char *s)
+void	ft_dir(t_output *pop)
 {
-	int		out[2];
-	int		*n;
-	if (!s)
-		return (NULL);
-	out[0] = 4;
-	out[1] = 0;
-	n = out;
-	return (n);
+	if (!pop->name)
+		return ;
+	pop->size = 4;
+	if (pop->link && g_op_tab[whichop(pop->link->name)].label_size)
+		pop->size = 2;
+	pop->val = 0;
 }
