@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/03 17:22:57 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/03 17:58:51 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/05 16:44:07 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_opc(t_output *pop)
 
 	val = 64;
 	opc = 0;
-	i = pop->size + 1;
+	i = g_op_tab[whichop(pop->name)].num_params;
 	tmp = pop;
 	while (i)
 	{

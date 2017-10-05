@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 17:02:54 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/03 19:36:09 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/05 16:44:16 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,11 @@ t_output	*get_dirlab(char *s)
 	return (NULL);
 }
 
-int		calc_dirlab(int a, int b)
+int		calc_dirlab(char a, char b)
 {
-	int 	res;
+	char 	res;
 
 	res = b - a;
-	if (res < 0)
-		res = 0 + res;
-	ft_printf("a: %d b: %d res: %d\n", a, b, res);
 	return (res);
 }
 
@@ -86,8 +83,8 @@ void	ft_asm(int fd)
 	specify_tokens(split);
 	create_output(split);
 	fill_dirlab();
-	print_output();
-	// print_val();
+	// print_output();
+	print_val();
 }
 
 int		main(int argc, char **argv)

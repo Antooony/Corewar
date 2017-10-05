@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 16:35:23 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/03 19:38:28 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/05 15:25:43 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ void	print_output(void)
 void	printop(int val, int size)
 {
 	if (size >= 4)
-		ft_printf("%0#4x\n", (char)(val >> 24));
+		ft_printf("%02hhx\n", (val >> 24));
 	if (size >= 3)
-		ft_printf("%0#4x\n", (char)(val >> 16));
+		ft_printf("%02hhx\n", (val >> 16));
 	if (size >= 2)
-		ft_printf("%0#4x\n", (char)(val >> 8));
+		ft_printf("%02hhx\n", (val >> 8));
 	if (size >= 1)
-		ft_printf("%0#4x\n", (char)val);
+		ft_printf("%02hhx\n", val);
 }
 
 void	print_val(void)
