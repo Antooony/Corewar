@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 16:34:29 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/03 17:51:42 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/10 16:37:10 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_name(t_output *pop)
 {
+	pop->name = ft_strsub(pop->name, ft_strchr(pop->name, '"') - pop->name + 1,
+		ft_strrchr(pop->name, '"') - ft_strchr(pop->name, '"') - 1);
 	return ;
 }
 
@@ -30,7 +32,7 @@ void	ft_indir(t_output *pop)
 	if (!pop->name)
 		return ;
 	pop->size = 2;
-	pop->val = ft_atoi(&pop->name[1]);
+	pop->val = ft_atoi(pop->name);
 }
 
 void	ft_inst(t_output *pop)

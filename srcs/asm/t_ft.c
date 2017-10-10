@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 16:32:29 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/03 18:14:42 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/10 14:43:31 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	ft_lab(t_output *pop)
 
 void	ft_comment(t_output *pop)
 {
+	pop->name = ft_strsub(pop->name, ft_strchr(pop->name, '"') - pop->name + 1,
+		ft_strrchr(pop->name, '"') - ft_strchr(pop->name, '"') - 1);
 	return ;
 }
 

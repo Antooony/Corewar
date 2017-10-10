@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 16:36:45 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/02 16:37:01 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/10 16:03:31 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	token_assign(t_token *token)
 		token->reg = token->unknow;
 	else if (isop(token->unknow))
 		token->inst = token->unknow;
+	else
+		token->indir = token->unknow;
 }
 
 void	specify_tokens(t_token *token)

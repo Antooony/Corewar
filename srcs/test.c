@@ -1,45 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   calc.c                                             :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/03 17:22:57 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/10 17:06:22 by adenis           ###   ########.fr       */
+/*   Created: 2017/10/05 17:29:39 by adenis            #+#    #+#             */
+/*   Updated: 2017/10/10 15:41:15 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
 
-int		opc_val(int type)
+int		main(int ac, char **av)
 {
-	if (type == 1)
-		return (1);
-	if (type == 4)
-		return (2);
-	if (type == 6)
-		return (3);
-	return (2);
-}
+	char	buffer[2];
 
-int		ft_opc(t_output *pop)
-{
-	int			opc;
-	int			i;
-	int			val;
-	t_output	*tmp;
-
-	val = 64;
-	opc = 0;
-	i = g_op_tab[whichop(pop->name)].num_params;
-	tmp = pop;
-	while (i)
+	buffer[1] = '\0';
+	if (ac != 2)
+		return (0);
+	int		fd;
+	int		i = 0;
+	int		count = 0;
+	fd = open(av[1], O_RDONLY);
+	while (read(fd, buffer, 1))
 	{
-		tmp = tmp->next;
-		opc += val * (opc_val(tmp->type));
-		val = val / 4;
-		i--;
+		// if (count < 2180)
+		// {
+		// 	count++;
+		// 	continue;
+		// }
+		if (i == 16 && (ft_printf("\n")))
+			i = 0;
+		ft_printf("%02hhx ", buffer[0]);
+		i++;
 	}
-	return (opc);
 }

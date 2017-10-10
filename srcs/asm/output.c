@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 17:48:56 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/05 16:27:19 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/10 16:48:26 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,7 @@ void		fill_output(void)
 		count += tmp->size;
 		tmp = tmp->next;
 	}
-}
-
-t_output	*last_out()
-{
-	t_output	*tmp;
-
-	tmp = OUT;
-	while (tmp->next)
-		tmp = tmp->next;
-	return (tmp);
+	PROG_SIZE = count;
 }
 
 void		create_output(t_token *token)

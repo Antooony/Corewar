@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 16:38:08 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/03 17:33:09 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/10 17:01:03 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,15 @@ int		get_value(t_token *token)
 		return (i);
 	if ((++i) && token->reg)
 		return (i);
-	if ((++i) && token->dir)
-		return (i);
 	if ((++i) && token->comment)
-		return (i);
-	if ((++i) && token->indir)
 		return (i);
 	if ((++i) && token->dirlab)
 		return (i);
+	if ((++i) && token->dir)
+		return (i);
 	if ((++i) && token->indirlab)
+		return (i);
+	if ((++i) && token->indir)
 		return (i);
 	if ((++i) && token->name)
 		return (i);

@@ -6,7 +6,7 @@
 /*   By: nolivier <nolivier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 12:17:53 by nolivier          #+#    #+#             */
-/*   Updated: 2017/10/05 15:20:11 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/10 15:28:24 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 # include "op.h"
 # include "libft.h"
 # define OUT g_out
+# define FD g_fd
+# define PROG_SIZE g_prog_size
 
 typedef	struct		s_token
 {
@@ -90,5 +92,7 @@ typedef void	(*t_ftype) (t_output *);
 
 t_ftype			g_ft_tab[10];
 t_output		*g_out;
+int				g_fd;
+int				g_prog_size;
 
 #endif
