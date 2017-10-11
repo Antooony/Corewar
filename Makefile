@@ -6,7 +6,7 @@
 #    By: adenis <adenis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/03 17:30:53 by adenis            #+#    #+#              #
-#    Updated: 2017/10/11 12:13:52 by adenis           ###   ########.fr        #
+#    Updated: 2017/10/11 17:29:13 by adenis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ SRC_ASM		=	tools.c \
 				token.c token_2.c \
 				t_ft.c t_ft_2.c \
 				ft_op.c \
-				display.c \
+				display.c display_2.c \
 				output.c \
 				calc.c
 

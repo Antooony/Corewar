@@ -8,16 +8,12 @@ fork %:torpgeni
 st r1 6
 live %42
 fork %:avdefgeni
-
 ardeftgt:
-
 ardefgeni:
-st  r1 6
-
+st r1 6
 ardefgen:
-live  %213904
-fork  %:ardefgen
-
+live %213904
+fork %:ardefgen
 ardefinit:
 sti r1 %:ardefl1 %1
 st r1 6
@@ -27,7 +23,6 @@ ld %-6 r2
 ld %-6 r3
 ld %150994953 r4
 ld %-186 r5
-
 ardefwrite:
 ardefl1:
 live %295423
@@ -42,15 +37,11 @@ zjmp %:ardefinit
 ardefloop:
 ld %0 r16
 zjmp %:ardefwrite
-
-
 coregeni:
 st r1 6
-
 coregen:
 live %123012
 fork %:coregen
-
 coreinit:
 st r1 58
 st r1 58
@@ -63,7 +54,6 @@ st r1 58
 st r1 58
 st r1 58
 ld %0 r16
-
 corelive:
 live %985341
 live %985341
@@ -76,14 +66,11 @@ live %985341
 live %985341
 live %985341
 zjmp %:corelive
-
 avdefgeni:
-st  r1 6
-
+st r1 6
 avdefgen:
-live  %213904
-fork  %:avdefgen
-
+live %213904
+fork %:avdefgen
 avdefinit:
 sti r1 %:avdefl1 %1
 st r1 6
@@ -93,7 +80,6 @@ ld %0 r2
 ld %6 r3
 ld %150994953 r4
 ld %180 r5
-
 avdefwrite:
 avdefl1:
 live %295423
@@ -108,21 +94,17 @@ zjmp %:avdefinit
 avdefloop:
 ld %0 r16
 zjmp %:avdefwrite
-
 torpgeni:
 st r1 6
-
 torpgen:
 live %96824
 fork %:torpgen
-
 torpinit:
 ld %0 r2
 ld %4 r3
 ld %96 r5
 sti r1 %:torpchk %1
 st r1 6
-
 torpwrite:
 torpl1:
 live %8008135
@@ -139,5 +121,4 @@ zjmp %362
 torploop:
 ld %0 r15
 zjmp %:torpwrite
-
 avdeftgt:

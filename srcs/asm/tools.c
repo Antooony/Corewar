@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:10:14 by adenis            #+#    #+#             */
-/*   Updated: 2017/09/28 16:53:35 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/11 17:42:38 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	display_lst(t_list *lst)
 int		ft_error(void)
 {
 	ft_putstr("error\n");
+	exit(0);
 	return (0);
 }
 

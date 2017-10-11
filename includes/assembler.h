@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 12:17:53 by nolivier          #+#    #+#             */
-/*   Updated: 2017/10/11 14:57:09 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/11 18:35:27 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,9 @@ void			create_output(t_token *token);
 void			link_op(t_output *op, int narg);
 void			link_output(void);
 
-void			print_it(t_token *token);
-void			print_token(t_token *split);
-void			print_output(void);
 void			print_val(void);
+void			print_header(void);
+void			print_magic(unsigned int nb);
 
 void			del(void *content, size_t size);
 void			display_lst(t_list *lst);

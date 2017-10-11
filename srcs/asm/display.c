@@ -6,24 +6,11 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 16:35:23 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/10 14:53:42 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/11 17:28:49 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
-
-void	print_output(void)
-{
-	t_output	*pop;
-
-	pop = OUT;
-	while (pop)
-	{
-		ft_printf("%-6s | type: %d | size: %d | %d -- val: %d\n",
-			pop->name, pop->type, pop->size, pop->pos, pop->val);
-		pop = pop->next;
-	}
-}
 
 void	printop(int val, int size)
 {
@@ -46,5 +33,73 @@ void	print_val(void)
 	{
 		printop(pop->val, pop->size);
 		pop = pop->next;
+	}
+}
+
+void	print_name(t_header *header, char *s)
+{
+	int		i;
+
+	i = 0;
+	while (s[i])
+	{
+		header->prog_name[i] = s[i];
+		i++;
+	}
+	i = 0;
+	while (i < PROG_NAME_LENGTH + 1)
+	{
+		ft_putchar_fd(header->prog_name[i], FD);
+		i++;
+	}
+	i = 0;
+	while (i < 3)
+	{
+		ft_putchar_fd(0, FD);
+		i++;
+	}
+	print_magic(PROG_SIZE);
+}
+
+void	print_comment(t_header *header, char *s)
+{
+	int		i;
+
+	i = 0;
+	while (s[i])
+	{
+		header->comment[i] = s[i];
+		i++;
+	}
+	i = 0;
+	while (i < COMMENT_LENGTH + 1)
+	{
+		ft_putchar_fd(header->comment[i], FD);
+		i++;
+	}
+	i = 0;
+	while (i < 3)
+	{
+		ft_putchar_fd(0, FD);
+		i++;
+	}
+}
+
+void	print_header(void)
+{
+	t_output	*tmp;
+	t_header	*header;
+
+	header = (t_header *)malloc(sizeof(t_header));
+	header->magic = COREWAR_EXEC_MAGIC;
+	tmp = OUT;
+	print_magic(header->magic);
+	while (tmp)
+	{
+		if (tmp->type == 7)
+			print_name(header, tmp->name);
+		if (tmp->type == 2)
+			print_comment(header, tmp->name);
+		tmp = tmp->next;
 	}
 }

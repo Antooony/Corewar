@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 17:02:54 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/11 15:28:29 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/11 18:35:26 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,82 +72,6 @@ void	fill_dirlab(void)
 	}
 }
 
-void	print_magic(unsigned int nb)
-{
-	ft_putchar_fd((char)(nb >> 24), FD);
-	ft_putchar_fd((char)(nb >> 16), FD);
-	ft_putchar_fd((char)(nb >> 8), FD);
-	ft_putchar_fd((char)nb, FD);
-}
-
-void	print_name(t_header *header, char *s)
-{
-	int		i;
-
-	i = 0;
-	while (s[i])
-	{
-		header->prog_name[i] = s[i];
-		i++;
-	}
-	i = 0;
-	while (i < PROG_NAME_LENGTH + 1)
-	{
-		ft_putchar_fd(header->prog_name[i], FD);
-		i++;
-	}
-	i = 0;
-	while (i < 3)
-	{
-		ft_putchar_fd(0, FD);
-		i++;
-	}
-	print_magic(PROG_SIZE);
-}
-
-void	print_comment(t_header *header, char *s)
-{
-	int		i;
-
-	i = 0;
-	while (s[i])
-	{
-		header->comment[i] = s[i];
-		i++;
-	}
-	i = 0;
-	while (i < COMMENT_LENGTH + 1)
-	{
-		ft_putchar_fd(header->comment[i], FD);
-		i++;
-	}
-	i = 0;
-	while (i < 3)
-	{
-		ft_putchar_fd(0, FD);
-		i++;
-	}
-}
-
-void	print_header(void)
-{
-	t_output	*tmp;
-	t_header	*header;
-
-	header = (t_header *)malloc(sizeof(t_header));
-	header->magic = COREWAR_EXEC_MAGIC;
-	tmp = OUT;
-	print_magic(header->magic);
-	while (tmp)
-	{
-		if (tmp->type == 7)
-			print_name(header, tmp->name);
-		if (tmp->type == 2)
-			print_comment(header, tmp->name);
-		tmp = tmp->next;
-	}
-}
-
 void	ft_asm(int fd)
 {
 	t_list		*lst;
@@ -163,6 +87,25 @@ void	ft_asm(int fd)
 	print_val();
 }
 
+int		handle_file(char *s)
+{
+	char	*s2;
+	char	*name;
+	int		i;
+
+	if (!ft_strchr(s, '.') || ft_strchr(s, '.') != ft_strrchr(s, '.'))
+		return (ft_error());
+	if (ft_strchr(s, '.')[1] != 's' || ft_strchr(s, '.') + 1 != s + ft_strlen(s) - 1)
+		return (ft_error());
+	s2 = ft_strdup(s);
+	s2[ft_strlen(s2) - 1] = 0;
+	name = ft_strjoin(s2, "cor");
+	free(s2);
+	FD = open(name, O_CREAT);
+	ft_printf("%d\n", FD);
+	return (0);
+}
+
 int		main(int argc, char **argv)
 {
 	int		fd;
@@ -173,6 +116,7 @@ int		main(int argc, char **argv)
 		return (ft_error());
 	init_ft_tab();
 	FD = 1;
+	handle_file(argv[1]);
 	ft_asm(fd);
 	if (close(fd) == -1)
 		return (ft_error());
