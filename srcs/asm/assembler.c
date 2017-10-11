@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 17:02:54 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/10 17:02:32 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/11 15:28:29 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ t_output	*get_dirlab(char *s)
 	return (NULL);
 }
 
-int		calc_dirlab(char a, char b)
+int		calc_dirlab(int a, int b)
 {
-	char 	res;
+	int 	res;
 
-	res = b - a;
+	res =  b - a;
 	return (res);
 }
 
@@ -64,8 +64,10 @@ void	fill_dirlab(void)
 	tmp = OUT;
 	while (tmp)
 	{
-		if (tmp->type == 3 && get_dirlab(tmp->name))
+		if ((tmp->type == 3 || tmp->type == 5 )&& get_dirlab(tmp->name))
+		{
 			tmp->val = calc_dirlab(tmp->link->pos, get_dirlab(tmp->name)->pos);
+		}
 		tmp = tmp->next;
 	}
 }
