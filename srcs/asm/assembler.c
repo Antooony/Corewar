@@ -6,12 +6,13 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 17:02:54 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/11 18:35:26 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/12 16:17:30 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
 #include "op.c"
+#include <errno.h>
 
 void	init_ft_tab(void)
 {
@@ -101,8 +102,8 @@ int		handle_file(char *s)
 	s2[ft_strlen(s2) - 1] = 0;
 	name = ft_strjoin(s2, "cor");
 	free(s2);
-	FD = open(name, O_CREAT);
-	ft_printf("%d\n", FD);
+	FD = open(name, O_WRONLY | O_CREAT, S_IRWXU);
+	ft_printf("%s -- %d\n", name, FD);
 	return (0);
 }
 
@@ -118,6 +119,7 @@ int		main(int argc, char **argv)
 	FD = 1;
 	handle_file(argv[1]);
 	ft_asm(fd);
+	close(FD);
 	if (close(fd) == -1)
 		return (ft_error());
 }
