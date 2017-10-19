@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/13 14:59:45 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/13 18:18:27 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/19 15:57:59 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,12 @@ t_oct	*get_input(int fd)
 	char	buffer[2];
 	t_oct	*lst;
 	t_oct	*tmp;
-	int		i= 0;
 
 	lst = NULL;
 	tmp = (t_oct *)ft_lstnew(NULL, 0);
 	buffer[1] = '\0';
 	while (read(fd, buffer, 1))
 	{
-		i++;
 		if (!lst)
 		{
 			lst = (t_oct *)ft_lstnew(NULL, 0);

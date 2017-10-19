@@ -6,7 +6,7 @@
 #    By: adenis <adenis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/03 17:30:53 by adenis            #+#    #+#              #
-#    Updated: 2017/10/13 15:02:32 by adenis           ###   ########.fr        #
+#    Updated: 2017/10/19 17:21:02 by adenis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,10 @@ SRC_ASM		= tools.c \
 
 
 SRC_MSA		= msa.c \
-			  tools.c
+			  tools.c tools_2.c \
+			  header.c \
+			  args.c \
+			  output.c
 
 PATH_ASM	= srcs/asm
 PATH_MSA	= srcs/msa

@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/13 19:23:44 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/13 19:49:34 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/19 19:26:20 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ char		*get_comment(char *s, t_oct **lst)
 		tmp = tmp->next;
 		i++;
 	}
-	*lst = tmp;
 	tmp = jump(tmp, 3);
+	*lst = tmp;
 	return (s);
 }
 
@@ -87,7 +87,19 @@ int			get_prog_size(t_oct **lst)
 	return (res);
 }
 
-void		get_header(t_oct *lst)
+void		format_name(char **s)
+{
+	char 	*tmp;
+	char 	*tmp2;
+
+	tmp = ft_strjoin("\"", *s);
+	tmp2 = ft_strjoin(tmp, "\"");
+	free(*s);
+	ft_strdel(&tmp);
+	*s = tmp2;
+}
+
+void		get_header(t_oct **lst)
 {
 	char 	*name;
 	char 	*comment;
@@ -95,9 +107,15 @@ void		get_header(t_oct *lst)
 
 	name = ft_strnew(PROG_NAME_LENGTH);
 	comment = ft_strnew(COMMENT_LENGTH);
-	name = get_name(name, &lst);
-	prog_size = get_prog_size(&lst);
-	comment = get_comment(comment, &lst);
-	ft_printf("name: \"%s\"\ncomment: \"%s\"\nprog_size: %d\n",
-		name, comment, prog_size);
+	name = get_name(name, lst);
+	prog_size = get_prog_size(lst);
+	comment = get_comment(comment, lst);
+	format_name(&name);
+	format_name(&comment);
+	write_output("name: ", 0, NULL);
+	write_output(name, 0, "\n");
+	write_output("comment: ", 0, NULL);
+	write_output(comment, 0, "\n");
+	ft_strdel(&name);
+	ft_strdel(&comment);
 }

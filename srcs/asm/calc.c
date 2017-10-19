@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/03 17:22:57 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/10 17:06:22 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/16 16:38:46 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 int		opc_val(int type)
 {
 	if (type == 1)
-		return (1);
+		return (REG_CODE);
 	if (type == 4)
-		return (2);
+		return (DIR_CODE);
 	if (type == 6)
-		return (3);
+		return (IND_CODE);
 	return (2);
 }
 
