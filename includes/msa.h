@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/12 18:02:53 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/19 17:48:56 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/20 17:15:20 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 
 typedef	struct	s_oct
 {
-	char			content;
-	int				val;
-	struct s_oct	*next;
+	unsigned char			content;
+	int						val;
+	struct s_oct			*next;
 }				t_oct;
 
 void			ft_octadd_end(t_oct *alst, t_oct *new);
@@ -53,6 +53,7 @@ void			handle_opc(t_oct **lst, int a1, int a2, int a3);
 void			lst_val(t_oct *lst);
 void			write_output(char *line, int val, char *suf);
 void			out_val(void);
+int				isop(char *s);
 
 t_oct			*g_lst;
 t_list			*g_out;

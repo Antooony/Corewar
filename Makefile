@@ -6,7 +6,7 @@
 #    By: adenis <adenis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/03 17:30:53 by adenis            #+#    #+#              #
-#    Updated: 2017/10/19 17:21:02 by adenis           ###   ########.fr        #
+#    Updated: 2017/10/22 17:21:22 by adenis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,15 +21,48 @@ LIB_PATH	= ./libft
 NAME		= asm
 NAME2		= msa
 
-SRC_ASM		= tools.c \
-			  assembler.c \
-			  free.c \
-			  token.c token_2.c \
-			  t_ft.c t_ft_2.c \
-			  ft_op.c \
-			  display.c display_2.c \
+SRC_ASM		= asm.c \
+			  calc.c \
+			  display.c \
+			  display_2.c \
+			  ft_and.c \
+			  ft_check.c \
+			  ft_commands.c \
+			  ft_create_elem.c \
+			  ft_create_token.c \
+			  ft_freetab.c \
+			  ft_live.c \
+			  ft_pars.c \
+			  ft_push_back.c \
+			  ft_push_token.c \
+			  ft_puterror.c \
+			  ft_puterrorsep.c \
+			  ft_reg.c \
+			  ft_tomuch.c \
+			  ft_virgule.c \
 			  output.c \
-			  calc.c
+			  split_space.c \
+			  split_tok.c \
+			  t_ft.c \
+			  t_ft_2.c \
+			  ft_op.c \
+			  ft_countchar.c \
+			  ft_decoupe.c \
+			  ft_lastchar.c \
+			  ft_remp.c \
+			  ft_strsplit.c
+
+
+
+# SRC_ASM		= tools.c \
+# 			  assembler.c \
+# 			  free.c \
+# 			  token.c token_2.c \
+# 			  t_ft.c t_ft_2.c \
+# 			  ft_op.c \
+# 			  display.c display_2.c \
+# 			  output.c \
+# 			  calc.c \
 
 
 SRC_MSA		= msa.c \
@@ -38,7 +71,7 @@ SRC_MSA		= msa.c \
 			  args.c \
 			  output.c
 
-PATH_ASM	= srcs/asm
+PATH_ASM	= srcs/asm/nagaloul
 PATH_MSA	= srcs/msa
 
 ASM			= $(addprefix $(PATH_ASM)/,$(SRC_ASM))

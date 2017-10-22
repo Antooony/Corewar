@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/19 17:20:09 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/19 17:39:38 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/20 17:23:53 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 void		display_out(void)
 {
 	t_list	*tmp;
+	int		val;
 
+	val = 0;
 	tmp = OUT;
 	while (tmp)
 	{

@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 12:17:53 by nolivier          #+#    #+#             */
-/*   Updated: 2017/10/11 18:35:27 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/22 18:37:44 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,16 +76,16 @@ int				get_value(t_token *token);
 
 int				ft_opc(t_output *pop);
 
-void			ft_lab(t_output *pop);
-void			ft_comment(t_output *pop);
-void			ft_dirlab(t_output *pop);
-void			ft_indirlab(t_output *pop);
-void			ft_dir(t_output *pop);
-void			ft_name(t_output *pop);
-void			ft_ncom(t_output *pop);
-void			ft_indir(t_output *pop);
-void			ft_inst(t_output *pop);
-void			ft_reg(t_output *pop);
+void			out_lab(t_output *pop);
+void			out_comment(t_output *pop);
+void			out_dirlab(t_output *pop);
+void			out_indirlab(t_output *pop);
+void			out_dir(t_output *pop);
+void			out_name(t_output *pop);
+void			out_ncom(t_output *pop);
+void			out_indir(t_output *pop);
+void			out_inst(t_output *pop);
+void			out_reg(t_output *pop);
 
 typedef void	(*t_ftype) (t_output *);
 
@@ -93,5 +93,6 @@ t_ftype			g_ft_tab[10];
 t_output		*g_out;
 int				g_fd;
 int				g_prog_size;
+int				g_name;
 
 #endif

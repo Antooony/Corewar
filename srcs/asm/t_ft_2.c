@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 16:34:29 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/10 16:37:10 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/22 18:22:31 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	ft_name(t_output *pop)
 {
-	pop->name = ft_strsub(pop->name, ft_strchr(pop->name, '"') - pop->name + 1,
-		ft_strrchr(pop->name, '"') - ft_strchr(pop->name, '"') - 1);
 	return ;
 }
 

@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/13 19:23:44 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/19 19:26:20 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/20 17:04:20 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ int		check_magic(t_oct **lst)
 	t_oct	*tmp;
 
 	tmp = *lst;
-	if (tmp->content != (char)(COREWAR_EXEC_MAGIC >> 24))
+	if (tmp->content != (unsigned char)(COREWAR_EXEC_MAGIC >> 24))
 		return (0);
 	tmp = tmp->next;
-	if (tmp->content != (char)(COREWAR_EXEC_MAGIC >> 16))
+	if (tmp->content != (unsigned char)(COREWAR_EXEC_MAGIC >> 16))
 		return (0);
 	tmp = tmp->next;
-	if (tmp->content != (char)(COREWAR_EXEC_MAGIC >> 8))
+	if (tmp->content != (unsigned char)(COREWAR_EXEC_MAGIC >> 8))
 		return (0);
 	tmp = tmp->next;
-	if (tmp->content != (char)COREWAR_EXEC_MAGIC)
+	if (tmp->content != (unsigned char)COREWAR_EXEC_MAGIC)
 		return (0);
 	tmp = tmp->next;
 	*lst = tmp;
@@ -112,9 +112,9 @@ void		get_header(t_oct **lst)
 	comment = get_comment(comment, lst);
 	format_name(&name);
 	format_name(&comment);
-	write_output("name: ", 0, NULL);
+	write_output(".name ", 0, NULL);
 	write_output(name, 0, "\n");
-	write_output("comment: ", 0, NULL);
+	write_output(".comment ", 0, NULL);
 	write_output(comment, 0, "\n");
 	ft_strdel(&name);
 	ft_strdel(&comment);

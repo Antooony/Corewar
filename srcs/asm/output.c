@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 17:48:56 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/10 16:48:26 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/22 18:15:52 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,13 @@ void		fill_output(void)
 
 void		create_output(t_token *token)
 {
+
 	int		count;
 
 	count = 0;
 	while (token)
 	{
+
 		if (OUT)
 			output_add(OUT, new_output(token->unknow, get_value(token)));
 		else

@@ -6,25 +6,40 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/19 14:49:33 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/19 17:06:14 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/20 16:17:29 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "msa.h"
 
-void		get_arg(t_oct **lst, int size, int type)
+void		get_char(t_oct **lst, int size, int type)
 {
-	int		arg;
+	char	arg;
+	char	*s;
+
+	arg = (*lst)->content;
+	(*lst) = (*lst)->next;
+	if (type == 1)
+		write_output("r", 0, NULL);
+	if (type == 2)
+		write_output("%", 0, NULL);
+	write_output((s = ft_itoa(arg)), 0, ", ");
+	s ? ft_strdel(&s) : NULL;	
+}
+
+void		get_short(t_oct **lst, int size, int type)
+{
+	short	arg;
 	int		offset;
 	char	*s;
 
 	if (!size)
 		return ;
-	offset = 8 * (size - 1);
+	offset = 8;
 	arg = 0;
 	while (size)
 	{
-		arg = (int)(*lst)->content << offset | arg;
+		arg = (*lst)->content << offset | arg;
 		offset -= 8;
 		(*lst) = (*lst)->next;
 		size--;
@@ -37,6 +52,40 @@ void		get_arg(t_oct **lst, int size, int type)
 	s ? ft_strdel(&s) : NULL;	
 }
 
+void		get_int(t_oct **lst, int size, int type)
+{
+	int		arg;
+	int		offset;
+	char	*s;
+
+	if (!size)
+		return ;
+	offset = 8 * (size - 1);
+	arg = 0;
+	while (size)
+	{
+		arg = (*lst)->content << offset | arg;
+		offset -= 8;
+		(*lst) = (*lst)->next;
+		size--;
+	}
+	if (type == 1)
+		write_output("r", 0, NULL);
+	if (type == 2)
+		write_output("%", 0, NULL);
+	write_output((s = ft_itoa(arg)), 0, ", ");
+	s ? ft_strdel(&s) : NULL;	
+}
+
+void		get_arg(t_oct **lst, int size, int type)
+{
+	if (size == 1)
+		get_char(lst, size, type);
+	else if (size == 2)
+		get_short(lst, size, type);
+	else
+		get_int(lst, size, type);
+}
 void		handle_opc(t_oct **lst, int a1, int a2, int a3)
 {
 	t_oct	*tmp;

@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/12 17:56:31 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/19 19:21:35 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/20 17:22:23 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int		isop(char *s)
 	char	*tmp;
 
 	i = 0;
+	if (!s || ft_strlen(s) <= 1)
+		return (0);
 	tmp = ft_strsub(s, 0, ft_strlen(s) - 1);
 	while (i < 16)
 	{
@@ -93,7 +95,9 @@ void		handle_goto(t_list *lst)
 	char	*s;
 	t_list	*tmp;
 
-	val = ft_atoi(lst->content);
+	val = (char)ft_atoi(lst->content);
+	if (val > IDX_MOD || -val > IDX_MOD)
+		return ;
 	if (val)
 		val += lst->content_size;
 	if ((tmp = check_goto(lst->content, val)))
