@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 16:35:23 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/22 18:56:43 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/23 16:59:52 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	print_val(void)
 	pop = OUT;
 	while (pop)
 	{
-		if (pop->type == 2 || pop->type == 3 || pop->type == 7)
+		if (pop->type == 2 || pop->type == 7)
 		{
 			pop = pop->next;
 			continue ;

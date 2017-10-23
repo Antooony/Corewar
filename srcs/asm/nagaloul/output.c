@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 17:48:56 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/22 19:08:18 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/23 17:01:47 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void		fill_output(void)
 		tmp = tmp->next;
 	}
 	PROG_SIZE = count;
-	ft_printf("%d\n", PROG_SIZE);
 }
 
 void		create_output(t_token *token)
