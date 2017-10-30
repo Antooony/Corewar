@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_reg.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nagaloul <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/10 15:51:19 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/10/15 19:40:13 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/10/30 13:33:31 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-int	ft_indir(t_token *tok, int i, t_token *temp)
+int		ft_indir(t_token *tok, int i, t_token *temp)
 {
 	tok = tok->next;
 	if (!tok || tok->lan != i || (!tok->indir && !tok->indirlab))
@@ -22,7 +22,7 @@ int	ft_indir(t_token *tok, int i, t_token *temp)
 	return (1);
 }
 
-int ft_indirlab(char *tok, t_token *temp)
+int		ft_indirlab(char *tok, t_token *temp)
 {
 	while (temp)
 	{
@@ -34,7 +34,7 @@ int ft_indirlab(char *tok, t_token *temp)
 	return (0);
 }
 
-int ft_dirlab(char *tok, t_token *temp)
+int		ft_dirlab(char *tok, t_token *temp)
 {
 	while (temp)
 	{
@@ -46,7 +46,7 @@ int ft_dirlab(char *tok, t_token *temp)
 	return (0);
 }
 
-int	ft_dir(t_token *tok, int i, t_token *temp)
+int		ft_dir(t_token *tok, int i, t_token *temp)
 {
 	tok = tok->next;
 	if (!tok || tok->lan != i || (!tok->dir && !tok->dirlab))
@@ -56,8 +56,7 @@ int	ft_dir(t_token *tok, int i, t_token *temp)
 	return (1);
 }
 
-
-int ft_reg(t_token *tok, int i)
+int		ft_reg(t_token *tok, int i)
 {
 	tok = tok->next;
 	if (!tok || tok->lan != i || !tok->reg)

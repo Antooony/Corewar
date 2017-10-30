@@ -6,26 +6,26 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 16:34:29 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/22 18:22:31 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/22 19:04:00 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
 
-void	ft_name(t_output *pop)
+void	out_name(t_output *pop)
 {
+	pop->type = 8;
 	return ;
 }
 
-void	ft_ncom(t_output *pop)
+void	out_ncom(t_output *pop)
 {
 	if (!pop->name)
 		return ;
-	pop->size = 1;
 	pop->val = 0;
 }
 
-void	ft_indir(t_output *pop)
+void	out_indir(t_output *pop)
 {
 	if (!pop->name)
 		return ;
@@ -33,7 +33,7 @@ void	ft_indir(t_output *pop)
 	pop->val = ft_atoi(pop->name);
 }
 
-void	ft_inst(t_output *pop)
+void	out_inst(t_output *pop)
 {
 	if (!pop->name)
 		return ;
@@ -45,7 +45,7 @@ void	ft_inst(t_output *pop)
 		pop->val = pop->val << 8 | ft_opc(pop);
 }
 
-void	ft_reg(t_output *pop)
+void	out_reg(t_output *pop)
 {
 	if (!pop->name)
 		return ;

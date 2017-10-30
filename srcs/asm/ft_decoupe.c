@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_2.c                                        :+:      :+:    :+:   */
+/*   ft_decoupe.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/11 17:28:11 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/11 17:28:48 by adenis           ###   ########.fr       */
+/*   Created: 2016/11/11 17:36:20 by nagaloul          #+#    #+#             */
+/*   Updated: 2017/10/30 13:41:54 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "assembler.h"
+#include "libft.h"
+#include "asm.h"
 
-void	print_magic(unsigned int nb)
+int		ft_decoupe(char const *s)
 {
-	ft_putchar_fd((char)(nb >> 24), FD);
-	ft_putchar_fd((char)(nb >> 16), FD);
-	ft_putchar_fd((char)(nb >> 8), FD);
-	ft_putchar_fd((char)nb, FD);
+	int i;
+	int comb;
+
+	comb = 0;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		while (s[i] && (s[i] == ' ' || s[i] == '\t'))
+			i++;
+		if (s[i] == '\0')
+			return (comb);
+		comb++;
+		while (s[i] != ' ' && s[i] != '\t' && s[i] != '\0')
+			i++;
+	}
+	return (comb);
 }

@@ -6,10 +6,9 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 14:44:10 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/10/22 17:49:26 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/30 13:49:43 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "asm.h"
 #include "op.h"
@@ -54,8 +53,8 @@ void	ft_guill(t_token **tok, char *str, int *count, int b)
 
 void	ft_try(t_token **tok, char *str, int *count, int b)
 {
-	int i;
-	char temp;
+	int		i;
+	char	temp;
 
 	temp = 0;
 	i = ft_sep(str);
@@ -70,7 +69,8 @@ void	ft_try(t_token **tok, char *str, int *count, int b)
 		i--;
 	*count = *count + i;
 }
-int only(char *str)
+
+int		only(char *str)
 {
 	int i;
 
@@ -82,11 +82,11 @@ int only(char *str)
 	return (1);
 }
 
-void			split_tok(t_token **tok, char *str, int b)
+void	split_tok(t_token **tok, char *str, int b)
 {
 	int i;
-	i = 0;
 
+	i = 0;
 	if (!only(str))
 		ft_push_token(tok, ",", 1, b);
 	else

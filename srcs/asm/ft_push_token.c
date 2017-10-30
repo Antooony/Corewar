@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   ft_push_token.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/11 12:37:22 by adenis            #+#    #+#             */
-/*   Updated: 2017/09/28 16:48:01 by adenis           ###   ########.fr       */
+/*   Created: 2016/08/24 20:21:53 by nagaloul          #+#    #+#             */
+/*   Updated: 2017/10/30 13:44:37 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "assembler.h"
+#include "asm.h"
+#include "op.h"
 
-void	del(void *content, size_t size)
+void	ft_push_token(t_token **begin_list, char *data, int i, int b)
 {
-	if (content)
-		free(content);
-	content = NULL;
-	size = 0;
+	t_token *oue;
+
+	oue = *begin_list;
+	if (oue)
+	{
+		while (oue->next != NULL)
+			oue = oue->next;
+		oue->next = ft_create_token(data, i, b);
+	}
+	else
+		*begin_list = ft_create_token(data, i, b);
 }

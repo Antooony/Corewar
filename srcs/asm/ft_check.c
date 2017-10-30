@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/17 21:50:05 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/10/22 17:30:23 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/30 14:36:49 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ int			ft_label(t_token **tok)
 	return (1);
 }
 
-
 int			ft_check_every(t_token *tok, t_list *sep)
 {
 	t_token *temp;
@@ -99,37 +98,4 @@ int			ft_check_every(t_token *tok, t_list *sep)
 				i++;
 	}
 	return (i ? 0 : 1);
-}
-
-int			ft_check_commands(t_token **tok, t_list *sep)
-{
-	int	i;
-
-	i = (*tok)->lan;
-	if (!(*tok)->name)
-		return (0);
-	*tok = (*tok)->next;
-	if (!(*tok)->comment || i != (*tok)->lan)
-		return (0);
-	*tok = (*tok)->next;
-	i = (*tok)->lan;
-	if (!(*tok)->ncom)
-		return (0);
-	*tok = (*tok)->next;
-	if (!(*tok)->comment || i != (*tok)->lan)
-		return (0);
-	*tok = (*tok)->next;
-	return (1);
-}
-
-int			ft_check(t_token *tok, t_list *sep)
-{
-	if (!ft_check_commands(&tok, sep))
-	{
-		ft_putstr("humm");
-		return (0);
-	}
-	if (!ft_check_every(tok, sep))
-		return (0);
-	return (1);
 }

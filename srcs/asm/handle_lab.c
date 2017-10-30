@@ -1,45 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   calc.c                                             :+:      :+:    :+:   */
+/*   handle_lab.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/03 17:22:57 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/30 13:31:51 by adenis           ###   ########.fr       */
+/*   Created: 2017/10/30 13:59:43 by adenis            #+#    #+#             */
+/*   Updated: 2017/10/30 14:05:57 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
 
-int		opc_val(int type)
+t_output	*get_dirlab(char *s)
 {
-	if (type == 1)
-		return (REG_CODE);
-	if (type == 4)
-		return (DIR_CODE);
-	if (type == 6)
-		return (IND_CODE);
-	return (2);
+	t_output	*pop;
+
+	pop = OUT;
+	while (pop)
+	{
+		if (pop->type == 0 && !ft_strcmp(&s[2], pop->name))
+			return (pop);
+		pop = pop->next;
+	}
+	return (NULL);
 }
 
-int		ft_opc(t_output *pop)
+int			calc_dirlab(short a, short b)
 {
-	int			opc;
-	int			i;
-	int			val;
+	short	res;
+
+	res = b - a;
+	return (res);
+}
+
+void		fill_dirlab(void)
+{
 	t_output	*tmp;
 
-	val = 64;
-	opc = 0;
-	i = g_op_tab[whichop(pop->name)].num_params;
-	tmp = pop;
-	while (i)
+	tmp = OUT;
+	while (tmp)
 	{
+		if ((tmp->type == 3 || tmp->type == 5) && get_dirlab(tmp->name))
+		{
+			tmp->val = calc_dirlab(tmp->link->pos, get_dirlab(tmp->name)->pos);
+			tmp->size = 2;
+		}
 		tmp = tmp->next;
-		opc += val * (opc_val(tmp->type));
-		val = val / 4;
-		i--;
 	}
-	return (opc);
 }

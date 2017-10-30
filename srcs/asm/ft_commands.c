@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_decoupe.c                                       :+:      :+:    :+:   */
+/*   ft_commands.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/11 17:36:20 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/10/22 16:46:33 by adenis           ###   ########.fr       */
+/*   Created: 2017/09/21 19:08:22 by nagaloul          #+#    #+#             */
+/*   Updated: 2017/10/30 14:42:52 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "asm.h"
+#include "op.h"
 
-
-int		ft_decoupe(char const *s)
+void	ft_commands(t_list *ops, int i)
 {
-	int i;
-	int comb;
+	int		a;
+	char	**test;
 
-	comb = 0;
-	i = 0;
-	while (s[i] != '\0')
-	{
-		while (s[i] && (s[i] == ' ' || s[i] == '\t'))
-			i++;
-		if (s[i] == '\0')
-			return (comb);
-		comb++;
-		while (s[i] != ' ' && s[i] != '\t' && s[i] != '\0')
-			i++;
-	}
-	return (comb);
+	a = 5;
 }
+
+/*
+** if (ft_strncmp(ops->tab[0], NAME_CMD_STRING, 5))
+**		ft_error_com(ops, i, 1);
+**	else if (ops->tab[0][5] != '\0' && ops->tab[0][5] != '#')
+**		ft_error_com(ops, i, 0);
+*/

@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/03 18:58:09 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/10/22 17:57:23 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/30 13:33:48 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int		ft_virgule(int i, t_list *sep, int c)
 {
 	int		a;
 	char	**tab;
-	char 	*s;
+	char	*s;
 
 	a = 0;
 	while (++a < i)

@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/03 13:36:30 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/10/22 18:00:07 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/30 13:37:10 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,17 @@ int		ft_sub(t_token *tok, int i, t_token *lab, t_list *sep)
 	}
 	if (!ft_reg(tok, i))
 	{
-		ft_puterror(tok->next, 1, i, tok);	
+		ft_puterror(tok->next, 1, i, tok);
 		return (0);
 	}
 	if (!ft_reg(tok->next, i))
 	{
-		ft_puterror(tok->next->next, 2, i, tok);		
+		ft_puterror(tok->next->next, 2, i, tok);
 		return (0);
 	}
 	if (!ft_reg(tok->next->next, i))
 	{
-		ft_puterror(tok->next->next->next, 2, i, tok);			
+		ft_puterror(tok->next->next->next, 2, i, tok);
 		return (0);
 	}
 	if (ft_tomuch(tok->next->next->next, i))
@@ -48,12 +48,12 @@ int		ft_st(t_token *tok, int i, t_token *lab, t_list *sep)
 	}
 	if (!ft_reg(tok, i))
 	{
-		ft_puterror(tok->next, 1, i, tok);	
+		ft_puterror(tok->next, 1, i, tok);
 		return (0);
 	}
 	if (!ft_dir(tok->next, i, lab) && !ft_indir(tok->next, i, lab))
 	{
-		ft_puterror(tok->next->next, 2, i, tok);	
+		ft_puterror(tok->next->next, 2, i, tok);
 		return (0);
 	}
 	if (ft_tomuch(tok->next->next, i))
@@ -70,12 +70,12 @@ int		ft_ld(t_token *tok, int i, t_token *lab, t_list *sep)
 	}
 	if (!ft_dir(tok, i, lab) && !ft_indir(tok, i, lab))
 	{
-		ft_puterror(tok->next, 1, i, tok);	
+		ft_puterror(tok->next, 1, i, tok);
 		return (0);
 	}
 	if (!ft_reg(tok->next, i))
 	{
-		ft_puterror(tok->next->next, 2, i, tok);	
+		ft_puterror(tok->next->next, 2, i, tok);
 		return (0);
 	}
 	if (ft_tomuch(tok->next->next, i))
@@ -92,7 +92,7 @@ int		ft_live(t_token *tok, int i, t_token *temp, t_list *sep)
 	}
 	if (!ft_dir(tok, i, temp))
 	{
-		ft_puterror(tok->next, 1, i, tok);		
+		ft_puterror(tok->next, 1, i, tok);
 		return (0);
 	}
 	if (ft_tomuch(tok->next, i))

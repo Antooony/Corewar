@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 17:48:56 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/22 18:15:52 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/30 18:13:51 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ t_output	*new_output(char *name, int type)
 {
 	t_output	*new;
 
-	new = (t_output *)malloc(sizeof(t_output));
+	if (!(new = (t_output *)malloc(sizeof(t_output))))
+		exit(0);
 	new->val = 0;
-	new->size =  0;
+	new->size = 0;
 	new->name = name;
 	new->next = NULL;
 	new->link = NULL;
@@ -54,7 +55,9 @@ void		fill_output(void)
 {
 	t_output	*tmp;
 	int			count;
+	int			name;
 
+	name = 0;
 	count = 0;
 	tmp = OUT;
 	while (tmp)
@@ -70,13 +73,11 @@ void		fill_output(void)
 
 void		create_output(t_token *token)
 {
-
 	int		count;
 
 	count = 0;
 	while (token)
 	{
-
 		if (OUT)
 			output_add(OUT, new_output(token->unknow, get_value(token)));
 		else

@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 16:38:08 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/11 14:07:55 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/30 13:42:26 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int		isop(char *s)
 
 int		get_value(t_token *token)
 {
-	int 	i;
+	int		i;
 
 	i = 0;
 	if (token->lab)

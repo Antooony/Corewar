@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 12:17:53 by nolivier          #+#    #+#             */
-/*   Updated: 2017/10/22 18:37:44 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/30 18:14:02 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ typedef	struct		s_output
 	int				pos;
 }					t_output;
 
+void			init_ft_tab(void);
+
 t_output		*new_output(char *name, int type);
 void			fill_output(void);
 void			create_output(t_token *token);
@@ -64,11 +66,17 @@ int				ft_usage(void);
 t_list			*get_input(int fd);
 int				isop(char *s);
 
+t_output		*get_dirlab(char *s);
+int				calc_dirlab(short a, short b);
+void			fill_dirlab(void);
+
 t_token			*new_token(char *s);
 void			token_add(t_token *split, t_token *new);
 void			tokenize_lst(t_list *lst, t_token *split);
 void			token_assign(t_token *token);
 void			specify_tokens(t_token *token);
+
+int				handle_file(char *s);
 
 int				whichop(char *s);
 int				isop(char *s);

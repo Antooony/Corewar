@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push_token.c                                    :+:      :+:    :+:   */
+/*   ft_create_elem.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/24 20:21:53 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/10/22 17:50:54 by adenis           ###   ########.fr       */
+/*   Created: 2016/08/24 19:22:01 by nagaloul          #+#    #+#             */
+/*   Updated: 2017/10/30 18:02:25 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 #include "op.h"
 
-void	ft_push_token(t_token **begin_list, char *data, int i, int b)
+t_list		*ft_create_elem(char *data)
 {
-	t_token *oue;
+	t_list	*elem;
 
-	oue = *begin_list;
-		if (oue)
-		{
-			while (oue->next != NULL)
-				oue = oue->next;
-			oue->next = ft_create_token(data, i, b);
-		}
-		else
-			*begin_list = ft_create_token(data, i, b);
+	elem = NULL;
+	if (!(elem = malloc(sizeof(t_list))))
+		exit(0);
+	elem->content = ft_strdup(data);
+	elem->next = NULL;
+	return (elem);
 }

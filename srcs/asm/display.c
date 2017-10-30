@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 16:35:23 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/22 18:49:31 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/30 20:25:24 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,25 +31,30 @@ void	print_val(void)
 	pop = OUT;
 	while (pop)
 	{
+		if (pop->type == 2 || pop->type == 7)
+		{
+			pop = pop->next;
+			continue ;
+		}
 		printop(pop->val, pop->size);
 		pop = pop->next;
 	}
 }
 
-void	print_name(t_header *header, char *s)
+void	print_name(char *name, char *s)
 {
 	int		i;
 
 	i = 0;
 	while (s[i])
 	{
-		header->prog_name[i] = s[i];
+		name[i] = s[i];
 		i++;
 	}
 	i = 0;
 	while (i < PROG_NAME_LENGTH + 1)
 	{
-		ft_putchar_fd(header->prog_name[i], FD);
+		ft_putchar_fd(name[i], FD);
 		i++;
 	}
 	i = 0;
@@ -61,20 +66,20 @@ void	print_name(t_header *header, char *s)
 	print_magic(PROG_SIZE);
 }
 
-void	print_comment(t_header *header, char *s)
+void	print_comment(char *comment, char *s)
 {
 	int		i;
 
 	i = 0;
 	while (s[i])
 	{
-		header->comment[i] = s[i];
+		comment[i] = s[i];
 		i++;
 	}
 	i = 0;
 	while (i < COMMENT_LENGTH + 1)
 	{
-		ft_putchar_fd(header->comment[i], FD);
+		ft_putchar_fd(comment[i], FD);
 		i++;
 	}
 	i = 0;
@@ -88,18 +93,21 @@ void	print_comment(t_header *header, char *s)
 void	print_header(void)
 {
 	t_output	*tmp;
-	t_header	*header;
+	int			magic;
+	char		name[PROG_NAME_LENGTH + 1];
+	char		comment[COMMENT_LENGTH + 1];
 
-	header = (t_header *)malloc(sizeof(t_header));
-	header->magic = COREWAR_EXEC_MAGIC;
+	ft_bzero(name, PROG_NAME_LENGTH + 1);
+	ft_bzero(comment, COMMENT_LENGTH + 1);
+	magic = COREWAR_EXEC_MAGIC;
 	tmp = OUT;
-	print_magic(header->magic);
+	print_magic(magic);
 	while (tmp)
 	{
 		if (tmp->type == 7)
-			print_name(header, tmp->name);
+			print_name(name, tmp->name);
 		if (tmp->type == 2)
-			print_comment(header, tmp->name);
+			print_comment(comment, tmp->name);
 		tmp = tmp->next;
 	}
 }

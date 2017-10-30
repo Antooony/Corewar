@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split_space.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nagaloul <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/17 16:39:17 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/09/25 14:43:40 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/10/30 13:47:44 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	counttab(char **tab, char *str)
 	}
 }
 
-int count_w(char *str)
+int		count_w(char *str)
 {
 	int i;
 	int j;

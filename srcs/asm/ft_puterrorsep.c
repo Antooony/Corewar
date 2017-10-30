@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_elem.c                                   :+:      :+:    :+:   */
+/*   ft_puterrorsep.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/24 19:22:01 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/10/22 16:26:32 by adenis           ###   ########.fr       */
+/*   Created: 2017/10/19 16:09:31 by nagaloul          #+#    #+#             */
+/*   Updated: 2017/10/30 13:44:51 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
-#include "op.h"
 
-t_list		*ft_create_elem(char *data)
+void	ft_puterrorsep(int i)
 {
-	t_list	*elem;
-
-	elem = NULL;
-	elem = malloc(sizeof(t_list));
-	if (elem)
-	{
-		elem->content = ft_strdup(data);
-		elem->next = NULL;
-	}
-	return (elem);
+	if (i < 10)
+		printf("Syntax error at token [TOKEN][00%i] SEPARATOR \",\"\n", i);
+	else if (i < 100)
+		printf("Syntax error at token [TOKEN][0%i] SEPARATOR \",\"\n", i);
+	else
+		printf("Syntax error at token [TOKEN][%i] SEPARATOR \",\"\n", i);
 }

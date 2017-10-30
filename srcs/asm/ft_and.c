@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_and.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nagaloul <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/03 13:37:47 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/10/20 21:25:14 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/10/30 13:44:28 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int		ft_sti(t_token *tok, int i, t_token *lab, t_list *sep)
 		ft_puterror(tok->next, 1, i, tok);
 		return (0);
 	}
-	if (!ft_reg(tok->next, i) && !ft_dir(tok->next, i, lab) && !ft_indir(tok->next, i, lab))
+	if (!ft_reg(tok->next, i) && !ft_dir(tok->next, i, lab)
+		&& !ft_indir(tok->next, i, lab))
 	{
 		ft_puterror(tok->next->next, 2, i, tok);
 		return (0);
@@ -78,7 +79,8 @@ int		ft_or(t_token *tok, int i, t_token *lab, t_list *sep)
 		ft_puterror(tok->next, 1, i, tok);
 		return (0);
 	}
-	if (!ft_reg(tok->next, i) && !ft_dir(tok->next, i, lab) && !ft_indir(tok->next, i, lab))
+	if (!ft_reg(tok->next, i) && !ft_dir(tok->next, i, lab)
+		&& !ft_indir(tok->next, i, lab))
 	{
 		ft_puterror(tok->next->next, 2, i, tok);
 		return (0);
