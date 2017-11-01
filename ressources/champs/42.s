@@ -91,7 +91,7 @@ b0:	live	%1		# boucle fork
 	sub	r3,r4,r3
 	zjmp	%:tart
 	fork	%:b1
-	st	r5, r2
+	st r5, r2
 	xor	r10,r10,r10	# pour rien
 	add	r10,r10,r10	# pour rien
 	add	r6,r6,r6

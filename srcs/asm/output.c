@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 17:48:56 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/30 18:13:51 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/01 20:15:14 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,28 @@ void		fill_output(void)
 	}
 	PROG_SIZE = count;
 }
+char		*getattribute(t_token *tok)
+{
+	if (tok->reg) 
+		return(tok->reg);
+	else if (tok->lab) 
+		return(tok->lab);
+	else if (tok->comment) 
+		return(tok->comment);
+	else if (tok->dirlab) 
+		return(tok->dirlab);
+	else if (tok->indirlab) 
+		return(tok->indirlab);
+	else if (tok->dir) 
+		return(tok->dir);
+	else if (tok->name) 
+		return(tok->name);
+	else if (tok->ncom) 
+		return(tok->ncom);
+	else if (tok->indir) 
+		return(tok->indir);
+	return (tok->unknow);
+}
 
 void		create_output(t_token *token)
 {
@@ -79,10 +101,11 @@ void		create_output(t_token *token)
 	while (token)
 	{
 		if (OUT)
-			output_add(OUT, new_output(token->unknow, get_value(token)));
+			output_add(OUT, new_output(getattribute(token), get_value(token)));
 		else
-			OUT = new_output(token->unknow, get_value(token));
+			OUT = new_output(getattribute(token), get_value(token));
 		token = token->next;
 	}
 	fill_output();
 }
+

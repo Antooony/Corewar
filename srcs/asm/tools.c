@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/30 13:56:25 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/30 18:13:50 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/01 20:32:48 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,9 @@ int		handle_file(char *s)
 
 	if (!s)
 		exit(0);
-	if (!ft_strchr(s, '.') || ft_strchr(s, '.') != ft_strrchr(s, '.'))
+	if (!ft_strrchr(s, '.'))
 		return (ft_error());
-	if (ft_strchr(s, '.')[1] != 's'
-		|| ft_strchr(s, '.') + 1 != s + ft_strlen(s) - 1)
+	if (ft_strrchr(s, '.')[1] != 's')
 		return (ft_error());
 	if (!(s2 = ft_strdup(s)))
 		exit(0);

@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/03 13:36:30 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/01 19:39:18 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/01 20:22:12 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		ft_st(t_token *tok, int i, t_token *lab, t_list *sep)
 		ft_puterror(tok->next, 1, i, tok);
 		return (0);
 	}
-	if (!ft_dir(tok->next, i, lab) && !ft_indir(tok->next, i, lab))
+	if (!ft_reg(tok->next, i) && !ft_indir(tok->next, i, lab))
 	{
 		ft_puterror(tok->next->next, 2, i, tok);
 		return (0);
