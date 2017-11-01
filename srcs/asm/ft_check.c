@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/17 21:50:05 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/01 14:47:01 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/01 16:05:08 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,28 @@ int			ft_instruc(t_token **tok, t_token *temp, t_list *sep)
 
 int			ft_label(t_token **tok)
 {
+	int i;
+	int a;
+
+	i = 0;
+	a = 0;
+	while ((*tok)->lab[i])
+	{
+		while (LABEL_CHARS[a])
+		{
+			if (LABEL_CHARS[a] == (*tok)->lab[i])
+				break ;
+			a++;
+		}
+		if (LABEL_CHARS[a] == '\0')
+		{
+			ft_puterror(*tok, 0, (*tok)->lan, *tok);
+			*tok = (*tok)->next;
+			return (0);
+		}
+		a = 0;
+		i++;
+	}
 	*tok = (*tok)->next;
 	return (1);
 }

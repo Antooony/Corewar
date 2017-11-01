@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:26:49 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/10/30 13:52:42 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/01 17:41:06 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 static int		ft_howmany(t_token *tok, int i, int a, t_token *temp)
 {
+	if (!ft_strcmp(tok->unknow, ","))
+	{
+		ft_puterrorsep(tok->lan);
+		return (0);
+	}
 	if (i == 1)
 		if (!tok || tok->lan != a)
 		{

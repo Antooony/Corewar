@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/30 14:38:02 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/30 14:41:08 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/01 17:19:30 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	ft_pindir(t_token *tok)
 		if (tok->unknow[0] == ',')
 			i++;
 		a = i;
+		if (tok->unknow[i] == '-')
+			i++;
 		if (ft_isdigit(tok->unknow[i]))
 		{
 			while (ft_isdigit(tok->unknow[i]))
@@ -62,9 +64,17 @@ void	ft_pdir(t_token *tok)
 		if (!tok->dirlab)
 			if (tok->unknow[i] == '%')
 			{
-				tok->dir = &tok->unknow[i];
-				if (ft_strchr(tok->dir, ','))
-					*ft_strchr(tok->dir, ',') = '\0';
+				i++;
+				if (tok->unknow[i] == '-')
+					i++;
+				while (ft_isdigit(tok->unknow[i]))
+						i++;
+				if (tok->unknow[i] == '\0' || tok->unknow[i] == ',')
+				{							
+					tok->dir = ft_strchr(tok->unknow, '%');
+					if (ft_strchr(tok->dir, ','))
+						*ft_strchr(tok->dir, ',') = '\0';
+				}
 			}
 	}
 }

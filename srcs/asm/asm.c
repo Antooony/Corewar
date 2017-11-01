@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/17 11:29:56 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/01 14:58:20 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/01 17:52:36 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ static t_token		*ft_split(t_list **temp, t_token *tok)
 		b++;
 	}
 	ft_pars(tok);
-	ft_check(tok, *temp);
+	if (!ft_check(tok, *temp))
+		return (NULL);
 	return (tok);
 }
 

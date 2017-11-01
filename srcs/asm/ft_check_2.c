@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/30 14:37:00 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/01 14:04:58 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/01 17:55:33 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int			ft_check(t_token *tok, t_list *sep)
 {
 	if (!ft_check_commands(&tok, sep))
 	{
-		ft_putstr("humm");
+		ft_puterror(tok, 0, tok->lan, tok);
 		return (0);
 	}
 	if (!ft_check_every(tok, sep))

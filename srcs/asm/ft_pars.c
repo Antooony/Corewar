@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/26 15:05:07 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/10/30 14:38:38 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/01 17:12:34 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,12 @@ void	ft_preg(t_token *tok)
 		if (tok->unknow[i] == 'r')
 		{
 			i++;
+			if (tok->unknow[i] == '-')
+				i++;
 			while (ft_isdigit(tok->unknow[i]))
 				i++;
 			if (i > 1 && (tok->unknow[i] == '\0' || tok->unknow[i] == ','))
-				tok->reg = tok->unknow;
+				tok->reg = ft_strchr(tok->unknow, 'r');
 		}
 	}
 }

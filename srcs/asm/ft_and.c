@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/03 13:37:47 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/10/30 13:44:28 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/01 17:50:10 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 int		ft_sti(t_token *tok, int i, t_token *lab, t_list *sep)
 {
-	if (!ft_virgule(i, sep, 3))
-	{
-		ft_puterrorsep(i);
-		return (0);
-	}
 	if (!ft_reg(tok, i))
 	{
 		ft_puterror(tok->next, 1, i, tok);
@@ -35,18 +30,18 @@ int		ft_sti(t_token *tok, int i, t_token *lab, t_list *sep)
 		ft_puterror(tok->next->next->next, 2, i, tok);
 		return (0);
 	}
-	if (ft_tomuch(tok->next->next->next, i))
+	if (!ft_tomuch(tok->next->next->next, i))
 		return (0);
-	return (1);
-}
-
-int		ft_ldi(t_token *tok, int i, t_token *lab, t_list *sep)
-{
 	if (!ft_virgule(i, sep, 3))
 	{
 		ft_puterrorsep(i);
 		return (0);
 	}
+	return (1);
+}
+
+int		ft_ldi(t_token *tok, int i, t_token *lab, t_list *sep)
+{
 	if (!ft_reg(tok, i) && !ft_dir(tok, i, lab) && !ft_indir(tok, i, lab))
 	{
 		ft_puterror(tok->next, 1, i, tok);
@@ -62,18 +57,18 @@ int		ft_ldi(t_token *tok, int i, t_token *lab, t_list *sep)
 		ft_puterror(tok->next->next->next, 2, i, tok);
 		return (0);
 	}
-	if (ft_tomuch(tok->next->next->next, i))
+	if (!ft_tomuch(tok->next->next->next, i))
 		return (0);
-	return (1);
-}
-
-int		ft_or(t_token *tok, int i, t_token *lab, t_list *sep)
-{
 	if (!ft_virgule(i, sep, 3))
 	{
 		ft_puterrorsep(i);
 		return (0);
 	}
+	return (1);
+}
+
+int		ft_or(t_token *tok, int i, t_token *lab, t_list *sep)
+{
 	if (!ft_reg(tok, i) && !ft_dir(tok, i, lab) && !ft_indir(tok, i, lab))
 	{
 		ft_puterror(tok->next, 1, i, tok);
@@ -90,24 +85,29 @@ int		ft_or(t_token *tok, int i, t_token *lab, t_list *sep)
 		ft_puterror(tok->next->next->next, 2, i, tok);
 		return (0);
 	}
-	if (ft_tomuch(tok->next->next->next, i))
+	if (!ft_tomuch(tok->next->next->next, i))
 		return (0);
+	if (!ft_virgule(i, sep, 3))
+	{
+		ft_puterrorsep(i);
+		return (0);
+	}
 	return (1);
 }
 
 int		ft_aff(t_token *tok, int i, t_token *lab, t_list *sep)
 {
-	if (!ft_virgule(i, sep, 1))
-	{
-		ft_puterrorsep(i);
-		return (0);
-	}
 	if (!ft_reg(tok, i))
 	{
 		ft_puterror(tok->next, 1, i, tok);
 		return (0);
 	}
-	if (ft_tomuch(tok->next, i))
+	if (!ft_tomuch(tok->next, i))
 		return (0);
+	if (!ft_virgule(i, sep, 1))
+	{
+		ft_puterrorsep(i);
+		return (0);
+	}
 	return (1);
 }
