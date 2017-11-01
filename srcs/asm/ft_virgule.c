@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/03 18:58:09 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/01 17:07:56 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/01 19:45:20 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,22 @@ int		ft_finishim(char **tab)
 	return (0);
 }
 
-int		ft_finish(char **tab)
+int		ft_finish(char **tab, char *inst)
 {
+	int i;
+
+	if (!ft_strcmp(tab[1], inst))
+		i = 2;
+	else
+		i = 1;
 	if (ft_finishim(tab))
 	{
-		if (!ft_strchr(tab[1], ',') && tab[2][0] != ',')
+		if (!ft_strchr(tab[i], ',') && tab[i + 1][0] != ',')
+		{
+			ft_freetab(tab);
 			return (0);
-		if (tab[1][0] == ',')
+		}		
+		if (tab[i][0] == ',')
 		{
 			ft_freetab(tab);
 			return (0);
@@ -51,7 +60,7 @@ int		ft_finish(char **tab)
 	return (0);
 }
 
-int		ft_virgule(int i, t_list *sep, int c)
+int		ft_virgule(int i, t_list *sep, int c, char *inst)
 {
 	int		a;
 	char	**tab;
@@ -72,7 +81,7 @@ int		ft_virgule(int i, t_list *sep, int c)
 		if (!ft_finishim(tab))
 			return (0);
 	if (c == 3)
-		if (!ft_finish(tab))
+		if (!ft_finish(tab, inst))
 			return (0);
 	ft_freetab(tab);
 	return (1);

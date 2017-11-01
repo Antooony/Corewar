@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 16:11:19 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/31 15:09:32 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/01 19:45:49 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ int			ft_reg(t_token *tok, int i);
 int			ft_tomuch(t_token *tok, int i);
 
 int			ft_finishim(char **tab);
-int			ft_finish(char **tab);
-int			ft_virgule(int i, t_list *sep, int c);
+int			ft_finish(char **tab, char *inst);
+int			ft_virgule(int i, t_list *sep, int c, char *inst);
 
 int			count_l(char *str);
 void		filltab(char *tab, char *str);
