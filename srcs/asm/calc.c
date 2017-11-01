@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/03 17:22:57 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/30 13:31:51 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/31 15:25:48 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,12 @@ int		ft_opc(t_output *pop)
 		i--;
 	}
 	return (opc);
+}
+
+void	ft_calc(t_token *tok)
+{
+	create_output(tok);
+	fill_dirlab();
+	print_header();
+	print_val();
 }

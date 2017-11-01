@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 16:46:11 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/22 16:43:49 by adenis           ###   ########.fr       */
+/*   Updated: 2017/10/31 15:06:29 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,7 +181,6 @@ char					*ft_strsubfree(char *s, unsigned int start, size_t len);
 char					*ft_strjoinfree(char *s1, char *s2);
 char					*ft_strjoin(char const *s1, char const *s2);
 char					*ft_strtrim(const char *s);
-// char					**ft_strsplit(char const *s, char c);
 
 void					ft_sort_tab(char **tab);
 int						ft_power(int nb, int power);

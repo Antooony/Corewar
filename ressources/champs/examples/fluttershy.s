@@ -14,7 +14,6 @@ entry:
 	fork	%:avdefgeni
 
 ardeftgt:
-
 ardefgeni:
 	st 		r1, 6
 

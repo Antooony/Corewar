@@ -6,7 +6,7 @@
 #    By: adenis <adenis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/03 17:30:53 by adenis            #+#    #+#              #
-#    Updated: 2017/10/30 20:17:02 by adenis           ###   ########.fr        #
+#    Updated: 2017/10/31 15:25:13 by adenis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ SRC_ASM		= asm.c \
 			  ft_strsplit.c \
 			  tools.c \
 			  handle_lab.c \
+			  free.c
 
 SRC_MSA		= msa.c \
 			  tools.c tools_2.c \

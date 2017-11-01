@@ -15,5 +15,3 @@ NC='\033[0m'
 	else
 		echo ${RED}KO${NC}
 	fi
-	# Segfault dans ft_check sur fluttershy.cor
-	# Erreur sur les nombre negatifs

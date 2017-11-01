@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/17 11:29:56 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/10/30 20:20:34 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/01 14:58:20 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,18 @@ t_op		g_op_tab[17] =
 	{0, 0, {0}, 0, 0, 0, 0, 0}
 };
 
+void				printtok(t_token *tok)
+{
+	t_token *tmp;
+
+	tmp = tok;
+	while (tmp)
+	{
+		ft_printf("%s\n", tmp->unknow);
+		tmp = tmp->next;
+	}
+}
+
 static t_token		*ft_split(t_list **temp, t_token *tok)
 {
 	t_list	*ops;
@@ -72,14 +84,6 @@ static int			ft_space(char *str)
 	return (0);
 }
 
-void				ft_calc(t_token *tok)
-{
-	create_output(tok);
-	fill_dirlab();
-	print_header();
-	print_val();
-}
-
 void				get_ops(t_list **ops, int fd)
 {
 	char		*line;
@@ -92,46 +96,16 @@ void				get_ops(t_list **ops, int fd)
 	}
 }
 
-void				free_tok(t_token *tok)
-{
-	if (tok->next)
-		free_tok(tok->next);
-	tok->unknow ? free(tok->unknow) : NULL;
-	tok ? free(tok) : NULL;
-}
-
-
 void				ft_asm(t_list *ops, char *name)
 {
 	t_token		*tok;
 
 	tok = ft_split(&ops, tok);
+	TOK = tok;
+	if (!tok)
+		clean(ops);
 	handle_file(name);
 	ft_calc(tok);
-	// free_tok(tok);
-}
-
-void				del(void *content, size_t size)
-{
-	size = 0;
-	free(content);
-}
-
-void				free_out(t_output *lst)
-{
-	if (lst->next)
-		free_out(lst->next);
-	if (lst->type == 7 || lst->type == 2)
-		lst->name ? free(lst->name) : NULL;
-	free(lst);
-}
-
-void				clean(t_list *lst)
-{
-	if (lst)
-		ft_lstdel(&lst, &del);
-	if (OUT)
-		free_out(OUT);
 }
 
 int					main(int ac, char **av)
