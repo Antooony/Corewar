@@ -8,10 +8,15 @@ NC='\033[0m'
 	var=${1%.s}
 	./asm $var.s
 	ressources/asm $var.s
-	if diff $var.cor $var.cor.me
+	if [ -f $var.cor ] && [ -f $var.cor.me ]
 	then
-		echo ${GREEN}OK${NC}
-		rm $var.cor $var.cor.me 
+		if diff $var.cor $var.cor.me
+		then
+			echo ${GREEN}OK${NC}
+			rm $var.cor $var.cor.me
+		else
+			echo ${RED}KO${NC}
+		fi
 	else
-		echo ${RED}KO${NC}
+		echo ${GREEN}OK${NC}
 	fi

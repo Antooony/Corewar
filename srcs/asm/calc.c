@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/03 17:22:57 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/01 20:27:12 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/04 18:13:41 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,24 @@ int		ft_opc(t_output *pop)
 	return (opc);
 }
 
+void	printout(void)
+{
+	t_output *tmp;
+
+	tmp = OUT;
+	while (tmp)
+	{
+		if (tmp->type == 9 || tmp->type == 0)
+			ft_printf("\n");
+		ft_printf("\e[32m%s\e[0m [%d] ", tmp->name, tmp->size);
+		tmp = tmp->next;
+	}
+}
+
 void	ft_calc(t_token *tok)
 {
 	create_output(tok);
+	printout();
 	fill_dirlab();
 	print_header();
 	print_val();

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   asm.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/17 11:29:56 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/01 17:52:36 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/04 14:43:56 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,24 @@ void				printtok(t_token *tok)
 	tmp = tok;
 	while (tmp)
 	{
-		ft_printf("%s\n", tmp->unknow);
+		if (tmp->reg)
+			ft_printf("%s\n", tmp->reg);
+		else if (tmp->lab)
+			ft_printf("%s\n", tmp->lab);
+		else if (tmp->comment)
+			ft_printf("%s\n", tmp->comment);
+		else if (tmp->dirlab)
+			ft_printf("%s\n", tmp->dirlab);
+		else if (tmp->indirlab)
+			ft_printf("%s\n", tmp->indirlab);
+		else if (tmp->dir)
+			ft_printf("%s\n", tmp->dir);
+		else if (tmp->name)
+			ft_printf("%s\n", tmp->name);
+		else if (tmp->ncom)
+			ft_printf("%s\n", tmp->ncom);
+		else if (tmp->indir)
+			ft_printf("%s\n", tmp->indir);
 		tmp = tmp->next;
 	}
 }
