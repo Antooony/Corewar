@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/12 17:56:31 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/20 17:22:23 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/09 14:34:12 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,16 @@ void		get_values(t_oct *lst)
 {
 	t_oct	*tmp;
 
+	if (!lst)
+		ft_error("get_values lst NULL");
 	while (lst)
 	{
 		if (tmp == lst)
 			break;
 		tmp = lst;
+		ft_printf("%d -- %d\n", tmp->content, lst->content);
+		if (lst->content <= 0 || lst->content > 16)
+			ft_error("Invalid op");
 		write_output(g_op_tab[lst->content - 1].label, lst->val, " ");
 		if (g_op_tab[lst->content - 1].coding_param)
 			get_opc(&lst);
@@ -57,8 +62,10 @@ t_list		*check_goto(t_list *lst, int val)
 {
 	t_list	*tmp;
 
+	if (!lst)
+		ft_error("lst NULL");
 	tmp = OUT;
-	while (tmp->next)
+	while (tmp && tmp->next)
 	{
 		if (tmp->next->content_size == val)
 		{
@@ -125,6 +132,33 @@ void		handle_label(void)
 	}
 }
 
+void		handle_last(void)
+{
+	t_list	*tmp;
+	char	*s;
+	int		val;
+
+	val = 0;
+	tmp = OUT;
+	while (tmp)
+	{
+		s = tmp->next ? ft_strdup((char *)tmp->next->content) : NULL;
+		if (s && s[0] == '#')
+		{
+			s ? free(s) : NULL;
+			s = ft_strdup((char *)tmp->content);
+			if (ft_strrchr(s, ' ') && ft_strrchr(s, ','))
+			{
+				ft_strrchr(s, ' ')[0] = '\0';
+				ft_strrchr(s, ',')[0] = ' ';
+				free(tmp->content);
+				tmp->content = s;
+			}
+		}
+		tmp = tmp->next;
+	}
+}
+
 void		ft_msa(int fd)
 {
 	t_oct	*lst;
@@ -134,13 +168,14 @@ void		ft_msa(int fd)
 	LINE = NULL;
 	OUT = ft_lstnew(NULL, 0);
 	LAB = 1;
-	if (!check_magic(&lst))
-		ft_error();
+	lst = input_checks();
 	get_header(&lst);
 	lst_val(lst);
+	ft_printf("%d -- %0.2hhx\n", PSIZE, lst->content);
 	get_values(lst);
 	out_val();
 	handle_label();
+	handle_last();
 	display_out();
 }
 
@@ -151,9 +186,9 @@ int			main(int argc, char **argv)
 	if (argc != 2)
 		return (ft_usage());
 	if ((fd = open(argv[1], O_RDONLY)) == -1)
-		return (ft_error());
+		return (ft_error("can't open the file"));
 	ft_msa(fd);
 	if (close(fd) == -1)
-		return (ft_error());
+		return (ft_error("close fd failed"));
 
 }

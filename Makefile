@@ -6,7 +6,7 @@
 #    By: adenis <adenis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/03 17:30:53 by adenis            #+#    #+#              #
-#    Updated: 2017/10/31 15:25:13 by adenis           ###   ########.fr        #
+#    Updated: 2017/11/09 14:45:23 by adenis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,8 @@ SRC_MSA		= msa.c \
 			  tools.c tools_2.c \
 			  header.c \
 			  args.c \
-			  output.c
+			  output.c \
+			  checks.c
 
 PATH_ASM	= srcs/asm/
 PATH_MSA	= srcs/msa
@@ -88,7 +89,7 @@ $(LIB):
 
 clean:
 	@rm -f $(OBJS_ASM)
-	@rm -f $(OBJS_VM)
+	@rm -f $(OBJS_MSA)
 	@make clean -C ./libft
 
 fclean: clean
