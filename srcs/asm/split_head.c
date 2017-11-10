@@ -6,7 +6,7 @@
 /*   By: nagaloul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 16:43:00 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/10 18:47:36 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/10 19:28:15 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	ft_easy(t_token *tok, char *str, int a)
 	int i;
 	int c;
 
-	c = 0;
+	c = 1;
 	i = 0;
 	while (*str && *str == ' ' || *str == '\t')
 	{
