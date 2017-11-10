@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 16:32:29 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/30 18:06:13 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/04 17:58:14 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ void	out_dirlab(t_output *pop)
 {
 	if (!pop->name)
 		return ;
-	pop->size = 2;
+	pop->size = 4;
+	if (pop->link && g_op_tab[whichop(pop->link->name)].label_size)
+		pop->size = 2;
 	pop->val = 0;
 }
 

@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/13 14:59:45 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/19 15:57:59 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/09 14:42:08 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	ft_octadd_end(t_oct *alst, t_oct *new)
 	alst->next = new;
 }
 
-int		ft_error(void)
+int		ft_error(char *s)
 {
-	ft_putstr("error\n");
+	ft_putendl(s);
 	exit(0);
 	return (0);
 }

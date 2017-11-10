@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/19 14:49:33 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/20 16:17:29 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/09 14:34:08 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,16 @@ void		get_char(t_oct **lst, int size, int type)
 {
 	char	arg;
 	char	*s;
-
+	if (!(*lst))
+		ft_error("lst NULL");
 	arg = (*lst)->content;
-	(*lst) = (*lst)->next;
+	*lst = (*lst)->next;
 	if (type == 1)
 		write_output("r", 0, NULL);
 	if (type == 2)
 		write_output("%", 0, NULL);
 	write_output((s = ft_itoa(arg)), 0, ", ");
-	s ? ft_strdel(&s) : NULL;	
+	s ? ft_strdel(&s) : NULL;
 }
 
 void		get_short(t_oct **lst, int size, int type)
@@ -33,15 +34,17 @@ void		get_short(t_oct **lst, int size, int type)
 	int		offset;
 	char	*s;
 
-	if (!size)
+	if (!size || !(*lst))
 		return ;
 	offset = 8;
 	arg = 0;
 	while (size)
 	{
+		if (!(*lst))
+			ft_error("lst NULL");
 		arg = (*lst)->content << offset | arg;
 		offset -= 8;
-		(*lst) = (*lst)->next;
+		*lst = (*lst)->next;
 		size--;
 	}
 	if (type == 1)
@@ -49,7 +52,7 @@ void		get_short(t_oct **lst, int size, int type)
 	if (type == 2)
 		write_output("%", 0, NULL);
 	write_output((s = ft_itoa(arg)), 0, ", ");
-	s ? ft_strdel(&s) : NULL;	
+	s ? ft_strdel(&s) : NULL;
 }
 
 void		get_int(t_oct **lst, int size, int type)
@@ -58,15 +61,17 @@ void		get_int(t_oct **lst, int size, int type)
 	int		offset;
 	char	*s;
 
-	if (!size)
+	if (!size || !(*lst))
 		return ;
 	offset = 8 * (size - 1);
 	arg = 0;
-	while (size)
+	while (size > 0)
 	{
+		if (!(*lst))
+			ft_error("lst NULL");
 		arg = (*lst)->content << offset | arg;
 		offset -= 8;
-		(*lst) = (*lst)->next;
+		*lst = (*lst)->next;
 		size--;
 	}
 	if (type == 1)
@@ -74,11 +79,14 @@ void		get_int(t_oct **lst, int size, int type)
 	if (type == 2)
 		write_output("%", 0, NULL);
 	write_output((s = ft_itoa(arg)), 0, ", ");
-	s ? ft_strdel(&s) : NULL;	
+	s ? ft_strdel(&s) : NULL;
 }
 
 void		get_arg(t_oct **lst, int size, int type)
 {
+	if (!(*lst))
+		ft_error("lst NULL");
+	// PSIZE-- ? 0 : ft_error("Bad prog_size");
 	if (size == 1)
 		get_char(lst, size, type);
 	else if (size == 2)
@@ -86,13 +94,16 @@ void		get_arg(t_oct **lst, int size, int type)
 	else
 		get_int(lst, size, type);
 }
+
 void		handle_opc(t_oct **lst, int a1, int a2, int a3)
 {
 	t_oct	*tmp;
 
 	tmp = *lst;
-	*lst = (*lst)->next;
-	*lst = (*lst)->next;
+	if (*lst)
+		*lst = (*lst)->next;
+	if (*lst)
+		*lst = (*lst)->next;
 	get_arg(lst, noct(a1, tmp), get_type(a1, tmp));
 	get_arg(lst, noct(a2, tmp), get_type(a2, tmp));
 	get_arg(lst, noct(a3, tmp), get_type(a3, tmp));
@@ -106,6 +117,8 @@ void		get_opc(t_oct **lst)
 	int					a2;
 	int					a3;
 
+	if (!(*lst) || !(*lst)->next)
+		ft_error("lst NULL");
 	tmp = *lst;
 	tmp = tmp->next;
 	opc = tmp->content;
@@ -126,6 +139,8 @@ void		handle_args(t_oct **lst)
 
 	a = 0;
 	i = 0;
+	if (!*lst || !(*lst)->next)
+		ft_error("lst NULL");
 	tmp = *lst;
 	*lst = (*lst)->next;
 	size = g_op_tab[tmp->content - 1].num_params;

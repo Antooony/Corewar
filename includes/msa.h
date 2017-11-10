@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/12 18:02:53 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/20 17:15:20 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/09 14:43:19 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define OUT g_out
 # define LINE g_line
 # define LAB g_lab
+# define PSIZE g_psize
 
 typedef	struct	s_oct
 {
@@ -27,7 +28,7 @@ typedef	struct	s_oct
 }				t_oct;
 
 void			ft_octadd_end(t_oct *alst, t_oct *new);
-int				ft_error(void);
+int				ft_error(char *s);
 int				ft_usage(void);
 void			display_lst(t_oct *lst);
 void			display_out(void);
@@ -38,12 +39,9 @@ int				noct(int opc, t_oct *lst);
 t_oct			*jump(t_oct *lst, int n);
 
 t_oct			*get_input(int fd);
-char			*get_name(char *s, t_oct **lst);
-char			*get_comment(char *s, t_oct **lst);
 int				get_prog_size(t_oct **lst);
 void			get_header(t_oct **lst);
 int				get_type(int opc, t_oct *lst);
-void			get_arg(t_oct **lst, int size, int type);
 void			get_opc(t_oct **lst);
 void			get_values(t_oct *lst);
 
@@ -55,8 +53,11 @@ void			write_output(char *line, int val, char *suf);
 void			out_val(void);
 int				isop(char *s);
 
+t_oct			*input_checks(void);
+
 t_oct			*g_lst;
 t_list			*g_out;
 char			*g_line;
 int				g_lab;
+int				g_psize;
 #endif

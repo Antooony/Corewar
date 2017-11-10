@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/30 13:59:43 by adenis            #+#    #+#             */
-/*   Updated: 2017/10/30 14:05:57 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/04 17:56:50 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_output	*get_dirlab(char *s)
 	pop = OUT;
 	while (pop)
 	{
-		if (pop->type == 0 && !ft_strcmp(&s[2], pop->name))
+		if (pop->type == 0 && !ft_strcmp(s, pop->name))
 			return (pop);
 		pop = pop->next;
 	}
@@ -44,7 +44,6 @@ void		fill_dirlab(void)
 		if ((tmp->type == 3 || tmp->type == 5) && get_dirlab(tmp->name))
 		{
 			tmp->val = calc_dirlab(tmp->link->pos, get_dirlab(tmp->name)->pos);
-			tmp->size = 2;
 		}
 		tmp = tmp->next;
 	}
