@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 14:44:10 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/10/30 13:49:43 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/02 11:10:06 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int		only(char *str)
 	int i;
 
 	i = 0;
-	while (str[i] && str[i] == ' ' && str[i] == '\t')
+	while (str[i] && (str[i] == ' ' || str[i] == '\t'))
 		i++;
 	if (str[i] == ',')
 		return (0);
@@ -84,11 +84,15 @@ int		only(char *str)
 
 void	split_tok(t_token **tok, char *str, int b)
 {
-	int i;
+	int		 i;
+	char	tab[2];
+
 
 	i = 0;
+	tab[0] = SEPARATOR_CHAR;
+	tab[1] = 0;
 	if (!only(str))
-		ft_push_token(tok, ",", 1, b);
+		ft_push_token(tok, tab, 1, b);
 	else
 		while (str[i])
 		{

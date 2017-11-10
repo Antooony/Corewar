@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/03 18:58:09 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/01 19:45:20 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/02 10:41:11 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int		ft_finish(char **tab, char *inst)
 		{
 			ft_freetab(tab);
 			return (0);
-		}		
+		}
 		if (tab[i][0] == ',')
 		{
 			ft_freetab(tab);
