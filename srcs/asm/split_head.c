@@ -6,34 +6,11 @@
 /*   By: nagaloul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 16:43:00 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/10 19:28:15 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/11 09:44:27 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
-
-static void	ft_easy(t_token *tok, char *str, int a)
-{
-	int i;
-	int c;
-
-	c = 1;
-	i = 0;
-	while (*str && *str == ' ' || *str == '\t')
-	{
-		str++;
-		c++;
-	}
-	while (str[i] && str[i] != ' ' && str[i] != '\t')
-		i++;
-	str[i] = '\0';
-	ft_push_token(tok, str, a, c);
-}
-
-static void	ft_hard(t_token *tok, char *str, int a)
-{
-
-}
 
 static int only_space(char *str)
 {
@@ -51,15 +28,13 @@ static int only_space(char *str)
 
 static void	ft_header(t_token *tok, t_list *head, int i)
 {
-	if (ft_countchar(head->content, '#') == 0)
-		ft_easy(tok, head->content, i);
-	if (ft_countchar(head->content, '#') == 2)
+	if (ft_countchar((*head)->content, '#') == 2)
 		ft_medium(tok, head->content, i);
-	if (ft_countchar(head->content, '#') == 1)
+	if (ft_countchar((*head)->content, '#') == 1)
 		ft_hard(tok, head, i);
 }
 
-void	split_head(t_token *tok, t_list *head)
+void	split_head(t_token *tok, t_list **head)
 {
 	int i;
 	int	a;
@@ -68,7 +43,7 @@ void	split_head(t_token *tok, t_list *head)
 	i = 1;
 	while (head)
 	{
-		if (!only_space(head->content))
+		if (!only_space((*head)->content))
 		{
 				ft_header(tok, head, i);
 				a++;
