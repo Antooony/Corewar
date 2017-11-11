@@ -49,7 +49,6 @@ sh mine.sh ultimate-surrender
 sh mine.sh _
 sh mine.sh salamahenagalabadoun
 sh mine.sh Machine-gun
-sh mine.sh corelol
 sh mine.sh MarineKing
 sh mine.sh Kappa
 sh mine.sh Wall

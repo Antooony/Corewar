@@ -6,7 +6,7 @@
 #    By: adenis <adenis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/03 17:30:53 by adenis            #+#    #+#              #
-#    Updated: 2017/11/11 19:59:16 by adenis           ###   ########.fr        #
+#    Updated: 2017/11/11 20:21:07 by adenis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,16 +76,16 @@ HEADER		= includes
 all: $(NAME) $(NAME2)
 
 $(NAME): $(OBJS_ASM) $(LIB)
-	@$(CC) $(FLAGS) $(ASM) $(LIB) -I $(HEADER) -o $(NAME)
+	$(CC) $(FLAGS) $(ASM) $(LIB) -I $(HEADER) -o $(NAME)
 
 $(NAME2): $(OBJS_MSA) $(LIB)
-	@$(CC) $(FLAGS) $(MSA) $(LIB) -I $(HEADER) -o $(NAME2)
+	$(CC) $(FLAGS) $(MSA) $(LIB) -I $(HEADER) -o $(NAME2)
 
 $(LIB):
 	@make -C $(LIB_PATH)
 
 %.o: %.c
-	@$(CC) $(FLAGS) -o $@ -c $< -I $(HEADER)
+	$(CC) $(FLAGS) -o $@ -c $< -I $(HEADER)
 
 clean:
 	@rm -f $(OBJS_ASM)

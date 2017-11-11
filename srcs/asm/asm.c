@@ -6,7 +6,7 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/17 11:29:56 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/11 19:44:02 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/11 20:20:32 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,35 +39,6 @@ t_op		g_op_tab[17] =
 	{"aff", 1, {T_REG}, 16, 2, "aff", 1, 0},
 	{0, 0, {0}, 0, 0, 0, 0, 0}
 };
-
-void				printtok(t_token *tok)
-{
-	t_token *tmp;
-
-	tmp = tok;
-	while (tmp)
-	{
-		if (tmp->reg)
-			ft_printf("%s\n", tmp->reg);
-		else if (tmp->lab)
-			ft_printf("%s\n", tmp->lab);
-		else if (tmp->comment)
-			ft_printf("%s\n", tmp->comment);
-		else if (tmp->dirlab)
-			ft_printf("%s\n", tmp->dirlab);
-		else if (tmp->indirlab)
-			ft_printf("%s\n", tmp->indirlab);
-		else if (tmp->dir)
-			ft_printf("%s\n", tmp->dir);
-		else if (tmp->name)
-			ft_printf("%s\n", tmp->name);
-		else if (tmp->ncom)
-			ft_printf("%s\n", tmp->ncom);
-		else if (tmp->indir)
-			ft_printf("%s\n", tmp->indir);
-		tmp = tmp->next;
-	}
-}
 
 static t_token		*ft_split(t_list **temp, t_token *tok)
 {
