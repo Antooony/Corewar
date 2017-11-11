@@ -1,0 +1,22 @@
+perso5.s : error not legit
+Car.s : binary diff
+mortel.s : binary diff
+bee_gees.s : error not legit
+fluttershy.s : binary diff
+helltrain.s : binary diff
+Rainbow_dash.s : error not legit
+youforkmytralala.s : binary diff
+mandragore.s : binary diff
+terminator.s : binary diff
+ultimate-surrender.s : error not legit
+Misaka_Mikoto.s : error not legit
+Varimathras.s : binary diff
+justin_bee.s : binary diff
+jinx.s : binary diff
+champ.s : error not legit
+invalid4.s : missing an error
+invalid11.s : error not legit
+invalid90.s : error not legit
+invalid99.s : missing an error
+invalid101.s : missing an error
+invalid102.s : error not legit

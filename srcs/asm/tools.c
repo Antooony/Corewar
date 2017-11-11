@@ -6,11 +6,17 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/30 13:56:25 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/01 20:32:48 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/11 20:00:31 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
+
+unsigned int	endian_int(unsigned int n)
+{
+	return ((n >> 24) | ((n & 0xff0000) >> 8) | ((n & 0xff00) << 8) |
+					((n & 0xff) << 24));
+}
 
 int		ft_error(void)
 {
@@ -55,9 +61,9 @@ int		handle_file(char *s)
 	if (!(s2 = ft_strdup(s)))
 		exit(0);
 	s2[ft_strlen(s2) - 1] = 0;
-	if (!(name = ft_strjoin(s2, "cor.me")))
+	if (!(name = ft_strjoin(s2, "cor")))
 		exit(0);
-	FD = open(name, O_WRONLY | O_CREAT, S_IRWXU);
+	FD = open(name, O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
 	ft_printf("Writing output program to %s\n", name);
 	free(s2);
 	free(name);

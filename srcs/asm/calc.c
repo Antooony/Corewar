@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/03 17:22:57 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/04 18:13:41 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/11 19:57:17 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void	printout(void)
 void	ft_calc(t_token *tok)
 {
 	create_output(tok);
-	printout();
 	fill_dirlab();
 	print_header();
 	print_val();
