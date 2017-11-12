@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 16:11:19 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/01 19:45:49 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/12 19:28:10 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,9 @@ int			ft_sep(char *str);
 void		ft_guill(t_token **tok, char *str, int *count, int b);
 void		ft_try(t_token **tok, char *str, int *count, int b);
 void		split_tok(t_token **tok, char *str, int b);
+void		split_head(t_token **tok, t_list **head, int i);
+void		ft_medium(t_token **tok, char *str, int a);
+void		ft_hard(t_token **tok, t_list **line, int b);
 
 int			ft_countchar(char *str, char c);
 int			ft_decoupe(char const *s);

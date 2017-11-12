@@ -6,7 +6,7 @@
 #    By: adenis <adenis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/03 17:30:53 by adenis            #+#    #+#              #
-#    Updated: 2017/11/11 20:21:07 by adenis           ###   ########.fr        #
+#    Updated: 2017/11/12 19:36:00 by nagaloul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ SRC_ASM		= asm.c \
 			  output.c \
 			  split_space.c \
 			  split_tok.c \
+			  split_head.c \
 			  t_ft.c \
 			  t_ft_2.c \
 			  ft_op.c \
@@ -53,7 +54,9 @@ SRC_ASM		= asm.c \
 			  ft_strsplit.c \
 			  tools.c tools_2.c\
 			  handle_lab.c \
-			  free.c
+			  free.c \
+			  ft_hard.c \
+			  ft_medium.c 
 
 SRC_MSA		= msa.c \
 			  tools.c tools_2.c \
