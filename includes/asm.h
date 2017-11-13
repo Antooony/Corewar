@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 16:11:19 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/12 19:28:10 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/13 15:19:57 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "assembler.h"
 # include <stdio.h>
 
+void		ft_naco(t_token **tok, char *str, int *count, int b);
 int			ft_sti(t_token *tok, int i, t_token *lab, t_list *sep);
 int			ft_ldi(t_token *tok, int i, t_token *lab, t_list *sep);
 int			ft_or(t_token *tok, int i, t_token *lab, t_list *sep);
