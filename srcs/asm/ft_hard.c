@@ -6,7 +6,7 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 09:32:24 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/14 19:16:33 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/14 20:13:29 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ static t_list	*ft_fill(char *str, t_list *line, char *buffer)
 	i = 0;
 	while (line && (s = (char *)line->content))
 	{
-		if (s[0] == '\0')
-			buffer[++a] = '\n';
 		while (s[i] && s[i] != '"')
 		{
 			buffer[++a] = s[i];
@@ -67,7 +65,8 @@ static t_list	*ft_fill(char *str, t_list *line, char *buffer)
 			buffer[++a] = s[i];
 			break ;
 		}
-		buffer[++a] = '\n';
+		if (s[0] == '\0')
+			buffer[++a] = '\n';
 		line = line->next;
 		i = 0;
 	}

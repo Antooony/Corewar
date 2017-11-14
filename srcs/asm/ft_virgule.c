@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_virgule.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/03 18:58:09 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/02 10:41:11 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/14 20:05:07 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int		ft_virgule(int i, t_list *sep, int c, char *inst)
 		sep = sep->next;
 	s = sep->content;
 	a = 0;
-	while (s[a] != '\0' && s[a] != '#')
+	while (s[a] != '\0' && s[a] != '#' && s[a] != ';')
 		a++;
 	s[a] = '\0';
 	if (ft_countchar(s, ',') != c - 1)
