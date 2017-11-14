@@ -6,13 +6,13 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 09:32:24 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/13 15:21:38 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/14 19:16:33 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-static int	ft_acc(char *str, t_list *line)
+static int	ft_acc(char *str, t_list *line, int *b)
 {
 	int		i;
 	int		count;
@@ -29,14 +29,19 @@ static int	ft_acc(char *str, t_list *line)
 			i++;
 		count = count + i + 1;
 		if (s[i] == '"')
-			return (count);
+		{
+			*b = *b + 1;
+			return (++count);
+		}
 		line = line->next;
+		*b = *b + 1;
 		i = 0;
 	}
+	*b = *b + 1;
 	return (count);
 }
 
-static void	ft_fill(char *str, t_list *line, char *buffer)
+static t_list	*ft_fill(char *str, t_list *line, char *buffer)
 {
 	int		i;
 	int		a;
@@ -46,6 +51,7 @@ static void	ft_fill(char *str, t_list *line, char *buffer)
 	i = -1;
 	while (str[++i])
 		buffer[++a] = str[i];
+	buffer[++a] = '\n';
 	i = 0;
 	while (line && (s = (char *)line->content))
 	{
@@ -53,28 +59,32 @@ static void	ft_fill(char *str, t_list *line, char *buffer)
 			buffer[++a] = '\n';
 		while (s[i] && s[i] != '"')
 		{
-			buffer[++a] = str[i];
+			buffer[++a] = s[i];
 			i++;
 		}
 		if (s[i] == '"')
 		{
-			buffer[++a] = str[i];
+			buffer[++a] = s[i];
 			break ;
 		}
 		buffer[++a] = '\n';
 		line = line->next;
 		i = 0;
 	}
+	buffer[++a] = '\0';
+	return (line);
 }
 
-static void	ft_quote(t_token **tok, t_list **line, int b)
+static void	ft_quote(t_token **tok, t_list **line, int *b)
 {
-	t_list *temp;
-	int i;
-	int a;
-	char *buff;
+	t_list	*temp;
+	int		i;
+	int		a;
+	char	*buff;
 	char	*s;
+	int 	tmp;
 
+	tmp = *b;
 	buff = NULL;
 	temp = *line;
 	i = 0;
@@ -82,16 +92,15 @@ static void	ft_quote(t_token **tok, t_list **line, int b)
 	s = (char *)temp->content;
 	while (s && s[i] && s[i] != '"')
 		i++;
-	a = ft_acc(&s[i], (*line)->next);
+	a = ft_acc(&s[i], (*line)->next, b);
 	buff = malloc(sizeof(char) * a + 1);
-	ft_fill(&s[i], temp->next, buff);
-	ft_push_token(tok, buff, i, b);
+	*line = ft_fill(&s[i], temp->next, buff);
+	ft_push_token(tok, buff, i, tmp);
 }
 
-
-void	ft_hard(t_token **tok, t_list **line, int b)
+void	ft_hard(t_token **tok, t_list **line, int *b)
 {
-	int i;
+	int		i;
 	char	*s;
 
 	i = 0;

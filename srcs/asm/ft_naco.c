@@ -6,7 +6,7 @@
 /*   By: nagaloul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 17:43:39 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/12 19:29:20 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/14 15:52:45 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	ft_sip(char *str)
 	return (i);
 }
 
-void	ft_naco(t_token **tok, char *str, int *count, int b)
+void	ft_naco(t_token **tok, char *str, int *count, int *b)
 {
 	int i;
 	char temp;
@@ -31,7 +31,7 @@ void	ft_naco(t_token **tok, char *str, int *count, int b)
 	i = ft_sip(str);
 	temp = str[i];
 	str[i] = '\0';
-	ft_push_token(tok, str, *count, b);
+	ft_push_token(tok, str, *count, *b);
 	str[i] = temp;
 	if (temp == '"')
 		i--;
