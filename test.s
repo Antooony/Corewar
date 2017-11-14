@@ -2,7 +2,7 @@
 oio
 ii
 iiiiiiiiii"
-.comment"just,,,, a basic living prog"
+.comment "just, a, basic, living prog"
 l2: sti r1, 156 ,%1
 and r1 , %-211 ,r1
 ld %33,r1

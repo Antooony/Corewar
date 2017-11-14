@@ -6,7 +6,7 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/17 11:29:56 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/14 19:13:06 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/14 19:56:18 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,17 @@ static t_token		*ft_split(t_list **temp, t_token *tok)
 {
 	t_list	*ops;
 	int		b;
+	int i;
 
+	i = 0;
 	b = 1;
 	ops = *temp;
 	while (ops)
 	{
 		if (ft_strchr(ops->content, '"'))
+		{
 			split_head(&tok, &ops, &b);
+		}
 		else
 			split_tok(&tok, ops->content, b);
 		ops = ops->next;

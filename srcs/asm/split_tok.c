@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 14:44:10 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/02 11:10:06 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/14 19:59:14 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		ft_sep(char *str)
 	i = 0;
 	while ((str[i]) && str[i] != ' ' && str[i] != '\t')
 	{
-		if (str[i] == '#')
+		if (str[i] == ';' || str[i] == '#')
 			break ;
 		if (i > 0 && str[i] == ':' && str[i - 1] != '%' && str[i - 1] != ',')
 		{
@@ -100,10 +100,10 @@ void	split_tok(t_token **tok, char *str, int b)
 				i++;
 			if (str[i] == '"')
 				ft_guill(tok, &str[i], &i, b);
-			if (str[i] == '\0' || str[i] == '#')
+			if (str[i] == '\0' || str[i] == '#' || str[i] == ';')
 				break ;
 			ft_try(tok, &str[i], &i, b);
-			if (str[i] == '#' || str[i] == '"')
+			if (str[i] == ';' || str[i] == '#' || str[i] == '"')
 				break ;
 			if (str[i] != '\0')
 				i++;

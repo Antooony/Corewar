@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/30 14:38:02 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/02 10:56:45 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/14 19:54:38 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	ft_inst(t_token *tok)
 	int i;
 
 	i = 0;
-	if (!tok->lab)
+	if (!tok->lab && !tok->comment)
 	{
 		if (!onlysep(&tok))
 			tok->inst = tok->unknow;

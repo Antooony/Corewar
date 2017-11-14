@@ -1,0 +1,11 @@
+perso5.s : binary diff
+bee_gees.s : error not legit
+ultimate-surrender.s : error not legit
+Misaka_Mikoto.s : error not legit
+invalid4.s : missing an error
+invalid11.s : error not legit
+invalid90.s : binary diff
+invalid93.s : missing an error
+invalid99.s : missing an error
+invalid101.s : missing an error
+invalid102.s : error not legit
