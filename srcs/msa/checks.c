@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 13:15:13 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/10 17:15:55 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/14 17:57:07 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int		lstlen(t_oct *lst)
 	int		i;
 	t_oct	*tmp;
 
+	lst ? 0 : ft_error("lst null");
 	tmp = lst;
 	i = 0;
 	while (tmp)
@@ -80,12 +81,14 @@ t_list	*check_goto(t_list *lst, int val)
 
 	if (!lst)
 		ft_error("lst NULL");
+	if (!val)
+		return (NULL);
 	tmp = OUT;
 	while (tmp && tmp->next)
 	{
 		if ((int)tmp->next->content_size == val)
 		{
-			if (ft_strstr(tmp->next->content, "LABEL"))
+			if (ft_strstr(tmp->next->content, "label"))
 				return (tmp);
 			if (isop(tmp->next->content))
 				return (tmp);

@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/19 17:20:09 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/09 19:19:14 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/14 12:42:12 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void		display_out(void)
 	tmp = OUT;
 	while (tmp)
 	{
-		ft_printf("%s", tmp->content);
+		write(FD, tmp->content, ft_strlen(tmp->content));
 		tmp = tmp->next;
 	}
 }

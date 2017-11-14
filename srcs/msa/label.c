@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 17:38:59 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/10 18:19:18 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/14 18:27:13 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,26 +22,12 @@ void		lab_insert(t_list *lst)
 	s2 = ft_strjoin(s1, ":\n");
 	if (!(tmp = ft_lstnew(NULL, 0)))
 		ft_error("error");
-	tmp->content = ft_strjoin("LABEL", s2);
+	tmp->content = ft_strjoin("label", s2);
 	tmp->content_size = lst->next->content_size;
 	tmp->next = lst->next;
 	lst->next = tmp;
 	s1 ? ft_strdel(&s1) : 0;
 	s2 ? ft_strdel(&s2) : 0;
-}
-
-int			check_lab(int val)
-{
-	t_list		*tmp;
-
-	tmp = OUT;
-	while (tmp)
-	{
-		if ((int)tmp->content_size == val)
-			ft_printf("%s\n", tmp->content);
-		tmp = tmp->next;
-	}
-	return (1);
 }
 
 void		handle_goto(t_list *lst)
@@ -52,12 +38,12 @@ void		handle_goto(t_list *lst)
 
 	if (!lst)
 		return ;
-	val = (char)ft_atoi(lst->content);
+	val = ft_atoi(lst->content);
 	if (val)
 		val += lst->content_size;
 	if ((tmp = check_goto(lst->content, val)))
 	{
-		if (tmp->next && !ft_strstr(tmp->next->content, "LABEL"))
+		if (tmp->next && !ft_strstr(tmp->next->content, "label"))
 			lab_insert(tmp);
 		lst->content ? ft_strdel((char **)&lst->content) : 0;
 		if (!(s = ft_strjoin(":", tmp->next->content)))

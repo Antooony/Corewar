@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/12 17:56:31 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/10 17:05:00 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/14 18:27:43 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,59 @@ int			isop(char *s)
 	return (0);
 }
 
-void		ft_msa(int fd)
+int			handle_file(char *s)
+{
+	char	*s2;
+	char	*name;
+
+	if (!s)
+		exit(0);
+	if (!ft_strrchr(s, '.'))
+		return (ft_error(NULL));
+	if (!ft_strstr(ft_strrchr(s, '.'), "cor"))
+		return (ft_error(NULL));
+	if (!(s2 = ft_strdup(s)))
+		exit(0);
+	s2[ft_strrchr(s2, '.') - s2] = 0;
+	if (!(name = ft_strjoin(s2, "_r.s")))
+		exit(0);
+	FD = open(name, O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
+	FD ? 0 : ft_error("can't create output file\n");
+	ft_printf("Writing output program to %s\n", name);
+	free(s2);
+	free(name);
+	return (0);
+}
+
+void		handle_tabs(void)
+{
+	t_list		*tmp;
+	char		*s;
+	char		*s2;
+
+	tmp = OUT;
+	s2 = NULL;
+	s = NULL;
+	while (tmp)
+	{
+		if (isop(tmp->content))
+		{
+			s = tmp->content;
+			s[ft_strlen(s) - 1] = '\t';
+			if (ft_strlen(s) < 5)
+			{
+				s2 = s;
+				s = ft_strjoin(s, "\t");
+				free(s2);
+			}
+			tmp->content = ft_strjoin("\t", s);
+			free(s);
+		}
+		tmp = tmp->next;
+	}
+}
+
+void		ft_msa(int fd, char *file)
 {
 	t_oct	*lst;
 
@@ -50,6 +102,8 @@ void		ft_msa(int fd)
 	out_val();
 	handle_label();
 	handle_last();
+	handle_file(file);
+	handle_tabs();
 	display_out();
 	clean();
 }
@@ -58,11 +112,12 @@ int			main(int argc, char **argv)
 {
 	int		fd;
 
+	FD = 1;
 	if (argc != 2)
 		return (ft_usage());
 	if ((fd = open(argv[1], O_RDONLY)) == -1)
 		return (ft_error("can't open the file"));
-	ft_msa(fd);
+	ft_msa(fd, argv[1]);
 	if (close(fd) == -1)
 		return (ft_error("close fd failed"));
 }

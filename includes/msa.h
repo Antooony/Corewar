@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/12 18:02:53 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/10 17:09:36 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/14 18:29:03 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # define LINE g_line
 # define LAB g_lab
 # define PSIZE g_psize
+# define FD g_fd
 
 typedef	struct	s_oct
 {
@@ -67,4 +68,5 @@ t_list			*g_out;
 char			*g_line;
 int				g_lab;
 int				g_psize;
+int				g_fd;
 #endif
