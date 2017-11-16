@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 16:11:19 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/14 18:23:00 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/16 15:16:31 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "assembler.h"
 # include <stdio.h>
 
+int			ft_lastline(char *str);
 void		ft_naco(t_token **tok, char *str, int *count, int *b);
 void		ft_naco2(t_token **tok, char *str, int *b);
 int			ft_sti(t_token *tok, int i, t_token *lab, t_list *sep);

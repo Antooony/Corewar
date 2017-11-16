@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/17 21:50:05 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/01 16:05:08 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/16 15:18:01 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,16 +108,25 @@ int			ft_check_every(t_token *tok, t_list *sep)
 {
 	t_token *temp;
 	int		i;
+	char	*str;
 
+	str = NULL;
 	i = 0;
 	temp = tok;
 	while (tok)
 	{
 		while (tok && tok->lab)
-			ft_label(&tok);
+		{
+			if (!ft_label(&tok))
+				i++;
+		}
 		if (tok)
 			if (!ft_instruc(&tok, temp, sep))
 				i++;
 	}
+	while (sep && sep->next)
+		sep = sep->next;
+	if (sep && (str = (char*)sep->content))
+		return (ft_lastline(str) ? 0 : 1);
 	return (i ? 0 : 1);
 }
