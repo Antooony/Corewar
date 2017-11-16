@@ -6,23 +6,18 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/30 14:37:00 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/01 17:55:33 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/16 19:18:30 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-int			ft_check_commands(t_token **tok, t_list *sep)
+int		ft_check_commands2(t_token **tok)
 {
 	int	i;
+	int a;
 
-	i = (*tok)->lan;
-	if (!(*tok)->name)
-		return (0);
-	*tok = (*tok)->next;
-	if (!(*tok)->comment || i != (*tok)->lan)
-		return (0);
-	*tok = (*tok)->next;
+	a = 0;
 	i = (*tok)->lan;
 	if (!(*tok)->ncom)
 		return (0);
@@ -30,13 +25,49 @@ int			ft_check_commands(t_token **tok, t_list *sep)
 	if (!(*tok)->comment || i != (*tok)->lan)
 		return (0);
 	*tok = (*tok)->next;
+	a = (*tok)->lan;
+	if (i == a)
+		return (0);
+	if (!(*tok)->name)
+		return (0);
+	*tok = (*tok)->next;
+	if (!(*tok)->comment || a != (*tok)->lan)
+		return (0);
+	*tok = (*tok)->next;
 	return (1);
 }
 
-int			ft_check(t_token *tok, t_list *sep)
+int		ft_check_commands(t_token **tok)
 {
-	if (!ft_check_commands(&tok, sep))
+	int	i;
+	int a;
+
+	a = 0;
+	i = (*tok)->lan;
+	if (!(*tok)->name)
+		return (0);
+	*tok = (*tok)->next;
+	if (!(*tok)->comment || i != (*tok)->lan)
+		return (0);
+	*tok = (*tok)->next;
+	a = (*tok)->lan;
+	if (i == a)
+		return (0);
+	if (!(*tok)->ncom)
+		return (0);
+	*tok = (*tok)->next;
+	if (!(*tok)->comment || a != (*tok)->lan)
+		return (0);
+	*tok = (*tok)->next;
+	return (1);
+}
+
+int		ft_check(t_token *tok, t_list *sep)
+{
+	if (!ft_check_commands(&tok) && !ft_check_commands2(&tok))
 	{
+		if (!tok->inst)
+			ft_printf("le commentaire %s", tok->comment);
 		ft_puterror(tok, 0, tok->lan, tok);
 		return (0);
 	}

@@ -6,7 +6,7 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/17 21:50:05 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/16 16:34:32 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/16 18:35:22 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,8 @@ int			ft_check_every(t_token *tok, t_list *sep)
 	str = NULL;
 	i = 0;
 	temp = tok;
+	if (!tok)
+		return (0);
 	while (tok)
 	{
 		while (tok && tok->lab)

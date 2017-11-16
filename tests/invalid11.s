@@ -1,4 +1,4 @@
 .name	"invalid"
 .comment	""
 
-live%120
+live %120

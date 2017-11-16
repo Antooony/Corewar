@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 16:11:19 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/16 15:16:31 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/16 18:28:49 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int			ft_real(t_token *tok, t_token *temp, t_list *sep);
 int			ft_instruc(t_token **tok, t_token *temp, t_list *sep);
 int			ft_label(t_token **tok);
 int			ft_check_every(t_token *tok, t_list *sep);
-int			ft_check_commands(t_token **tok, t_list *sep);
+int			ft_check_commands(t_token **tok);
+int			ft_check_commands2(t_token **tok);
 int			ft_check(t_token *tok, t_list *sep);
 
 void		ft_commands(t_list *ops, int i);

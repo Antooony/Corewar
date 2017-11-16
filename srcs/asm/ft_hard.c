@@ -6,7 +6,7 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 09:32:24 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/14 20:13:29 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/16 19:11:15 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void	ft_hard(t_token **tok, t_list **line, int *b)
 			break ;
 		}
 		else
-			ft_naco(tok, &s[i], &i, b);
+			ft_naco(tok, &s[i], &i, b);	
 		if (s[i] == ';' || s[i] == '#')
 			break ;
 		i++;

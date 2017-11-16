@@ -6,7 +6,7 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/17 11:29:56 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/16 17:23:35 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/16 19:13:51 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ static t_token		*ft_split(t_list **temp, t_token *tok)
 			split_head(&tok, &ops, &b);
 		else
 			split_tok(&tok, ops->content, b);
-		ops = ops->next;
+		if (ops)
+			ops = ops->next;
 		b++;
 	}
 	ft_pars(tok);

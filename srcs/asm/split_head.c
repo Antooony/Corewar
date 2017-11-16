@@ -6,7 +6,7 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 16:43:00 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/14 19:18:09 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/16 19:12:07 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ static void	ft_header(t_token **tok, t_list **head, int *i)
 	if (ft_countchar((*head)->content, '"') == 1)
 	{
 		ft_hard(tok, head, i);
-		ft_naco2(tok, (*head)->content, i);
+		if (*head)
+			ft_naco2(tok, (*head)->content, i);
 	}
 }
 
