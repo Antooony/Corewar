@@ -6,7 +6,7 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/17 11:29:56 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/16 16:19:35 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/16 17:23:35 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,7 @@ static t_token		*ft_split(t_list **temp, t_token *tok)
 	while (ops)
 	{
 		if (ft_strchr(ops->content, '"'))
-		{
 			split_head(&tok, &ops, &b);
-		}
 		else
 			split_tok(&tok, ops->content, b);
 		ops = ops->next;
@@ -85,17 +83,21 @@ void				get_ops(t_list **ops, int fd)
 	char		*line;
 
 	line = NULL;
+	*ops = NULL;
 	while (get_next_line(fd, &line))
 	{
 		ft_push_back(ops, line);
 		ft_strdel(&line);
 	}
+	if (!*ops)
+		exit(0);
 }
 
 void				ft_asm(t_list *ops, char *name)
 {
 	t_token		*tok;
 
+	tok = NULL;
 	tok = ft_split(&ops, tok);
 	TOK = tok;
 	if (!tok)
@@ -108,6 +110,7 @@ void				read_check(int	fd, t_list *ops)
 {
 	char	buff;
 	char	tmp;
+	
 	while (read(fd, &buff, 1) != 0)
 		tmp = buff;
 	if (tmp == '\n')
