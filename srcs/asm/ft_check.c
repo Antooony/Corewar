@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/17 21:50:05 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/16 15:18:01 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/16 16:10:51 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,9 +124,5 @@ int			ft_check_every(t_token *tok, t_list *sep)
 			if (!ft_instruc(&tok, temp, sep))
 				i++;
 	}
-	while (sep && sep->next)
-		sep = sep->next;
-	if (sep && (str = (char*)sep->content))
-		return (ft_lastline(str) ? 0 : 1);
 	return (i ? 0 : 1);
 }
