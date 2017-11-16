@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/17 21:50:05 by nagaloul          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2017/11/16 15:28:09 by nagaloul         ###   ########.fr       */
+=======
+/*   Updated: 2017/11/16 16:10:51 by adenis           ###   ########.fr       */
+>>>>>>> 709ba8961ab1a0c093f74ac8acc1a8a3a4af24fd
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +128,7 @@ int			ft_check_every(t_token *tok, t_list *sep)
 			if (!ft_instruc(&tok, temp, sep))
 				i++;
 	}
+<<<<<<< HEAD
 	while (sep && sep->next)
 		sep = sep->next;
 	if (sep && (str = (char*)sep->content))
@@ -132,5 +137,7 @@ int			ft_check_every(t_token *tok, t_list *sep)
 			ft_putstr("Error");
 			i++;
 		}
+=======
+>>>>>>> 709ba8961ab1a0c093f74ac8acc1a8a3a4af24fd
 	return (i ? 0 : 1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lastline.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nagaloul <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 15:13:31 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/16 15:16:06 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/16 16:12:04 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int		ft_lastline(char *str)
 	int i;
 
 	i = 0;
-	while (str[i] == ' ' && str[i] == '\t')
+	while (str[i] == ' ' || str[i] == '\t')
 		i++;
-	if (str[i] == '\0')
+	if (str[i] == '\0' || str[i] == '#' || str[i] == ';')
 		return (1);
 	return (0);
 }

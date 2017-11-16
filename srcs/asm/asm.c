@@ -6,7 +6,7 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/17 11:29:56 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/16 15:05:34 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/16 16:19:35 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,24 @@ void				ft_asm(t_list *ops, char *name)
 	ft_calc(tok);
 }
 
+void				read_check(int	fd, t_list *ops)
+{
+	char	buff;
+	char	tmp;
+	while (read(fd, &buff, 1) != 0)
+		tmp = buff;
+	if (tmp == '\n')
+		return ;
+	while (ops && ops->next)
+		ops = ops->next;
+	close(fd);
+	if (!ft_lastline((char *)ops->content))
+	{
+		ft_printf("parse error, file must end by a newline\n");
+		exit(0);
+	}
+}
+
 int					main(int ac, char **av)
 {
 	int			fd;
@@ -119,6 +137,11 @@ int					main(int ac, char **av)
 	FD = 1;
 	init_ft_tab();
 	get_ops(&ops, fd);
+	close(fd);
+	fd = open(av[1], O_RDWR);
+	if (fd == -1)
+		return (0);
+	read_check(fd, ops);
 	ft_asm(ops, av[1]);
 	clean(ops);
 	return (0);
