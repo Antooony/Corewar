@@ -35,7 +35,7 @@ void		get_opc(t_oct **lst)
 	int					a3;
 
 	if (!(*lst) || !(*lst)->next)
-		ft_error("lst NULL");
+		ft_error("Size error");
 	tmp = *lst;
 	tmp = tmp->next;
 	opc = tmp->content;

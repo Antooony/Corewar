@@ -6,7 +6,7 @@
 #    By: khabbar <khabbar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/26 15:04:37 by khabbar           #+#    #+#              #
-#    Updated: 2017/11/10 18:14:30 by adenis           ###   ########.fr        #
+#    Updated: 2017/11/17 17:19:26 by adenis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ CFLAGS= -Wall -Wextra -Werror
 CPATH= srcs/
 
 MPATH= msa/
+
+APATH= asm/
 
 OPATH= obj/
 
@@ -74,40 +76,48 @@ CFILES= vm.c \
 	   	ft_lfork.c \
 	   	ft_aff.c
 
-AFILES= assembler.c
-# AFILES= asm.c \
-# 		calc.c \
-# 		display.c \
-# 		display_2.c \
-# 		ft_and.c \
-# 		ft_check.c ft_check_2.c \
-# 		ft_commands.c \
-# 		ft_create_elem.c \
-# 		ft_create_token.c \
-# 		ft_freetab.c \
-# 		ft_live.c \
-# 		ft_pars.c ft_pars_2.c ft_pars_3.c \
-# 		ft_push_back.c \
-# 		ft_push_token.c \
-# 		ft_puterror.c \
-# 		ft_puterrorsep.c \
-# 		ft_reg.c \
-# 		ft_tomuch.c \
-# 		ft_virgule.c \
-# 		output.c \
-# 		split_space.c \
-# 		split_tok.c \
-# 		t_ft.c \
-# 		t_ft_2.c \
-# 		ft_op.c \
-# 		ft_countchar.c \
-# 		ft_decoupe.c \
-# 		ft_lastchar.c \
-# 		ft_remp.c \
-# 		ft_strsplit.c \
-# 		tools.c \
-# 		handle_lab.c \
-# 		free.c
+AFILES= $(APATH)asm.c \
+		$(APATH)calc.c \
+		$(APATH)display.c \
+		$(APATH)display_2.c \
+		$(APATH)ft_and.c \
+		$(APATH)ft_check.c \
+		$(APATH)ft_check_2.c \
+		$(APATH)ft_create_elem.c \
+		$(APATH)ft_create_token.c \
+		$(APATH)ft_freetab.c \
+		$(APATH)ft_live.c \
+		$(APATH)ft_pars.c \
+		$(APATH)ft_pars_2.c \
+		$(APATH)ft_pars_3.c \
+		$(APATH)ft_push_back.c \
+		$(APATH)ft_push_token.c \
+		$(APATH)ft_puterror.c \
+		$(APATH)ft_puterrorsep.c \
+		$(APATH)ft_reg.c \
+		$(APATH)ft_tomuch.c \
+		$(APATH)ft_virgule.c \
+		$(APATH)output.c \
+		$(APATH)split_space.c \
+		$(APATH)split_tok.c \
+		$(APATH)split_head.c \
+		$(APATH)t_ft.c \
+		$(APATH)t_ft_2.c \
+		$(APATH)ft_op.c \
+		$(APATH)ft_countchar.c \
+		$(APATH)ft_decoupe.c \
+		$(APATH)ft_lastchar.c \
+		$(APATH)ft_remp.c \
+		$(APATH)ft_strsplit.c \
+		$(APATH)tools.c \
+		$(APATH)tools_2.c\
+		$(APATH)handle_lab.c \
+		$(APATH)free.c \
+		$(APATH)ft_hard.c \
+		$(APATH)ft_medium.c \
+		$(APATH)ft_naco.c \
+		$(APATH)ft_naco2.c \
+		$(APATH)ft_lastline.c
 
 MFILES= $(MPATH)msa.c \
 		$(MPATH)tools.c \
@@ -128,6 +138,7 @@ MOFILES= $(MFILES:.c=.o)
 
 HFILES= includes/vm.h \
 		includes/op.h \
+		includes/assembler.h \
 		includes/msa.h \
 		libft/inc/libftprintf.h
 
@@ -150,6 +161,7 @@ LIB:
 $(OPATH)%.o: $(CPATH)%.c $(HFILES)
 	@mkdir -p $(OPATH)/build
 	@mkdir -p $(OPATH)/$(MPATH)
+	@mkdir -p $(OPATH)/$(APATH)
 	$(CC) $(CFLAGS) $(INC) $< -c -o $@
 
 clean:

@@ -38,7 +38,7 @@ int		lstlen(t_oct *lst)
 	int		i;
 	t_oct	*tmp;
 
-	lst ? 0 : ft_error("lst null");
+	lst ? 0 : ft_error("Size error");
 	tmp = lst;
 	i = 0;
 	while (tmp)
@@ -80,7 +80,7 @@ t_list	*check_goto(t_list *lst, int val)
 	t_list	*tmp;
 
 	if (!lst)
-		ft_error("lst NULL");
+		ft_error("Size error");
 	if (!val)
 		return (NULL);
 	tmp = OUT;

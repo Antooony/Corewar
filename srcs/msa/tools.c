@@ -65,7 +65,7 @@ void	get_values(t_oct *lst)
 	t_oct	*tmp;
 
 	if (!lst)
-		ft_error("lst NULL");
+		ft_error("Size error");
 	while (lst)
 	{
 		if (tmp == lst)

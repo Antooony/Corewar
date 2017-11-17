@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/19 14:49:33 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/10 17:09:28 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/14 18:49:55 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void		get_char(t_oct **lst, int type)
 	char	*s;
 
 	if (!(*lst))
-		ft_error("lst NULL");
+		ft_error("Size error");
 	arg = (*lst)->content;
 	*lst = (*lst)->next;
 	if (type == 1)
@@ -42,7 +42,7 @@ void		get_short(t_oct **lst, int size, int type)
 	while (size)
 	{
 		if (!(*lst))
-			ft_error("lst NULL");
+			ft_error("Size error");
 		arg = (*lst)->content << offset | arg;
 		offset -= 8;
 		*lst = (*lst)->next;
@@ -69,7 +69,7 @@ void		get_int(t_oct **lst, int size, int type)
 	while (size > 0)
 	{
 		if (!(*lst))
-			ft_error("lst NULL");
+			ft_error("Size error");
 		arg = (*lst)->content << offset | arg;
 		offset -= 8;
 		*lst = (*lst)->next;
@@ -86,7 +86,7 @@ void		get_int(t_oct **lst, int size, int type)
 void		get_arg(t_oct **lst, int size, int type)
 {
 	if (!(*lst))
-		ft_error("lst NULL");
+		return ;
 	if (size == 1)
 		get_char(lst, type);
 	else if (size == 2)
@@ -105,7 +105,7 @@ void		handle_args(t_oct **lst)
 	a = 0;
 	i = 0;
 	if (!*lst || !(*lst)->next)
-		ft_error("lst NULL");
+		ft_error("Size error");
 	tmp = *lst;
 	*lst = (*lst)->next;
 	size = g_op_tab[tmp->content - 1].num_params;

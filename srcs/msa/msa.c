@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/12 17:56:31 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/14 18:27:43 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/14 18:47:35 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,11 @@ void		handle_tabs(void)
 			if (ft_strlen(s) < 5)
 			{
 				s2 = s;
-				s = ft_strjoin(s, "\t");
-				free(s2);
+				(s = ft_strjoin(s, "\t")) ? 0 : ft_error("error");
+				s2 ? free(s2) : 0;
 			}
-			tmp->content = ft_strjoin("\t", s);
-			free(s);
+			(tmp->content = ft_strjoin("\t", s)) ? 0 : ft_error("error");
+			s ? free(s) : 0;
 		}
 		tmp = tmp->next;
 	}
