@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 16:11:19 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/16 18:28:49 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/17 16:41:01 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int			ft_sti(t_token *tok, int i, t_token *lab, t_list *sep);
 int			ft_ldi(t_token *tok, int i, t_token *lab, t_list *sep);
 int			ft_or(t_token *tok, int i, t_token *lab, t_list *sep);
 int			ft_aff(t_token *tok, int i, t_token *lab, t_list *sep);
+void		read_check(int	fd, t_list *ops);
 
 int			ft_checkop(t_op g_op_tab, t_token *tok, t_token *temp, t_list *sep);
 int			ft_real(t_token *tok, t_token *temp, t_list *sep);

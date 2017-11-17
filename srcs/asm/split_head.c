@@ -6,13 +6,13 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 16:43:00 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/16 19:12:07 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/17 16:57:35 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-static int only_space(char *str)
+static int	only_space(char *str)
 {
 	int i;
 
@@ -38,7 +38,7 @@ static void	ft_header(t_token **tok, t_list **head, int *i)
 	}
 }
 
-void	split_head(t_token **tok, t_list **head, int *i)
+void		split_head(t_token **tok, t_list **head, int *i)
 {
 	ft_header(tok, head, i);
 }

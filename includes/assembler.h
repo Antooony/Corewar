@@ -6,7 +6,7 @@
 /*   By: nolivier <nolivier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 12:17:53 by nolivier          #+#    #+#             */
-/*   Updated: 2017/11/11 19:59:56 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/17 16:56:43 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int					ft_usage(void);
 t_list				*get_input(int fd);
 int					isop(char *s);
 char				*getattribute(t_token *tok);
-unsigned int		endian_int(unsigned int n);
+unsigned int		magic_n_size(unsigned int n);
 
 t_output			*get_dirlab(char *s);
 int					calc_dirlab(short a, short b);

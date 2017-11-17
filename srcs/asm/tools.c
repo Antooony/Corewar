@@ -6,32 +6,32 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/30 13:56:25 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/11 20:00:31 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/17 16:57:56 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
 
-unsigned int	endian_int(unsigned int n)
+unsigned int	magic_n_size(unsigned int n)
 {
 	return ((n >> 24) | ((n & 0xff0000) >> 8) | ((n & 0xff00) << 8) |
 					((n & 0xff) << 24));
 }
 
-int		ft_error(void)
+int				ft_error(void)
 {
 	ft_putstr("error\n");
 	exit(0);
 	return (0);
 }
 
-int		ft_usage(void)
+int				ft_usage(void)
 {
 	ft_putstr("usage: asm input_file\n");
 	return (0);
 }
 
-void	init_ft_tab(void)
+void			init_ft_tab(void)
 {
 	g_ft_tab[0] = &out_lab;
 	g_ft_tab[1] = &out_reg;
@@ -46,7 +46,7 @@ void	init_ft_tab(void)
 	OUT = NULL;
 }
 
-int		handle_file(char *s)
+int				handle_file(char *s)
 {
 	char	*s2;
 	char	*name;

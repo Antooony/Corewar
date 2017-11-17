@@ -6,13 +6,13 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 09:32:24 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/16 19:11:15 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/17 16:53:21 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-static int	ft_acc(char *str, t_list *line, int *b)
+static int		ft_acc(char *str, t_list *line, int *b)
 {
 	int		i;
 	int		count;
@@ -56,17 +56,13 @@ static t_list	*ft_fill(char *str, t_list *line, char *buffer)
 	while (line && (s = (char *)line->content))
 	{
 		while (s[i] && s[i] != '"')
-		{
-			buffer[++a] = s[i];
-			i++;
-		}
+			buffer[++a] = s[i++];
 		if (s[i] == '"')
 		{
 			buffer[++a] = s[i];
 			break ;
 		}
-		if (s[0] == '\0')
-			buffer[++a] = '\n';
+		(s[0] == '\0') ? (buffer[++a] = '\n') : 0;
 		line = line->next;
 		i = 0;
 	}
@@ -74,30 +70,28 @@ static t_list	*ft_fill(char *str, t_list *line, char *buffer)
 	return (line);
 }
 
-static void	ft_quote(t_token **tok, t_list **line, int *b)
+static void		ft_quote(t_token **tok, t_list **line, int *b)
 {
-	t_list	*temp;
 	int		i;
 	int		a;
 	char	*buff;
 	char	*s;
-	int 	tmp;
+	int		tmp;
 
 	tmp = *b;
 	buff = NULL;
-	temp = *line;
 	i = 0;
 	a = 0;
-	s = (char *)temp->content;
+	s = (char *)(*line)->content;
 	while (s && s[i] && s[i] != '"')
 		i++;
 	a = ft_acc(&s[i], (*line)->next, b);
-	buff = malloc(sizeof(char) * a + 1);
-	*line = ft_fill(&s[i], temp->next, buff);
+	(buff = malloc(sizeof(char) * a + 1)) ? 0 : exit(0);
+	*line = ft_fill(&s[i], (*line)->next, buff);
 	ft_push_token(tok, buff, i, tmp);
 }
 
-void	ft_hard(t_token **tok, t_list **line, int *b)
+void			ft_hard(t_token **tok, t_list **line, int *b)
 {
 	int		i;
 	char	*s;
@@ -116,7 +110,7 @@ void	ft_hard(t_token **tok, t_list **line, int *b)
 			break ;
 		}
 		else
-			ft_naco(tok, &s[i], &i, b);	
+			ft_naco(tok, &s[i], &i, b);
 		if (s[i] == ';' || s[i] == '#')
 			break ;
 		i++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_medium.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nagaloul <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 17:43:39 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/16 16:49:48 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/17 16:43:33 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	ft_quotes(t_token **tok, char *str, int *count, int *b)
 {
-	int i;
-	char temp;
+	int		i;
+	char	temp;
 
 	i = 1;
 	while (str[i] && str[i] != '"')
@@ -27,9 +27,9 @@ static void	ft_quotes(t_token **tok, char *str, int *count, int *b)
 	*count = *count + i;
 }
 
-void	ft_medium(t_token **tok, char *str, int *a)
+void		ft_medium(t_token **tok, char *str, int *a)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	while (str[i])
@@ -47,4 +47,3 @@ void	ft_medium(t_token **tok, char *str, int *a)
 		i++;
 	}
 }
-

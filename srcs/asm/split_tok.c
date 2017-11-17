@@ -6,7 +6,7 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 14:44:10 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/14 20:05:38 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/17 16:54:48 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		ft_sep(char *str)
 
 void	ft_guill(t_token **tok, char *str, int *count, int b)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while ((str[i]) && str[i] != '#')
@@ -84,9 +84,8 @@ int		only(char *str)
 
 void	split_tok(t_token **tok, char *str, int b)
 {
-	int		 i;
+	int		i;
 	char	tab[2];
-
 
 	i = 0;
 	tab[0] = SEPARATOR_CHAR;

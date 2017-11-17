@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 16:35:23 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/11 20:00:22 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/17 16:56:59 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,19 +69,24 @@ void	print_header(void)
 {
 	t_output	*tmp;
 	t_header	*header;
+	int			h;
 
+	h = 0;
 	header = (t_header *)malloc(sizeof(t_header));
 	ft_bzero(header->prog_name, PROG_NAME_LENGTH);
 	ft_bzero(header->comment, COMMENT_LENGTH);
-	header->magic = endian_int(COREWAR_EXEC_MAGIC);
-	header->prog_size = endian_int(PROG_SIZE);
+	header->magic = magic_n_size(COREWAR_EXEC_MAGIC);
+	header->prog_size = magic_n_size(PROG_SIZE);
 	tmp = OUT;
 	while (tmp)
 	{
-		if (tmp->type == 7)
-			print_name(&header, tmp->name);
-		if (tmp->type == 2)
-			print_comment(&header, tmp->name);
+		if (tmp->type == 8)
+		{
+			if (tmp->next && ft_strstr(tmp->name, NAME_CMD_STRING))
+				print_name(&header, (char *)tmp->next->name);
+			if (tmp->next && ft_strstr(tmp->name, COMMENT_CMD_STRING))
+				print_comment(&header, (char *)tmp->next->name);
+		}
 		tmp = tmp->next;
 	}
 	write(FD, header, sizeof(t_header));

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_create_token.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nagaloul <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/24 19:22:01 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/16 16:58:04 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/17 16:42:19 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_token		*ft_create_token(char *data, int i, int b)
 
 	elem = NULL;
 	if (!(elem = (t_token *)malloc(sizeof(t_token))))
-		exit (0);
+		exit(0);
 	elem->unknow = ft_strdup(data);
 	elem->col = i;
 	elem->lan = b;

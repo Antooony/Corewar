@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_naco2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nagaloul <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 17:43:39 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/14 19:20:42 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/17 16:43:58 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_sip(char *str)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	while (str[i] && str[i] != ' ' && str[i] != '\t'
@@ -23,11 +23,11 @@ static int	ft_sip(char *str)
 	return (i);
 }
 
-void	ft_naco2(t_token **tok, char *str, int *b)
+void		ft_naco2(t_token **tok, char *str, int *b)
 {
-	int i;
-	char temp;
-	int tmp;
+	int		i;
+	char	temp;
+	int		tmp;
 
 	i = 0;
 	while (str[i] && str[i] != '"')

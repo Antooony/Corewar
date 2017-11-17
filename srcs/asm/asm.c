@@ -6,7 +6,7 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/17 11:29:56 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/16 19:13:51 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/17 16:41:23 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,7 @@ static t_token		*ft_split(t_list **temp, t_token *tok)
 {
 	t_list	*ops;
 	int		b;
-	int i;
 
-	i = 0;
 	b = 1;
 	ops = *temp;
 	while (ops)
@@ -105,25 +103,6 @@ void				ft_asm(t_list *ops, char *name)
 		clean(ops);
 	handle_file(name);
 	ft_calc(tok);
-}
-
-void				read_check(int	fd, t_list *ops)
-{
-	char	buff;
-	char	tmp;
-	
-	while (read(fd, &buff, 1) != 0)
-		tmp = buff;
-	if (tmp == '\n')
-		return ;
-	while (ops && ops->next)
-		ops = ops->next;
-	close(fd);
-	if (!ft_lastline((char *)ops->content))
-	{
-		ft_printf("parse error, file must end by a newline\n");
-		exit(0);
-	}
 }
 
 int					main(int ac, char **av)

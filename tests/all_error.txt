@@ -1,2 +1,1 @@
 perso5.s : binary diff
-invalid102.s : binary diff
