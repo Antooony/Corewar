@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/30 14:37:00 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/16 19:18:30 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/19 17:06:47 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ int		ft_check(t_token *tok, t_list *sep)
 	if (!ft_check_commands(&tok) && !ft_check_commands2(&tok))
 	{
 		if (!tok->inst)
-			ft_printf("le commentaire %s", tok->comment);
+			ft_printf("Syntax error at token [TOKEN][%d:%d] STRING\"%s\"\n",
+					tok->lan, tok->col, tok->comment);
 		ft_puterror(tok, 0, tok->lan, tok);
 		return (0);
 	}

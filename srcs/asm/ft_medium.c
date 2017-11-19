@@ -6,7 +6,7 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 17:43:39 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/17 17:02:30 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/19 17:03:53 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	ft_quotes(t_token **tok, char *str, int *count, int *b)
 		i++;
 	temp = str[i + 1];
 	str[i + 1] = '\0';
-	ft_push_token(tok, str, *count, *b);
+	ft_push_token(tok, str, *count + 1, *b);
 	str[i + 1] = temp;
 	*count = *count + i;
 }

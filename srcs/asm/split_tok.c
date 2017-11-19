@@ -6,7 +6,7 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 14:44:10 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/17 17:02:30 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/19 17:25:26 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,52 +20,38 @@ int		ft_sep(char *str)
 	i = 0;
 	while ((str[i]) && str[i] != ' ' && str[i] != '\t')
 	{
-		if (str[i] == ';' || str[i] == '#')
+		if (str[i] == ';' || str[i] == COMMENT_CHAR)
 			break ;
-		if (i > 0 && str[i] == ':' && str[i - 1] != '%' && str[i - 1] != ',')
+		if (i > 0 && str[i] == LABEL_CHAR && str[i - 1]
+				!= DIRECT_CHAR && str[i - 1] != SEPARATOR_CHAR)
 		{
 			i++;
 			break ;
 		}
-		if (i > 0 && str[i] == ',')
+		if (i > 0 && str[i] == SEPARATOR_CHAR)
 		{
 			i++;
 			break ;
 		}
-		if (str[i] == '"')
-			break ;
 		i++;
 	}
 	return (i);
 }
 
-void	ft_guill(t_token **tok, char *str, int *count, int b)
-{
-	int	i;
-
-	i = 0;
-	while ((str[i]) && str[i] != '#')
-		i++;
-	str[i] = '\0';
-	ft_push_token(tok, str, *count + 1, b);
-	*count = *count + i;
-}
-
 void	ft_try(t_token **tok, char *str, int *count, int b)
 {
 	int		i;
-	char	temp;
+	char	temp[3];
 
-	temp = 0;
+	temp[1] = SEPARATOR_CHAR;
+	temp[2] = '\0';
 	i = ft_sep(str);
-	temp = str[i];
+	temp[0] = str[i];
 	str[i] = '\0';
-	if (ft_strcmp(str, ","))
+	if (ft_strcmp(str, &temp[1]))
 		ft_push_token(tok, str, *count + 1, b);
-	str[i] = temp;
-	if (temp == '"')
-		ft_guill(tok, &str[i], &i, b);
-	if (str[i - 1] == ':' || str[i - 1] == ',')
+	str[i] = temp[0];
+	if (str[i - 1] == LABEL_CHAR || str[i - 1] == SEPARATOR_CHAR)
 		i--;
 	*count = *count + i;
 }
@@ -77,7 +63,7 @@ int		only(char *str)
 	i = 0;
 	while (str[i] && (str[i] == ' ' || str[i] == '\t'))
 		i++;
-	if (str[i] == ',')
+	if (str[i] == SEPARATOR_CHAR)
 		return (0);
 	return (1);
 }
@@ -97,12 +83,10 @@ void	split_tok(t_token **tok, char *str, int b)
 		{
 			while (str[i] == ' ' || str[i] == '\t')
 				i++;
-			if (str[i] == '"')
-				ft_guill(tok, &str[i], &i, b);
-			if (str[i] == '\0' || str[i] == '#' || str[i] == ';')
+			if (str[i] == '\0' || str[i] == COMMENT_CHAR || str[i] == ';')
 				break ;
 			ft_try(tok, &str[i], &i, b);
-			if (str[i] == ';' || str[i] == '#' || str[i] == '"')
+			if (str[i] == ';' || str[i] == COMMENT_CHAR)
 				break ;
 			if (str[i] != '\0')
 				i++;

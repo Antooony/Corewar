@@ -6,7 +6,7 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/17 11:29:56 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/17 17:20:15 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/19 16:45:59 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ static t_token		*ft_split(t_list **temp, t_token *tok)
 		if (ops)
 			ops = ops->next;
 		b++;
+	}
+	if (!tok)
+	{
+		ft_printf("Syntax error at token [TOKEN][%d:001] END \"(null)\"\n", b);
+		return (NULL);
 	}
 	ft_pars(tok);
 	if (!ft_check(tok, *temp))
