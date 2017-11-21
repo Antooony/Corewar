@@ -6,7 +6,7 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/17 11:29:56 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/21 15:58:55 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/21 18:40:17 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,10 @@ int					main(int ac, char **av)
 		return (0);
 	fd = open(av[1], O_RDWR);
 	if (fd == -1)
+	{
+		ft_printf("Can't read source file %s\n", av[1]);
 		return (0);
+	}
 	g_name = 0;
 	FD = 1;
 	init_ft_tab();

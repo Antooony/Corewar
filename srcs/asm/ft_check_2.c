@@ -6,11 +6,32 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/30 14:37:00 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/21 17:25:13 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/21 18:41:25 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
+
+int		check_com_l(char *s)
+{
+	if (ft_strlen(s) - 2 > COMMENT_LENGTH)
+	{
+		ft_printf("Champion comment too long (Max length %d)\n",\
+			COMMENT_LENGTH);
+		clean();
+	}
+	return (1);
+}
+
+int		check_name_l(char *s)
+{
+	if (ft_strlen(s) - 2 > PROG_NAME_LENGTH)
+	{
+		ft_printf("Champion name too long (Max lenght %d)\n", PROG_NAME_LENGTH);
+		clean();
+	}
+	return (1);
+}
 
 int		ft_check_commands2(t_token **tok)
 {
@@ -24,7 +45,7 @@ int		ft_check_commands2(t_token **tok)
 	if (!(*tok)->ncom)
 		return (0);
 	(*tok = (*tok)->next) ? 0 : clean();
-	if (!(*tok)->comment || i != (*tok)->lan)
+	if (!(*tok)->comment || i != (*tok)->lan || !check_com_l((*tok)->comment))
 		return (0);
 	(*tok = (*tok)->next) ? 0 : clean();
 	a = (*tok)->lan;
@@ -33,7 +54,7 @@ int		ft_check_commands2(t_token **tok)
 	if (!(*tok)->name)
 		return (0);
 	(*tok = (*tok)->next) ? 0 : clean();
-	if (!(*tok)->comment || a != (*tok)->lan)
+	if (!(*tok)->comment || a != (*tok)->lan || !check_name_l((*tok)->comment))
 		return (0);
 	(*tok = (*tok)->next) ? 0 : clean();
 	return (1);
@@ -51,7 +72,7 @@ int		ft_check_commands(t_token **tok)
 	if (!(*tok)->name)
 		return (0);
 	(*tok = (*tok)->next) ? 0 : (clean());
-	if (!(*tok)->comment || i != (*tok)->lan)
+	if (!(*tok)->comment || i != (*tok)->lan || !check_name_l((*tok)->comment))
 		return (0);
 	(*tok = (*tok)->next) ? 0 : (clean());
 	a = (*tok)->lan;
@@ -60,7 +81,7 @@ int		ft_check_commands(t_token **tok)
 	if (!(*tok)->ncom)
 		return (0);
 	(*tok = (*tok)->next) ? 0 : (clean());
-	if (!(*tok)->comment || a != (*tok)->lan)
+	if (!(*tok)->comment || a != (*tok)->lan || !check_com_l((*tok)->comment))
 		return (0);
 	(*tok = (*tok)->next) ? 0 : (clean());
 	return (1);
