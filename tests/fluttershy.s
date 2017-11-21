@@ -106,7 +106,7 @@ avdefl1:
 	sti		r4, %:avdeftgt, r2
 	add		r2, r3, r2
 avdefchk:
-	live	%3940641
+	live	%39406415
 	xor		r2, r5, r15
 	zjmp	%:avdefinit
 avdefloop:
@@ -114,7 +114,7 @@ avdefloop:
 	zjmp	%:avdefwrite
 
 torpgeni:
-	st		r1, 6
+	st		r1, 645646
 
 torpgen:
 	live	%96824
