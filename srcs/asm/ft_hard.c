@@ -6,7 +6,7 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 09:32:24 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/21 12:31:05 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/21 17:28:09 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ static void		ft_quote(t_token **tok, t_list **line, int *b)
 	(buff = malloc(sizeof(char) * a + 1)) ? 0 : exit(0);
 	*line = ft_fill(&s[i], (*line)->next, buff);
 	ft_push_token(tok, buff, i, tmp);
+	buff ? free(buff) : 0;
 }
 
 void			ft_hard(t_token **tok, t_list **line, int *b)
