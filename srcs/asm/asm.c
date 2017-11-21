@@ -6,7 +6,7 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/17 11:29:56 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/21 18:40:17 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/21 19:00:20 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ int					main(int ac, char **av)
 	(void)av;
 	if (ac < 2)
 		return (0);
-	fd = open(av[1], O_RDWR);
+	fd = open(av[ac - 1], O_RDWR);
 	if (fd == -1)
 	{
-		ft_printf("Can't read source file %s\n", av[1]);
+		ft_printf("Can't read source file %s\n", av[ac - 1]);
 		return (0);
 	}
 	g_name = 0;
@@ -72,11 +72,11 @@ int					main(int ac, char **av)
 	get_ops(&ops, fd);
 	OPS = ops;
 	close(fd);
-	fd = open(av[1], O_RDWR);
+	fd = open(av[ac - 1], O_RDWR);
 	if (fd == -1)
 		return (0);
 	read_check(fd, ops);
-	ft_asm(ops, av[1]);
+	ft_asm(ops, av[ac - 1]);
 	clean();
 	return (0);
 }
