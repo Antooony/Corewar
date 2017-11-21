@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/30 13:56:25 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/21 13:32:54 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/21 18:51:42 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,18 +53,15 @@ int				handle_file(char *s)
 
 	if (!s)
 		clean();
-	if (!ft_strrchr(s, '.'))
-		return (ft_error());
-	if (ft_strrchr(s, '.')[1] != 's')
-		return (ft_error());
 	if (!(s2 = ft_strdup(s)))
 		clean();
-	s2[ft_strlen(s2) - 1] = 0;
-	if (!(name = ft_strjoin(s2, "cor")))
+	if (ft_strrchr(s2, '.'))
+		s2[ft_strrchr(s2, '.') - s2] = '\0';
+	if (!(name = ft_strjoin(s2, ".cor")))
 		clean();
 	FD = open(name, O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
 	ft_printf("Writing output program to %s\n", name);
-	free(s2);
-	free(name);
+	s2 ? free(s2) : 0;
+	name ? free(name) : 0;
 	return (0);
 }
