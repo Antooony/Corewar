@@ -6,7 +6,7 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/03 18:58:09 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/17 17:12:43 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/21 16:06:01 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@ int		ft_finishim(char **tab)
 	while (tab[a])
 		a++;
 	a--;
-	if (ft_lastchar(tab[a]) == ',')
+	if (ft_lastchar(tab[a]) == SEPARATOR_CHAR)
 	{
 		ft_freetab(tab);
 		return (0);
 	}
-	if (ft_strchr(tab[a], ','))
+	if (ft_strchr(tab[a], SEPARATOR_CHAR))
 		return (1);
 	a--;
-	if (ft_lastchar(tab[a]) == ',')
+	if (ft_lastchar(tab[a]) == SEPARATOR_CHAR)
 		return (1);
 	ft_freetab(tab);
 	return (0);
@@ -44,12 +44,13 @@ int		ft_finish(char **tab, char *inst)
 		i = 1;
 	if (ft_finishim(tab))
 	{
-		if (!ft_strchr(tab[i], ',') && tab[i + 1][0] != ',')
+		if (!ft_strchr(tab[i], SEPARATOR_CHAR) && tab[i + 1][0] \
+			!= SEPARATOR_CHAR)
 		{
 			ft_freetab(tab);
 			return (0);
 		}
-		if (tab[i][0] == ',')
+		if (tab[i][0] == SEPARATOR_CHAR)
 		{
 			ft_freetab(tab);
 			return (0);
@@ -71,10 +72,10 @@ int		ft_virgule(int i, t_list *sep, int c, char *inst)
 		sep = sep->next;
 	s = sep->content;
 	a = 0;
-	while (s[a] != '\0' && s[a] != '#' && s[a] != ';')
+	while (s[a] != '\0' && s[a] != COMMENT_CHAR && s[a] != ';')
 		a++;
 	s[a] = '\0';
-	if (ft_countchar(s, ',') != c - 1)
+	if (ft_countchar(s, SEPARATOR_CHAR) != c - 1)
 		return (0);
 	tab = my_split(s);
 	if (c == 2)

@@ -19,7 +19,7 @@ int		ft_lastline(char *str)
 	i = 0;
 	while (str[i] == ' ' || str[i] == '\t')
 		i++;
-	if (str[i] == '\0' || str[i] == '#' || str[i] == ';')
+	if (str[i] == '\0' || str[i] == COMMENT_CHAR || str[i] == ';')
 		return (1);
 	return (0);
 }

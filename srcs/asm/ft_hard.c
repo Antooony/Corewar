@@ -102,7 +102,7 @@ void			ft_hard(t_token **tok, t_list **line, int *b)
 	{
 		while (s[i] == ' ' || s[i] == '\t')
 			i++;
-		if (s[i] == ';' || s[i] == '#')
+		if (s[i] == ';' || s[i] == COMMENT_CHAR)
 			break ;
 		if (s[i] == '"')
 		{
@@ -111,7 +111,7 @@ void			ft_hard(t_token **tok, t_list **line, int *b)
 		}
 		else
 			ft_naco(tok, &s[i], &i, b);
-		if (s[i] == ';' || s[i] == '#')
+		if (s[i] == ';' || s[i] == COMMENT_CHAR)
 			break ;
 		i++;
 	}

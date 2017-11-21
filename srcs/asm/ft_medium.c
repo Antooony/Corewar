@@ -36,13 +36,13 @@ void		ft_medium(t_token **tok, char *str, int *a)
 	{
 		while (str[i] == ' ' || str[i] == '\t')
 			i++;
-		if (str[i] == ';' || str[i] == '#')
+		if (str[i] == ';' || str[i] == COMMENT_CHAR)
 			break ;
 		if (str[i] == '"')
 			ft_quotes(tok, &str[i], &i, a);
 		else
 			ft_naco(tok, &str[i], &i, a);
-		if (str[i] == ';' || str[i] == '#')
+		if (str[i] == ';' || str[i] == COMMENT_CHAR)
 			break ;
 		i++;
 	}

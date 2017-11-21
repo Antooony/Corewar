@@ -18,7 +18,7 @@ static int	ft_sip(char *str)
 
 	i = 0;
 	while (str[i] && str[i] != ' ' && str[i] != '\t' && str[i] != '"'
-			&& str[i] != ';' && str[i] != '#')
+			&& str[i] != ';' && str[i] != COMMENT_CHAR)
 		i++;
 	return (i);
 }

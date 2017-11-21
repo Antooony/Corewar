@@ -18,7 +18,7 @@ static int	ft_sip(char *str)
 
 	i = 0;
 	while (str[i] && str[i] != ' ' && str[i] != '\t'
-			&& str[i] != ';' && str[i] != '#')
+			&& str[i] != ';' && str[i] != COMMENT_CHAR)
 		i++;
 	return (i);
 }
@@ -35,7 +35,7 @@ void		ft_naco2(t_token **tok, char *str, int *b)
 	i++;
 	while (str[i] && (str[i] == ' ' || str[i] == '\t'))
 		i++;
-	if (str[i] != '\0' && str[i] != ';' && str[i] != '#')
+	if (str[i] != '\0' && str[i] != ';' && str[i] != COMMENT_CHAR)
 	{
 		tmp = i;
 		i = ft_sip(&str[tmp]) + tmp;
