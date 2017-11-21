@@ -2,7 +2,7 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m'
 
-	../ressources/asm $1.s 1> /dev/null 2>/dev/null
+	../tests/asm_zaz $1.s 1> /dev/null 2>/dev/null
 	if [ -e $1.cor ]
 	then
 		../msa $1.cor 1> /dev/null 2>/dev/null
@@ -13,7 +13,7 @@ NC='\033[0m'
 	fi
 	if [ -e $1_r.s ]
 	then
-		../ressources/asm $1_r.s 1> /dev/null 2>/dev/null
+		../tests/asm_zaz $1_r.s 1> /dev/null 2>/dev/null
 	else
 		echo "${RED}[KO] ${NC} $1.s !_r.s"
 		rm -f $1.cor $1_r.cor $1_r.txt $1.txt

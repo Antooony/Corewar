@@ -6,7 +6,7 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/17 11:29:56 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/19 16:45:59 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/21 13:30:38 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void				get_ops(t_list **ops, int fd)
 		ft_strdel(&line);
 	}
 	if (!*ops)
-		exit(0);
+		clean();
 }
 
 void				ft_asm(t_list *ops, char *name)
@@ -84,12 +84,13 @@ int					main(int ac, char **av)
 	FD = 1;
 	init_ft_tab();
 	get_ops(&ops, fd);
+	OPS = ops;
 	close(fd);
 	fd = open(av[1], O_RDWR);
 	if (fd == -1)
 		return (0);
 	read_check(fd, ops);
 	ft_asm(ops, av[1]);
-	clean(ops);
+	clean();
 	return (0);
 }

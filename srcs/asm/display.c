@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 16:35:23 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/17 16:56:59 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/21 13:35:39 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,5 @@ void	print_header(void)
 		tmp = tmp->next;
 	}
 	write(FD, header, sizeof(t_header));
+	header ? free(header) : 0;
 }

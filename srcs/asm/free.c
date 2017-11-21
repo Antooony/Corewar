@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/31 15:22:11 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/01 14:51:47 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/21 13:34:35 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,14 @@ void				free_out(t_output *lst)
 	free(lst);
 }
 
-void				clean(t_list *lst)
+void				clean(void)
 {
-	if (lst)
-		ft_lstdel(&lst, &del);
+	if (OPS)
+		ft_lstdel(&OPS, &del);
 	if (TOK)
 		free_tok(TOK);
 	if (OUT)
 		free_out(OUT);
+	while(42);
 	exit(0);
 }

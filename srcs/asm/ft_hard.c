@@ -6,7 +6,7 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 09:32:24 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/17 17:02:30 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/21 12:31:05 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static t_list	*ft_fill(char *str, t_list *line, char *buffer)
 			buffer[++a] = s[i];
 			break ;
 		}
-		(s[0] == '\0') ? (buffer[++a] = '\n') : 0;
+		(s[i] == '\0') ? (buffer[++a] = '\n') : 0;
 		line = line->next;
 		i = 0;
 	}

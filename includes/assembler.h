@@ -6,7 +6,7 @@
 /*   By: nolivier <nolivier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 12:17:53 by nolivier          #+#    #+#             */
-/*   Updated: 2017/11/17 17:26:28 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/21 13:27:59 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "op.h"
 # include "../libft/inc/libftprintf.h"
 # define OUT g_out
+# define OPS g_ops
 # define FD g_fd
 # define TOK g_tok
 # define PROG_SIZE g_prog_size
@@ -102,7 +103,7 @@ void				out_reg(t_output *pop);
 void				free_tok(t_token *tok);
 void				del(void *content, size_t size);
 void				free_out(t_output *lst);
-void				clean(t_list *lst);
+void				clean();
 int					ft_lastline(char *str);
 void				ft_naco(t_token **tok, char *str, int *count, int *b);
 void				ft_naco2(t_token **tok, char *str, int *b);
@@ -190,6 +191,7 @@ int					ft_usage(void);
 
 typedef void		(*t_ftype) (t_output *);
 
+t_list				*g_ops;
 t_ftype				g_ft_tab[10];
 t_output			*g_out;
 t_token				*g_tok;
