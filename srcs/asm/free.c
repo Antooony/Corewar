@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/31 15:22:11 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/21 13:34:35 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/21 14:49:39 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,5 @@ void				clean(void)
 		free_tok(TOK);
 	if (OUT)
 		free_out(OUT);
-	while(42);
 	exit(0);
 }

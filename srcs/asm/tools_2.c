@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 19:58:23 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/21 13:32:17 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/21 15:34:57 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,19 @@ void		read_check(int fd, t_list *ops)
 		ft_printf("parse error, file must end by a newline\n");
 		clean();
 	}
+}
+
+void		get_ops(t_list **ops, int fd)
+{
+	char		*line;
+
+	line = NULL;
+	*ops = NULL;
+	while (get_next_line(fd, &line))
+	{
+		ft_push_back(ops, line);
+		ft_strdel(&line);
+	}
+	if (!*ops)
+		clean();
 }

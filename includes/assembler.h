@@ -6,7 +6,7 @@
 /*   By: nolivier <nolivier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 12:17:53 by nolivier          #+#    #+#             */
-/*   Updated: 2017/11/21 13:27:59 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/21 15:36:37 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef	struct		s_output
 
 void				init_ft_tab(void);
 
+void				get_ops(t_list **ops, int fd);
 t_output			*new_output(char *name, int type);
 void				fill_output(void);
 void				create_output(t_token *token);

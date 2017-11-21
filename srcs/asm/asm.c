@@ -6,7 +6,7 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/17 11:29:56 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/21 13:30:38 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/21 15:58:55 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,27 +33,12 @@ static t_token		*ft_split(t_list **temp, t_token *tok)
 	if (!tok)
 	{
 		ft_printf("Syntax error at token [TOKEN][%d:001] END \"(null)\"\n", b);
-		return (NULL);
+		clean();
 	}
 	ft_pars(tok);
 	if (!ft_check(tok, *temp))
-		return (NULL);
-	return (tok);
-}
-
-void				get_ops(t_list **ops, int fd)
-{
-	char		*line;
-
-	line = NULL;
-	*ops = NULL;
-	while (get_next_line(fd, &line))
-	{
-		ft_push_back(ops, line);
-		ft_strdel(&line);
-	}
-	if (!*ops)
 		clean();
+	return (tok);
 }
 
 void				ft_asm(t_list *ops, char *name)
@@ -63,8 +48,6 @@ void				ft_asm(t_list *ops, char *name)
 	tok = NULL;
 	tok = ft_split(&ops, tok);
 	TOK = tok;
-	if (!tok)
-		clean(ops);
 	handle_file(name);
 	ft_calc(tok);
 }
