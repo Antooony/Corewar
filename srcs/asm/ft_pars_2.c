@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/30 14:37:59 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/02 10:54:06 by nagaloul         ###   ########.fr       */
+/*   Updated: 2017/11/22 16:52:29 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,18 @@ void	ft_lab(t_token *tok)
 	int i;
 
 	i = 0;
-	if (onlysep(&tok))
+	if (!ft_strchr(tok->unknow, DIRECT_CHAR))
 	{
-		while (tok->unknow[i])
-			i++;
-		i--;
-		if (tok->unknow[i] == LABEL_CHAR)
+		if (onlysep(&tok))
 		{
-			tok->unknow[i] = '\0';
-			tok->lab = tok->unknow;
+			while (tok->unknow[i])
+				i++;
+			i--;
+			if (tok->unknow[i] == LABEL_CHAR)
+			{
+				tok->unknow[i] = '\0';
+				tok->lab = tok->unknow;
+			}
 		}
 	}
 }

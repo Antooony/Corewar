@@ -6,11 +6,18 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/17 11:29:56 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/22 14:19:30 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/22 16:53:00 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
+
+void		printtok(t_token *tok)
+{
+	while (tok && tok->next)
+		tok = tok->next;
+	ft_printf("%s\n", tok->unknow);
+}
 
 static t_token		*ft_split(t_list **temp, t_token *tok)
 {
