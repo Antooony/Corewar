@@ -6,7 +6,7 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/17 11:29:56 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/21 19:00:20 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/22 11:29:33 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int					main(int ac, char **av)
 
 	(void)av;
 	if (ac < 2)
-		return (0);
+		ft_usage();
 	fd = open(av[ac - 1], O_RDWR);
 	if (fd == -1)
 	{

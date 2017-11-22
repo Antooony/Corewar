@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 17:48:56 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/17 16:54:08 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/22 11:54:24 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void		link_op(t_output *pop, int narg)
 	if (pop->type != 9)
 		return ;
 	tmp = pop;
-	while (narg && tmp->next)
+	while (narg && tmp && tmp->next)
 	{
 		tmp = tmp->next;
 		tmp->link = pop;
@@ -45,10 +45,13 @@ void		link_op(t_output *pop, int narg)
 
 void		output_add(t_output *out, t_output *new)
 {
-	if (out->next)
-		output_add(out->next, new);
-	else
-		out->next = new;
+	if (out)
+	{
+		if (out->next)
+			output_add(out->next, new);
+		else
+			out->next = new;
+	}
 }
 
 void		fill_output(void)
