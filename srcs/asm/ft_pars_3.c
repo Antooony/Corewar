@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/30 14:38:02 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/22 15:36:37 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/22 17:58:53 by nagaloul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,26 @@ void	ft_pindir(t_token *tok)
 
 	a = 0;
 	i = 0;
-	if (onlysep(&tok))
-	{
-		if (tok->unknow[0] == SEPARATOR_CHAR)
-			i++;
-		a = i;
-		if (tok->unknow[i] == '-')
-			i++;
-		if (ft_isdigit(tok->unknow[i]))
+	if (!tok->lab)
+		if (onlysep(&tok))
 		{
-			while (ft_isdigit(tok->unknow[i]))
+			if (tok->unknow[0] == SEPARATOR_CHAR)
 				i++;
-			if (tok->unknow[i] == '\0' || tok->unknow[i] == SEPARATOR_CHAR)
+			a = i;
+			if (tok->unknow[i] == '-')
+				i++;
+			if (ft_isdigit(tok->unknow[i]))
 			{
-				tok->indir = &tok->unknow[a];
-				if (ft_strchr(tok->indir, SEPARATOR_CHAR))
-					*ft_strchr(tok->indir, SEPARATOR_CHAR) = '\0';
+				while (ft_isdigit(tok->unknow[i]))
+					i++;
+				if (tok->unknow[i] == '\0' || tok->unknow[i] == SEPARATOR_CHAR)
+				{
+					tok->indir = &tok->unknow[a];
+					if (ft_strchr(tok->indir, SEPARATOR_CHAR))
+						*ft_strchr(tok->indir, SEPARATOR_CHAR) = '\0';
+				}
 			}
 		}
-	}
 }
 
 void	ft_name(t_token *tok)
