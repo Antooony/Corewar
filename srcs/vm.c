@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vm.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolivier <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nolivier <nolivier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 15:14:48 by nolivier          #+#    #+#             */
-/*   Updated: 2017/09/28 11:39:52 by nolivier         ###   ########.fr       */
+/*   Updated: 2017/11/22 11:28:43 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ static void			ft_print_intro(t_settings *sets)
 
 static int			ft_usage(void)
 {
-	ft_printf("Usage: ./corewar [-d N -s N -v N | -ncurse --stealth] [-a] | -n "
-	"N <champion1.cor> <...>\n"
+	ft_printf("Usage: ./corewar [-d N -s N -v N | -ncurse --stealth --sound] "
+	"[-a] | -n N <champion1.cor> <...>\n"
 	"\t-a        : Prints output from \"aff\" (Default is to hide it)\n"
 	"#### TEXT OUTPUT MODE ####################################################"
 	"######\n""\t-d N      : Dumps memory after N cycles then exits\n"
@@ -45,6 +45,7 @@ static int			ft_usage(void)
 	"#### NCURSES OUTPUT MODE #################################################"
 	"######\n""\t-ncurses        : Ncurses output mode\n"
 	"\t--stealth : Hides the real contents of the memory\n"
+	"\t--sound : Play sound when processes die and game end\n"
 	"##########################################################################"
 	"######\n");
 	return (0);
