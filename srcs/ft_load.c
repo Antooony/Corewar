@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_load.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolivier <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nolivier <nolivier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 15:14:48 by nolivier          #+#    #+#             */
-/*   Updated: 2017/09/28 13:28:27 by nolivier         ###   ########.fr       */
+/*   Updated: 2017/11/22 12:37:56 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int			ft_extract_prog(int fd, t_header *champs,
 	if ((unsigned int)ret != champs->prog_size)
 	{
 		ft_printf("The size shown differs from the size of the program!\n"
-		"Header Size: %d bytes\nSize program: %d bytes\n",
+		"Champ Size: %d bytes\nSize program: %d bytes\n",
 		ret, champs->prog_size);
 		champs->prog_size = ret;
 	}

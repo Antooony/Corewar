@@ -6,7 +6,7 @@
 #    By: khabbar <khabbar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/26 15:04:37 by khabbar           #+#    #+#              #
-#    Updated: 2017/11/21 15:33:28 by adenis           ###   ########.fr        #
+#    Updated: 2017/11/22 12:31:59 by adenis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME= asm
 
 COR= corewar
 
-MSA= msa
+MSA= reverse_asm
 
 CFLAGS= -Wall -Wextra -Werror
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_graph_audio.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khabbar <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: khabbar <khabbar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/01 14:54:37 by khabbar           #+#    #+#             */
-/*   Updated: 2017/11/03 15:21:21 by khabbar          ###   ########.fr       */
+/*   Updated: 2017/11/22 12:42:45 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void			ft_graph_audio(t_settings *sets)
 {
 	if (!(sets->options & NCURSES_SOUND))
 		return ;
-	if (!(sets->status & GAME_ENDED) && sets->deaths_proc == 0)
+	if (sets->deaths_proc == 0)
 		return ;
 	if (sets->deaths_proc == 1)
 		ft_play_sound("srcs/sound/Headshoot.mp3", 0);
@@ -48,9 +48,9 @@ void			ft_graph_audio(t_settings *sets)
 		ft_play_sound("srcs/sound/Double_kill.mp3", 0);
 	else if (sets->deaths_proc == 3)
 		ft_play_sound("srcs/sound/Triple_kill.mp3", 0);
-	else if (sets->deaths_proc < 6)
-		ft_play_sound("srcs/sound/Multi_kill.mp3", 0);
 	else if (sets->deaths_proc < 10)
+		ft_play_sound("srcs/sound/Multi_kill.mp3", 0);
+	else if (sets->deaths_proc < 20)
 		ft_play_sound("srcs/sound/Ultra_kill.mp3", 0);
 	else if (sets->deaths_proc < 30)
 		ft_play_sound("srcs/sound/Monster_kill.mp3", 0);

@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 16:35:23 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/21 13:35:39 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/22 11:57:59 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 void	printop(int val, int size)
 {
-	if (size >= 4)
+	int		dif;
+
+	dif = 0;
+	if (size > 4)
+		dif = size - 4;
+	if (size == 4)
 		ft_putchar_fd((val >> 24), FD);
 	if (size >= 3)
 		ft_putchar_fd((val >> 16), FD);
@@ -22,6 +27,11 @@ void	printop(int val, int size)
 		ft_putchar_fd((val >> 8), FD);
 	if (size >= 1)
 		ft_putchar_fd(val, FD);
+	while (dif)
+	{
+		ft_putchar_fd(0, FD);
+		dif--;
+	}
 }
 
 void	print_val(void)
