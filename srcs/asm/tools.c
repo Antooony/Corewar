@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/30 13:56:25 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/22 11:29:48 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/22 14:18:02 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int				ft_usage(void)
 
 void			init_ft_tab(void)
 {
+	g_name = 0;
+	FD = 1;
 	g_ft_tab[0] = &out_lab;
 	g_ft_tab[1] = &out_reg;
 	g_ft_tab[2] = &out_comment;

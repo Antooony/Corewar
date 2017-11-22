@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/30 14:37:00 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/21 18:41:25 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/22 14:22:35 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,19 @@ int		ft_check_commands2(t_token **tok)
 	i = (*tok)->lan;
 	if (!(*tok)->ncom)
 		return (0);
-	(*tok = (*tok)->next) ? 0 : clean();
+	(*tok = (*tok)->next) ? 0 : leave();
 	if (!(*tok)->comment || i != (*tok)->lan || !check_com_l((*tok)->comment))
 		return (0);
-	(*tok = (*tok)->next) ? 0 : clean();
+	(*tok = (*tok)->next) ? 0 : leave();
 	a = (*tok)->lan;
 	if (i == a)
 		return (0);
 	if (!(*tok)->name)
 		return (0);
-	(*tok = (*tok)->next) ? 0 : clean();
+	(*tok = (*tok)->next) ? 0 : leave();
 	if (!(*tok)->comment || a != (*tok)->lan || !check_name_l((*tok)->comment))
 		return (0);
-	(*tok = (*tok)->next) ? 0 : clean();
+	(*tok = (*tok)->next) ? 0 : leave();
 	return (1);
 }
 
@@ -71,19 +71,19 @@ int		ft_check_commands(t_token **tok)
 	i = (*tok)->lan;
 	if (!(*tok)->name)
 		return (0);
-	(*tok = (*tok)->next) ? 0 : (clean());
+	(*tok = (*tok)->next) ? 0 : leave();
 	if (!(*tok)->comment || i != (*tok)->lan || !check_name_l((*tok)->comment))
 		return (0);
-	(*tok = (*tok)->next) ? 0 : (clean());
+	(*tok = (*tok)->next) ? 0 : leave();
 	a = (*tok)->lan;
 	if (i == a)
 		return (0);
 	if (!(*tok)->ncom)
 		return (0);
-	(*tok = (*tok)->next) ? 0 : (clean());
+	(*tok = (*tok)->next) ? 0 : leave();
 	if (!(*tok)->comment || a != (*tok)->lan || !check_com_l((*tok)->comment))
 		return (0);
-	(*tok = (*tok)->next) ? 0 : (clean());
+	(*tok = (*tok)->next) ? 0 : leave();
 	return (1);
 }
 

@@ -6,12 +6,11 @@
 /*   By: nagaloul <nagaloul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/17 11:29:56 by nagaloul          #+#    #+#             */
-/*   Updated: 2017/11/22 11:29:33 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/22 14:19:30 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
-#include "op.h"
 
 static t_token		*ft_split(t_list **temp, t_token *tok)
 {
@@ -60,20 +59,16 @@ int					main(int ac, char **av)
 	(void)av;
 	if (ac < 2)
 		ft_usage();
-	fd = open(av[ac - 1], O_RDWR);
-	if (fd == -1)
+	if ((fd = open(av[ac - 1], O_RDWR)) == -1)
 	{
 		ft_printf("Can't read source file %s\n", av[ac - 1]);
 		return (0);
 	}
-	g_name = 0;
-	FD = 1;
 	init_ft_tab();
 	get_ops(&ops, fd);
 	OPS = ops;
 	close(fd);
-	fd = open(av[ac - 1], O_RDWR);
-	if (fd == -1)
+	if ((fd = open(av[ac - 1], O_RDWR)) == -1)
 		return (0);
 	read_check(fd, ops);
 	ft_asm(ops, av[ac - 1]);

@@ -7,7 +7,7 @@ cp $1.s $1_zaz.s
 printf ${YELLOW}
 ./asm_zaz $1_zaz.s > /dev/null
 printf ${NC}
-./asm $1.s > /dev/null
+./asm $1.s
 if [  ! -e $1_zaz.cor ] && [ ! -e $1.cor ]
 then
 	printf "%-10.10s : ${GREEN}[OK]${NC} NO FILE CREATED\n" "$1"

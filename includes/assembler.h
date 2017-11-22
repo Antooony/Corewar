@@ -6,7 +6,7 @@
 /*   By: nolivier <nolivier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 12:17:53 by nolivier          #+#    #+#             */
-/*   Updated: 2017/11/21 15:36:37 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/22 14:22:22 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef	struct		s_output
 }					t_output;
 
 void				init_ft_tab(void);
+void				leave(void);
 
 void				get_ops(t_list **ops, int fd);
 t_output			*new_output(char *name, int type);

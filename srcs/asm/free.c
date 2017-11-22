@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/31 15:22:11 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/21 17:32:38 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/22 14:22:07 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,12 @@ void				free_out(t_output *lst)
 	if (lst->type == 7 || lst->type == 2)
 		lst->name ? free(lst->name) : NULL;
 	free(lst);
+}
+
+void				leave(void)
+{
+	ft_printf("error\n");
+	clean();
 }
 
 void				clean(void)
