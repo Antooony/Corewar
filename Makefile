@@ -6,7 +6,7 @@
 #    By: khabbar <khabbar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/26 15:04:37 by khabbar           #+#    #+#              #
-#    Updated: 2017/11/23 16:28:46 by adenis           ###   ########.fr        #
+#    Updated: 2017/11/23 16:43:21 by adenis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -169,11 +169,10 @@ $(OPATH)%.o: $(CPATH)%.c $(HFILES)
 
 clean:
 	$(MAKE) -C libft/ clean
-	rm -rf $(OBJ)
+	rm -rf $(OPATH)
 
 fclean: clean
 	$(MAKE) -C libft/ fclean
-	rm -rf $(OPATH)
 	rm -rf $(NAME)
 	rm -rf $(COR)
 	rm -rf $(MSA)
