@@ -6,7 +6,7 @@
 /*   By: adenis <adenis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/13 14:59:45 by adenis            #+#    #+#             */
-/*   Updated: 2017/11/10 16:15:09 by adenis           ###   ########.fr       */
+/*   Updated: 2017/11/23 11:03:25 by adenis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		ft_error(char *s)
 
 int		ft_usage(void)
 {
-	ft_putstr("usage: msa input_file\n");
+	ft_putstr("usage: ./reverse_asm [ input_file ]\n");
 	exit(0);
 	return (0);
 }

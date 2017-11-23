@@ -6,7 +6,7 @@
 #    By: khabbar <khabbar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/26 15:04:37 by khabbar           #+#    #+#              #
-#    Updated: 2017/11/22 12:31:59 by adenis           ###   ########.fr        #
+#    Updated: 2017/11/23 11:00:37 by adenis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ CFLAGS= -Wall -Wextra -Werror
 
 CPATH= srcs/
 
-MPATH= msa/
+MPATH= reverse_asm/
 
 APATH= asm/
 
